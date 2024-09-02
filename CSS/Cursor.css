@@ -1,0 +1,84 @@
+*{
+    background-color: black;
+    color: #dedede;
+
+}
+
+
+td,th {
+    border: 1px solid #CCC;
+}
+table {
+    border: 1px solid black;
+}
+/*-----------------------------------------------------------------------------------------*/
+.auto:hover{
+    cursor: auto;
+}
+.df:hover{
+    cursor: default;
+}
+.nn:hover{
+    cursor: none;
+}
+/*------------------------------------------------------------------------------------------*/
+.cm:hover{
+    cursor: context-menu;
+}
+.help:hover{
+    cursor: help;
+}
+.pt:hover{
+    cursor: pointer;
+}
+.progress:hover{
+    cursor: progress;
+}
+.wait:hover{
+    cursor: wait;
+}
+/*---------------------------------------------------------------------------------------------*/
+.cell:hover{
+    cursor: cell;
+}
+.ch:hover{
+    cursor: crosshair;
+}
+.text:hover{
+    cursor: text;
+}
+.vt:hover{
+    cursor: vertical-text;
+}
+/*-------------------------------------------------------------------------------------*/
+.al:hover{
+    cursor: alias;
+}
+.cp:hover{
+    cursor: copy;
+}
+.mv:hover{
+    cursor: move;
+}
+.nd:hover{
+    cursor: no-drop;
+}
+.na:hover{
+    cursor: not-allowed;
+}
+/*----------------------------------------------------------------------*/
+.enne:hover{
+    cursor: nw-resize;
+}
+.brc:hover{
+    cursor: nesw-resize;
+}
+.cr:hover{
+    cursor: col-resize;
+}
+.rr:hover{
+    cursor: row-resize;
+}
+.as:hover{
+    cursor: all-scroll;
+}

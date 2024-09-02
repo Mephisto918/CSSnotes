@@ -1,0 +1,75 @@
+:root{
+    --code: rgb(42, 42, 42);
+    --sample: rgb(87, 86, 86);
+}
+
+*{
+    padding: 4px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+body{
+    background-color: black;
+    color: white;
+}
+a{
+    color: white;
+}
+
+ul{
+    padding: 0px 0px 0px 20px;
+}
+
+table, td, tr,th{
+    border: 1px solid white;
+}
+
+#bna{
+    display: inline-block;
+    width: auto;
+    padding: 10px;
+    display: flex;
+}
+#bnap{
+    background-color: var(--sample);
+    border-radius: 10px;
+}
+#bna > #bnap::before{
+    content: url(../imgex/green.png) "yawa";
+    font-size: 15pt;
+    padding: 10px;
+    
+}
+#bna-code{
+    padding: 5px;
+    margin: 0 0 0 5px;
+    background-color: var(--code);
+    border-radius: 10px;
+}
+
+#content-attr{
+    display: inline-block;
+    width: auto;
+    padding: 10px;
+    display: flex;
+}
+#content{
+    background-color: var(--sample);
+    border-radius: 10px;
+}
+#content > a[href^= "#Back"]::after{
+    content: '(' attr(href) ')';
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    padding: 5px;
+}
+#content-code{
+    padding: 5px;
+    margin: 0 0 0 5px;
+    background-color: var(--code);
+    border-radius: 10px;
+    white-space: pre;
+    display: inline;
+}

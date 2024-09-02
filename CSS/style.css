@@ -1,0 +1,31 @@
+/* *{ */
+    /* font-size: 20pt; */
+/* } */
+/* code code{ */
+    /* font-size: 15pt; */
+/* } */
+
+body{
+    background-color: #000000;
+    color: #dedede;
+    
+}
+
+td,th {
+    border: 1px solid #CCC;
+}
+table {
+    border: 1px solid black;
+}
+code{
+    font-size: 9.5px;
+}
+/*----------------------SELECTOR PAGE====================*/
+p.box:first-line{
+    text-transform: uppercase;
+    
+}
+p.box2:first-letter{
+    font-size: 28px;
+}
+/*=============================================================================================*/

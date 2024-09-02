@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradientWithoutImages</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div>
+        <h1><a href="../../CSS Notes Main.html">Back</a></h1>
+        <h1>Creating Gradients Without Images</h1>
+        <div>
+            <hr>
+            <h2>CSS Gradient Basics</h2>
+            <p>
+                Although CSS gradients dont use images, you apply them to an element using background-imgge property or the shorthand background property. You define a gradient by setting the property value with one of the four functions listed below.
+            </p>
+            <table>
+                <tr>
+                    <th colspan="2">CSS Gradient Functions</th>
+                </tr>
+                <tr>
+                    <th>Function</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>linear-gradient()</code></td>
+                    <td>Sets the direction and colors of a gradient that fades from one color to the next in a traight line. The direction can be set using keyword or an angle. If the direction is omitted, the gradient is drawn from the top to bottom.</td>
+                </tr>
+                <tr>
+                    <td><code>radial-gradient()</code></td>
+                    <td>Creates a circular or elliptical gradient, and optionally sets its shape, size, and position. If all optional features are ommited, an elliptical gradient is centered in the elements background.</td>
+                </tr>
+                <tr>
+                    <td><code>repeating-linear-gradient()</code></td>
+                    <td>Creates a linear gradient, in which the colors are repeated infinitely in both directions</td>
+                </tr>
+                <tr>
+                    <td><code>repeating-radial-gradient()</code></td>
+                    <td>Creates a radial gradients that represents infinitely</td>
+                </tr>
+            </table>
+            <p>
+                Browsers draw the gradient inside a gradient box. By default, this fills the elements padding box. The gradient does not have any intrinsict dimentions, but you can control its size and position in the same way as a background image using background-size and background-posiiton properties.
+            </p>
+
+            <div>
+                <h3>specifying Gradient Colors</h3>
+                <p>
+                    You define a gradient by a specifying <i>color stops</i> along an imaginary <i>gradien line</i>. Below shows a linear gradient that fades from a dark color to a lighter one as it moves from left to right across the gradient box. The direction of the gradient line depends on the value passed to the linear-gradient() function.
+                </p>
+                <div id="gradient-example">
+                    <div id="gradient">
+
+                    </div>
+                    <div id="gradient-code">
+<p style="white-space: pre;"><code>
+#gradient{
+    width: 200px;
+    height: 100px;
+    background-image: linear-gradient(to right ,green,blue);
+}
+</code></p>
+                    </div>
+                </div>
+                <div id="radial-example">
+                    <div id="radial">
+
+                    </div>
+                    <div id="radial-code">
+<p style="white-space: pre;"><code>
+#radial{
+    width: 200px;
+    height: 100px;
+    background-image: radial-gradient(green,blue);
+}
+</code></p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3>Setting the Position of Color Stops</h3>
+                <p>
+                    The position of a color stop along the gradient line or ray can be specified using a length or percentage. Lengths are measured from the starting point. Percentages are relative to the distance between the starting and ending points. Below the dark color stops at the starting point (0%) on the left edge of the gradient box, and the light color stop is at the ending point (100%) on the right edge.
+                </p>
+                <p>
+                    In thoery, theres no limit to the number of color stops, but they must be listed in ascending order. If a color stop has a position lower than any preceeding one, its reset to the highest preceeding value. For example, in the following list, the third color stop is out of order
+                </p>
+                <p>
+                    This produces a smooth transisiton between the first and second color stops along the first 35% of the gradient line. The third color stops position is reset to 35% resulting in a sudden change of color at that point, as shown below:
+                </p>
+                <div id="color-stop-example">
+                    <div id="color-stop">
+
+                    </div>
+                    <div id="color-stop-code">
+<p style="white-space: pre;"><code>
+#color-stop{
+    width: 200px;
+    height: 100px;
+    background-image: linear-gradient( to right, #c24704, #d9CC3C 35%, #00ADA7 25%, #FFEB79);
+}</code></p>
+            </div>
+        </div>
+            </div>
+        </div>
+        <div>
+            <hr>
+            <h2>Creating Linear Gradients</h2>
+            <p>
+                You can control the direction of the gradient using keywords to point to one of the sides or corners, which then becomes the ending point. Alternatively, you can specify the angle at which the gradient should be drawn
+            </p>
+            <p>
+                To create a linear gradient, you use the <code>linear-gradient()</code> fucntion, which takes the following comma-seperated arguments:
+                <ul>
+                    <li>The angle or direction of the gradient(optional)</li>
+                    <li>A comma-seperated list of two or more color stops</li>
+                </ul>
+            </p>
+            <div>
+                <h3>Using Keywords to Set the Direction of the Gradient Line</h3>
+                <p>
+                    The <code>linear-gradient()</code> function supprts the following keywords to set the ending point of the gradient line: <strong>top, bottom, right</strong> and <strong>left</strong>. On their own, they represent the side of the gradient box; but they can also be combined to indicate a corner, such as <code>top left</code>. To set the direction, you precede the keywords with to.
+                </p>
+                <div id="direction-example">
+                    <div id="direction">
+
+                    </div>
+                    <div id="direction-code">
+<p style="white-space: pre;"><code>
+#direction{
+    width: 200px;
+    height: 100px;
+    background-image: linear-gradient( to top left, blue, red);
+}
+</code></p>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+        <div>
+            <h2>Setting the Angle of the Gradient Line</h2>
+            <p>
+                You can use an angle instead of keywords to set the direction of the gradient line. Specifying the angle in degrees with the <code><strong>deg</strong></code> unit of the measurement is simple, but there are two complication factors:
+                <ul>
+                    <li>In all browsers, most angles produce starting and ending points outside the gradient box.</li>
+                    <li>Browsers that require a browser-specific prefix with <code>linear-gradient()</code> use a different coordinate system from the final specification</li>
+                </ul>
+            </p>
+            <div id="angle-collections">
+                <div class="grads" style="background-image: linear-gradient(0deg , red, blue, green);">
+                    <p>0deg</p>
+                </div>
+                <div class="grads" style="background-image: linear-gradient(45deg , red, blue, green);">
+                    <p>45deg</p>
+                </div>
+                <div class="grads" style="background-image: linear-gradient(90deg , red, blue, green);">
+                    <p>90deg</p>
+                </div>
+                <div class="grads" style="background-image: linear-gradient(135deg , red, blue, green);">
+                    <p>135deg</p>
+                </div>
+                <div class="grads" style="background-image: linear-gradient(180deg , red, blue, green);">
+                    <p>180deg</p>
+                </div>
+                <div class="grads" style="background-image: linear-gradient(225deg , red, blue, green);">
+                    <p>225deg</p>
+                </div>
+                <div class="grads" style="background-image: linear-gradient(270deg , red, blue, green);">
+                    <p>270deg</p>
+                </div>
+                <div class="grads" style="background-image: linear-gradient(315deg , red, blue, green);">
+                    <p>315deg</p>
+                </div>
+                <div class="grads" style="background-image: linear-gradient(360deg , red, blue, green);">
+                    <p>360deg</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <hr>
+            <h2>Creating Radial Gradients</h2>
+            <p>
+                A radial gradient emerges from a single point with the color spreading outward in a circular or elliptical shape
+            </p>
+            <p>
+                You define the gradient with the <code>radial-gradient()</code> function, which optionally sets the size and position of the circle or ellipse. The browser-specific functions use a similar syntax to the standard one, but there are some significant differences.
+            </p>
+            <div>
+                <h3>Standard Syntax</h3>
+                <p>
+                    The <code>radial-gradient()</code> function takes the following arguments:
+                    <ul style="list-style-type: none;">
+                        <li><i>Shape</i> The accepted value are <code>circle</code> and <code>ellipse</code></li>
+                        <li><i>Size:</i> This determines the extent of the radial gradient, either using specific dimensions or keywords</li>
+                        <li><i>Position:</i> This determines the center of the circle or ellipse. The value is expressed in the same way as background-position, preceed by the keyword <strong>at</strong>. If ommited, it defaults to <strong>at</strong> center.</li>
+                        <li><i>Color stops:</i> A comma-seperated list of colors with optional positions along the gradient ray starting at the center</li>
+                    </ul>
+                    The only required argument is the list of color stops. All other arguments are optional
+                </p>
+            </div>
+            <div>
+                <h3>Setting the Shape of the Gradient</h3>
+                <p>
+                    You can set the shape of the gradient explicitly by using keyword <code>circle</code> or <code>ellipse</code>. If you omit the shape, it defaults to <code>circle</code> if the size is a single length. In all other cases, it defaults to <code>ellipse</code>.
+                </p>
+            </div>
+            <div>
+                <h3>Setting the Size of the Gradient</h3>
+                <p>
+                    You can set the size of the circle or ellipse explicitly by using keywords
+                    <ul>
+                        <li>A circular gradient accepts only a single length, which sets its radius</li>
+                        <li>An ellipse gradient accepts two values, which can be either lengths or percentages. The first value sets the ellipse horizontal radius. The second one sets its vertical radius. Percentage values are relative to the width and height of the gradient box, respectively.</li>
+                    </ul>
+                    Both shapes accepts any of the following keywords to determin thier size:
+                    <ul style="list-style-type: none;">
+                        <li><code>closest-side</code></li>
+                        <li><code>farthest-side</code></li>
+                        <li><code>closest-corner</code></li>
+                        <li><code>farthest-corner</code></li>
+                    </ul>
+                    way gamit promise yawa lang
+                </p>
+                <div id="radial-con">
+                    <div id="radial-size">
+
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3>Setting the Position of the Gradient</h3>
+                <p>
+                    You can position the gradient using the <code>at</code> keyword followed by an expression that is valid for the background-position property. For example, the circular gradient is positioned 100px from the left and 50px from the top.
+
+                    <p style="white-space: pre;"><code>
+background-image: radial-gradient(circle closest-side <strong>at 50% 50%</strong>, blue, red, green);
+                    </code></p>
+                </p>
+            </div>
+        </div>
+        <div>
+            <hr>
+            <h2>Creating Repeating Gradients</h2>
+            <p>
+                The functions for repeating gradients, <code>repeating-linear-gradient()</code> and <code>repeating-radial-gradient()</code>, take the same arguments as their none repeating equivalents. However, its portant to position the last color stop before the ending point. If you dont, it defaults to 100%, preventing the patterns from being repeated.
+            </p>
+            <div>
+                <h3>Creating Diagonal Stripes</h3>
+                <p>
+                    A simple, yet effective use of a repeating linear gradient is to create diagonal stripes. This sets the angle of the gradient line to -45deg, and creates two color nonestop, the first one is dark blue. No position is declared, so it defaults to 0%. The second color stop is white, and its position at 6px along the gradient line. So, the gradient transitions from dark blue to white in a very short space. The function then repeats the same pattern infinitely, producing the result below.
+                </p>
+                <div id="repeating-con">
+                    <div id="repeat">
+
+                    </div>
+                    <div id="repeat-code">
+                        <p style="white-space: pre;"><code>
+#repeat{
+    width: 200px;
+    height: 100px;
+    background-image: repeating-linear-gradient(-45deg, #426A77, #FFF 6px)
+}
+                        </code></p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3>Creating a Smooth Repeating Gradient</h3>
+                <p>
+                    The repeating gradient in the preceing example creates the illusion of stripes because there are only two color stops and the distance between them is very short. To create a more fluid repeating gradient, the first and last color stops need to be the same color.
+                </p>
+                <p>
+                    The dark yellow is used as the first color stop. It has no declared position, so it defaults to the starting point of the gradient line. The lighter yellow is the second color stop at 5% and the first color is repeated at 10%. This produces the ridge effect shown below
+                </p>
+                <div id="repeat-smooth-con">
+                    <div id="repeat-smooth">
+
+                    </div>
+                    <div id="repeat-smooth-code">
+                        <p style="white-space: pre;"><code>
+#repeat-smooth{
+    width: 200px;
+    height: 100px;
+    background-image: repeating-linear-gradient(to right, #D9CC3C, #FFEB79 5%, #D9CC3C 10%);
+}
+                        </code></p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3>Creating Repeating Radial Gradients</h3>
+                <p>
+                    The <code>repeating-radial-gradient()</code> function and its browser-specific equivalents work exactly the same way.
+                </p>
+                <p>
+                    This creates a circular gradiant anchored ath the center bottom with two color stops. The first color stop (light yellow) is anchored at the starting point--in other words, the center of the circle--and the second one(darker yellow) is positioned at 5% along the gradient ray. The size is not specified, so it defaults to farthest-corner, producing the gradient below
+                </p>
+                <div id="radial-smooth-con">
+                    <div id="radial-smooth">
+
+                    </div>
+                    <div id="radial-smooth-code">
+                        <p style="white-space: pre;"><code>
+#radial-smooth-code{
+    background-color: var(--code);
+    padding: 10px;
+    margin: 0 10px;
+    border-radius: 10px;
+}
+                        </code></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <hr>
+            <h2>Using Multiple Gradients</h2>
+            <p>
+                Because CSS gradients are applied using the background-image property, you can add multiple gradients as the background to an element by listing definitions seperated by commas. The gradients are applied in revers order, with first one appearing in front. Because gradients normally fill the entire background, you need to set the final colorstop to <code>transparent</code> on gradients that appear in front. Alternatively, you can control the size and position of individual gradients with the <code>background-size</code> and <code>background-posiiton</code> position.
+            </p>
+            <p>
+                Radial gradients using the standard syntax are particulary suited for use as multiple gradients because the <code>radial-gradient()</code> function allows you to set the size on the gradient precisely using lengths (for both circle and ellipse) or percentage (for ellipse).
+            </p>
+            <p>
+                The bal &gt;div&lt; is a 100px square with its <code>border-radius</code> set to 50%, which converts it to a circle. <br> The first radial gradient is a 12px circle positioned 25px from the left and 30px from the top. Its first color stop is white with 80% alpha transparency, and its final color stop is <code>transparent</code>. <br> The second gradient appears behind the first one. Its also a circle, positioned at 30% both horizontally and vertically, offsetting it to the upper left. No size has been declared,so it fills the background to farthest-corner. The three color stops are increasingly deepr shade of red
+            </p>
+            <div id="cirlce-con">
+                <div id="circle">
+
+                </div>
+                <div id="circle-code">
+                    <p style="white-space: pre;"><code>
+#circle{
+    width: 200px;
+    height: 200px;
+    margin: 20px;
+    border-radius: 50%;
+    background-color: #C51D31;
+
+    background-image: 
+    radial-gradient(circle 32px at 53px 56px, rgba(225,225,225,0.8),transparent),
+    radial-gradient(circle at 30% 30%, #C51D31, #921524, #450A11);
+}
+                    </code></p>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+    
+</body>
+</html>
+
+
+<!--
+                <div id="gradient-example">
+                    <div id="gradient">
+
+                    </div>
+                    <div id="gradient-code">
+<p style="white-space: pre;"><code>
+#gradient{
+    width: 200px;
+    height: 100px;
+    background-image: linear-gradient(to right ,green,blue);
+}
+</code></p>
+                    </div>
+                </div>
+-->

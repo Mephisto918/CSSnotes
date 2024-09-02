@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styling Text</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+    <h1><a href="../CSS Notes Main.html">Back</a></h1>
+    <div>
+        <h2><u>Selecting and Adjusting Fonts</u></h2>
+        <p>By default, most Browsers diaplay text in Time New Roman, Times, or similar font. The actual font depends not only on the browser, but also on whats availableon the visitor's computer.</p>
+
+        <h3>Font Properties</h3>
+        <table>
+            <tr>
+                <th><strong>Property</strong></th>
+                <th><strong>Initial Value</strong></th>
+                <th><strong>Inherited</strong></th>
+                <th><strong>Description</strong></th>
+            </tr>
+            <tr>
+                <td><code>font-famliy</code></td>
+                <td></td>
+                <td>Yes</td>
+                <td>Sets the font and fallback options</td>
+            </tr>
+            <tr>
+                <td><code>font-size</code></td>
+                <td>medium</td>
+                <td>Yes</td>
+                <td>Sets the size of the font</td>
+            </tr>
+            <tr>
+                <td><code>font-style</code></td>
+                <td>normal</td>
+                <td>Yes</td>
+                <td>Controls the display of italic</td>
+            </tr>
+            <tr>
+                <td><code>font-variant</code></td>
+                <td>normal</td>
+                <td>Yes</td>
+                <td>Controls the display of small caps</td>
+            </tr>
+            <tr>
+                <td><code>font-weight</code></td>
+                <td>normal</td>
+                <td>Yes</td>
+                <td>Determines whether the text should be bold</td>
+            </tr>
+            <tr>
+                <td><code>line-height</code></td>
+                <td>normal</td>
+                <td>Yes</td>
+                <td>Sets the vertical distance between lines of text(leading)</td>
+            </tr>
+            <tr>
+                <td><code>font</code></td>
+                <td></td>
+                <td>Yes</td>
+                <td>Shorthand property that combines all others in single declaration</td>
+            </tr>
+        </table>
+        <hr>
+    </div>
+    <div>
+        <h2><u>Using font-family to Choose a Range of Alternative Fonts</u></h2>
+        <p>The <code>font-family</code> property takes as its value a comma-seperated list of fonts like this:</p>
+        <p><code>
+            font-family: Arial, Helvatica, sans-serif;
+        </code></p>
+        <p>If any of the fonts names contain spaces, they must be wrapped in qoute like this: </p>
+        <p><code>
+            font-family: "Trebuchet MS", Arial, Helvatica, sans-serif;
+        </code></p>
+        <p>The browser attempts to display the first available font in the list. In the case of the previous example, 
+            the browser tries Arial if Trebuchet MS isnt available on the visitors computer. If Arials not available, it tries Helvetica. And if none of the fonts is available, it falls back to the computers default sans-serif font.</p>
+
+        <div>
+            <h3>Generic Font Families</h3>
+            <table>
+                <tr>
+                    <th><strong>Name</strong></th>
+                    <th><strong>Example</strong></th>
+                    <th><strong>Description</strong></th>
+                </tr>
+                <tr>
+                    <td><code>sans-serif</code></td>
+                    <td class="ss">Verdana</td>
+                    <td>In typography, serifs are little hooks at the end of strokes. A sans-serif font, such as Verdana, Arial, or Helvatica has no such hooks.</td>
+                </tr>
+                <tr>
+                    <td><code>serif</code></td>
+                    <td class="s">Georgia</td>
+                    <td>A serif font has a little hooks at the end of the strokes. Typical examples are Georgia, Times and, Times New Roman.</td>
+                </tr>
+                <tr>
+                    <td><code>cursive</code></td>
+                    <td class="c">Vine Hand ITC</td>
+                    <td>Cursive fonts looks hand written or done with calligraphy pen</td>
+                </tr>
+                <tr>
+                    <td><code>monospace</code></td>
+                    <td class="mn">Consolas</td>
+                    <td>Monospace fonts display all characters with the same width. This type of font is typically used to display code examples.</td>
+                </tr>
+                <tr>
+                    <td><code>fantasy</code></td>
+                    <td class="f">Jokerman</td>
+                    <td>This generic font covers typefaces that dont fall into any category.</td>
+                </tr>
+            </table>
+        </div>
+        <hr>
+    </div>
+    <div>
+        <h2><u>Changing the Size of Fonts</u></h2>
+        <h3>Using Keywords to Set Font Sizes</h3>
+        <div><h4>Absolute-size Keywords for the font-size Property</h4>
+            <table>
+                <tr>
+                    <th><strong>Keyword</strong></th>
+                    <th>xx-small</th>
+                    <th>x-small</th>
+                    <th>small</th>
+                    <th>medium</th>
+                    <th>large</th>
+                    <th>x-large</th>
+                    <th>xx-large</th>
+                </tr>
+                <tr>
+                    <td><strong>Scaling Factor</strong></td>
+                    <td>3/5</td>
+                    <td>3/4</td>
+                    <td>8/9</td>
+                    <td>1</td>
+                    <td>6/6</td>
+                    <td>3/2</td>
+                    <td>2/1</td>
+                    <td>3/1</td>
+                </tr>
+                <tr>
+                    <td><strong>Equivalent Heading</strong></td>
+                    <td>h6</td>
+                    <td></td>
+                    <td>h5</td>
+                    <td>h4</td>
+                    <td>h3</td>
+                    <td>h2</td>
+                    <td>h1</td>
+                </tr>
+                <tr>
+                    <td><strong>HTML font size</strong></td>
+                    <td>1</td>
+                    <td></td>
+                    <td>2</td>
+                    <td>3</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>6</td>
+                    <td>7</td>
+                </tr>
+            </table>
+        </div>
+        <div><h3>Using Lenth to set Font Sizes</h3>
+            <p>Apart from minor variation between browsers, CSS pixels are fixed size. As a result, using px is much simpler than em, which is a relative measurement. The default size browsers for the text in paragraphs is 16px.</p>
+            <p>To make the text slightly smaller, you can set the font size in pixels like this:</p>
+            <p><code>
+                p{<br>
+                    font-size: 14px;<br>
+                }
+            </code></p>
+            <p>To do the same with em, you need to calculate the ratio of 14px to the default 16px, in other words, 0.875. So the equivalent style rule becomes like this:</p>
+            <p><code>
+                p{<br>
+                    font-size: 0.875em;<br>
+                }
+            </code></p>
+        </div>
+        <div><h3>Using Percentage to Set Font size</h3>
+            <p>Using a percentage value changes the font in realtion to the size inherited from any parents or ancestor elements, resulting in the same multiplier affect as with em units. </p>
+        </div>
+        <hr>
+    </div>
+    <div><h2><u>Which Method of Setting Font Sizes Should I Use?</u></h2>
+        <div><h3>Using font-style to Italized Text</h3>
+            <p>The <code>font-style</code> property controls whether text is rendered in italic. It accepts the following vales: </p>
+            <div>
+                <ul>
+                    <li><strong>italic</strong> Italicize the text</li>
+                    <li><strong>normal</strong> Removes Italic</li>
+                    <li><strong>oblique</strong> Use an oblique version of the font, if one exist. Otherwise, use italic.</li>  
+                </ul>
+            </div>
+        <p>Because very few web-safe fonts have no oblique version, italic and normal are the only one values you need. The main use for normal is to remove italic from text that you want so emphasize inside the larger block of that text that already Italicized</p>
+        </div>
+        <div><h3>Using font-weight to Make Text Bolder or Lighter</h3>
+        <p>The font-wieght property accepts the following values: </p>
+        <div>
+            <ul>
+                <li><strong>bold</strong> Make the text bold</li>
+                <li><strong>bolder</strong> Make the text bolder in relation to its parent</li>
+                <li><strong>lighter</strong> Make the text lighter in the realtion to its parent</li>
+                <li><strong>normal</strong> Render the text normally</li>
+            </ul>
+        </div>
+        <p>One of the nine values increasing in steps at 100 from 100 to 900 (400 equals normal,and 700 uquals bold).</p>
+        <p>In practice, the only values you are likely to use are bold and normal. Setting font-weight to normal is useful when you want to display as normal text an element, such as a &lt;th&gt; tag (table heading), that browsers normally render in a bold font.</p>
+        </div>
+        <div><h3>Using font-variant to Display Text in Small Caps</h3>
+            <p>The font-variant propert accepts the following rules: </p>
+            <div>
+                <ul>
+                    <li><strong>normal</strong> Render text using the same letter case as in the underlying code.</li>
+                    <li><strong>small-caps</strong> Render the text in small caps if not supported by the font. Otherwise, transform the text to uppercase.</li>
+                </ul>
+            </div>
+            <p>Small caps display lowercase letters as uppercase, but in smaller size and with slightly different proportions.</p>
+
+        </div>
+
+    </div>
+    <div><h2><u>Adjusting the Vertical Space Between Lines of text</u></h2>
+        <p>The <code>line-height</code> property controls the vertical space or leading between lines of text. Setting the line-height propert affects the read ability of a web page. Too little and the text looks cramped and is hard to read. Too much spcae and readers wanders, making reading equally difficult.</p>
+        <p>This property accepts a lenght, percentage, or number. You can also use the keyword normal to reset line-height to its default value. Negative values are not permitted. Because of the way line-height is calculated and applied by browsers, the most consistent results are achieved by using a number without a unit of measurement like this:</p>
+        <p><code><br>
+            line-height: 1.4;<br>
+        </code></p>
+        <p>The default value applied by the browsers varies but normally in the range of 1.0-1.2. You can use position values less than 1, but only thing smaller than 0.6 results in lines overlapping each other.</p>
+
+    </div>
+    <div><h2><u>Using Shorthand font Propoerty</u></h2>
+        <p>CSS shorthand properties lets you combine several declarations into one. Unfortunately, the font shorthand property can be difficult to remember and if you get it wrong, your srtles arent applied.</p>
+        <p>The font shorthand propert combines the following properties:</p>
+        <div>
+            <ul>
+                <li><code>font-style</code> (optional)</li>
+                <li><code>font-variant</code> (optional)</li>
+                <li><code>font-weight</code>(optional)</li>
+                <li><code>font-size</code></li>
+                <li><code>line-height</code>(optional)</li>
+                <li><code>font-family</code></li>
+            </ul>
+        </div>
+        <p>The syntax is difficult to remember because the first three items are optional and can be any order. However, the remaining items must come in the prescribed order. If you declare <code>line-height</code> it must be seperated from font size by forward slash. Take for example, the following style rule: </p>
+        <p><code style="white-space: pre;">
+            p{
+                font-style: italic;
+                font-weight: bold;
+                font-size: 14px;
+                line-height 1.4;
+                font-family: "Trebuchet MS", Arial, Helvatica, sans-serif; 
+            }br
+        </code></p>
+        <p>You can convert that to shorthand like this:</p>
+        <p><code style="white-space: pre;">
+            p{
+                font: bold italic 14px/1.4 "Trebuchet MS", Arial, Helvatica, sans-serif;
+            }
+        </code></p>
+        <p>Notice that reversed the order of font-weight, which is perfectly valid. The shorthand is shorter and relatively easy to read. However, one of the most common mistakes is to leve out everything except the font-family.</p>
+    </div>
+    <div><h2><u>Changing the Color of Text</u></h2>
+        <p>The color of text is controlled by <code>color</code> property. The value is inherited so the color affects the text in all descendants elements unless a more specific rule overrides it. Its considered good practice to set the colors for background and text ath the same time beecause users can set their own default colours in a local style sheet. If your text color doesnt provide sufficient contrast with the users background, the text will illegible.</p>
+        <p style="white-space: pre;"><code>
+            body{
+                font-family: Arial, Helvatica, sans-serif; 
+                color: #000; 
+                background-color: #FFF 
+            }
+        </code></p>
+        <p>This sets the font color and text for the whole page, but you can override any of these properties in styles for heading, sidebars or any other part of the document.</p>
+        <hr>
+
+    </div>
+    <div><h2><u>Formatting Text</u></h2>
+        <div><h3><i><u>Text Formatting Properties</u></i></h3>
+            <table>
+                <tr>
+                    <th>Propert</th>
+                    <th>Initial Values</th>
+                    <th>Inherited</th>
+                    <th>Description</th>
+
+                </tr>
+                <tr>
+                    <th colspan="4">CSS2.1 Properties</th>
+
+                <tr>
+                    <td><code>letter-spacing</code></td>
+                    <td>normal</td>
+                    <td>Yes</td>
+                    <td>Adjust the horizontal space between characters</td>
+                </tr>
+                <tr>
+                    <td><code>text-align</code></td>
+                    <td></td>
+                    <td>Yes</td>
+                    <td>Controls whether text aligned to the left or right, centered, or justified</td>
+                </tr>
+                <tr>
+                    <td><code>text-decoration</code></td>
+                    <td>none</td>
+                    <td>No</td>
+                    <td>Draws a line under, over,or through text.</td>
+                </tr>
+                <tr>
+                    <td><code>text-indent</code></td>
+                    <td>0</td>
+                    <td>Yes</td>
+                    <td>Indents the first line of text</td>
+                </tr>
+                <tr>
+                    <td><code>text-transform</code></td>
+                    <td>none</td>
+                    <td>Yes</td>
+                    <td>Converts text initial capitals, all uppercase, or all lowercase</td>
+                </tr>
+                <tr>
+                    <td><code>vertical-align</code></td>
+                    <td>baseline</td>
+                    <td>No</td>
+                    <td>Controls the vertical alignment of inline elements, such as &lt;span&gt; and images</td>
+                </tr>
+                <tr>
+                    <td><code>white-space</code></td>
+                    <td>normal</td>
+                    <td>Yes</td>
+                    <td>Controls how spaces and words wrapping are handled</td>
+                </tr>
+                <tr>
+                    <td><code>word-spacing</code></td>
+                    <td>normal</td>
+                    <td>Yes</td>
+                    <td>Adjusts the width of the space characters</td>
+                </tr>
+                <tr>
+                    <th colspan="4">CSS 3 Properties</td>
+                </tr>
+                <tr>
+                    <td><code>overflow-wrap</code></td>
+                    <td>normal</td>
+                    <td>Yes</td>
+                    <td>Prefered name for word-wrap</td>
+                </tr>
+                <tr>
+                    <td><code>text-align-last</code></td>
+                    <td>auto</td>
+                    <td>Yes</td>
+                    <td>Sets the alignment of the last line of a text block</td>
+                </tr>
+                <tr>
+                    <td><code>text-decoration-color</code></td>
+                    <td>currentColor</td>
+                    <td>No</td>
+                    <td>Sets the color of underlines, overlines, and line-throughs created bt text-decoration</td>
+                </tr>
+                <tr>
+                    <td><code>text-decoration-line</code></td>
+                    <td>none</td>
+                    <td>No</td>
+                    <td>Specifies what line decorations, if any, are added to the text</td>
+                </tr>
+                <tr>
+                    <td><code>text-decoration-style</code></td>
+                    <td>solid</td>
+                    <td>No</td>
+                    <td>Specifies the type of line used for text decoration, for example, solid or wavy</td>
+                </tr>
+                <tr>
+                    <td><code>text-overflow</code></td>
+                    <td>clip</td>
+                    <td>No</td>
+                    <td>Cuts off text that too long to fit, optionally replacing with ellipsis. Must be used in conjuction with the overflow property</td>
+                </tr>
+                <tr>
+                    <td><code>text-shadow</code></td>
+                    <td>none</td>
+                    <td>Yes</td>
+                    <td>Applies one or more shadows to text</td>
+                </tr>
+                <tr>
+                    <td><code>word-wrap</code></td>
+                    <td>normal</td>
+                    <td>Yes</td>
+                    <td>Allows long text, such as a URL, to be broken if it would be otherwise overflow</td>
+                </tr>
+            </table>
+        </div>
+        <div><h3>Increasing or Decreasing the SPace Between Letters</h3>
+            <p>The <code>letter-spacing</code> property controls the amount of horizontal space between letters. in print terminology, this is known as <i><strong>tracking</strong></i>. The property accepts the following values:</p>
+            
+            <blockquote>
+                <p><strong>normal</strong> This is the default. It allows to adjust the space between characters to justify text. Setting letter spacing explicity to normal cancels any inherited values.</p>
+                <p>Use a length calue with a unit of measurement to specify how much space to add or subtract form the normal spacing between characters. The <code>em</code> units is particularly useful because its directly proportionaly to the font size.</p>
+            </blockquote>
+
+            <p>Examples:</p>
+            <p style="letter-spacing: normal;">CSS - The Language of Web Design</p>
+            <p style="letter-spacing: 0.2rm;">CSS - The Language of Web Design</p>
+            <p style="letter-spacing: -0.1em;">CSS - The Language of Web Design</p>
+            <p>First one being on normal, second one having a 0.2em, and the third one is -0.1em</p>
+
+        </div>
+        <div><h3>Controlling the Space Between Words</h3>
+            <p>Computers have no concept of what constitutes a word, but the <code>word-spacing</code> property adjusts the width of the space character. You use it in exactly the same way as <code>letter-spacing</code></p>
+        </div>
+        <hr>
+
+    </div>
+    <div><h2><u>Aligning Text Horizontally</u></h2>
+        <p>Horizontal alignment is controlled by the text-align property. It accepts the following:</p>
+        <blockquote>
+            <p><strong>left</strong>-Aligns text to the left, and leave ragged ends on the right</p>
+            <p><strong>right</strong>-Aligns text to the right, and keave ragged ends on the left</p>
+            <p><strong>center</strong>-Center text, leaving ragged ends on both sides</p>
+            <p><strong>justify</strong>-Align text on bith sides</p>
+        </blockquote>
+        <p>Examples:</p>
+        <blockquote>
+            <p style="text-align: right;">
+                Moonlight sunrise Baby, come be my starlight Moonlight sunrise Oh baby, just to make you stay Moonlight sunrise Baby, let's do it all night Moonlight sunrise I guarantee I gotcha
+                <br>
+                Loving undefeated, on your knees pleading Baby, you can hit up my line when you need it Said that you tried, baby, you succeeded Got a craving, baby, can you feed it? Took a trip under moonlight Follow me to the sunrise Every day, every night Ay, come with me, don't think twice</p>
+        </blockquote>
+        <hr>
+    </div>
+    <div><h2><u>Aligning Text Vertically</u></h2>
+        <p>Vertical allignment is controlled by <code>vertical-align</code> property, perhaps one of the least well understood CSS properties. Many newcomers to CSS mistakenly believes it can alter the vertical of block elements, such as paragraphs. It cant. The <code>vertical-align</code> property applies to inline elements, such as images and &lt;span&gt; elements, and moves them in realtion to the surrounding text. The HTML &lt;sup&gt; &lt;super&gt; elements automatically shift text vertically in relation to the rest of the line. As a resilt, vertical-alignis not as useful for text as you might expect.</p>
+
+        <p>The property accepts the following values:</p>
+        <blockquote>
+            <p><strong>baseline</strong> Align the text to the same baseline as text in the parent element. This is the default values.</p>
+            <p><strong>middle</strong> Align the vertical mid point 0.25em above the baseline of the parent.</p>
+            <p><strong>sub</strong> Align text to the property position for a subscript. This does not alter the size of the font.</p>
+            <p><strong>super</strong> Align text to the proper position for superscript. This does not alter the size of the font.</p>
+            <p><strong>text-top</strong>Align the top of the imaginary text box with the top of the text in the parent element.</p>
+            <p><strong>text-bottom</strong> Align the bottom of the imaginary text box with the bottom of the text in the parent element.</p>
+            <p><strong>top</strong> Align the top of the imaginary text box in the line with the top of parent text box</p>
+            <p><strong>bottom</strong> Align the bottom of the imaginary text box in line with the bottom of the parents element.</p>
+            <p><strong>inherit</strong> Vertical alignment is not inherted bt default, so use this to apply the same value as the parent element.</p>
+        </blockquote>
+        <p>You can also use a length or percentage. Both align the bottom of the imaginary text box by the given amount above the bottom of the parents text box, or below it if a negative value is used. A percentage value is calculated as a proportion of the current line height.</p>
+        <hr>
+    </div>
+    <div><h2><u>Drawing Lines Under, Above, and Through Text</u></h2>
+        <p>The <code>text-decoration</code>property controls underlining, strike-through and line above text. One of its most common uses is to remove the unline from unvisited links.</p>
+
+        <h3>CSS2.1</h3>
+        <blockquote>
+            <p><strong>none</strong> - Removes underlines or cancel ant inherited text-decoration rules.</p>
+            <p><strong>underline</strong> - Underline the text.</p>
+            <p><strong>overline</strong> - Add a line above the text.</p>
+            <p><strong>line-through</strong> - Add a line through the center of  the text.</p>
+            <p><strong>blink</strong> - Flash the text on and off.</p>
+            <p><strong>inherit</strong> - This property is not inherited so use this to apply the same values as the parent element</p>
+        </blockquote>
+        <p>You can use a space-seperated list to sanwich text with lines above and below by using both underline and overline in the same style declaration like this:</p>
+        <p><code>
+            text-declartion: underline overline;
+        </code></p>
+        <p>Setting the value to line-through has the effect of striking out text. Its deprecated &lt;s&gt; and &lt;strike&gt; HTML tags. In fact, you can go the whole hog and use all three types of line in the same declaration.</p>
+
+        <h4>Examples</h4>
+        <blockquote>
+            <p style="text-decoration: underline;">text-decoration: underline;</p>
+            <p style="text-decoration: overline;">text-decoration: overline;</p>
+            <p style="text-decoration: line-through;">text-decoration: line-through;</p>
+            <p style="text-decoration: underline overline line-through;">holy shit ka chuy</p>
+        </blockquote>
+        <hr>
+    </div>
+    <div><h2><u>Changes to text-decoration in CSS3</u></h2>
+        <p>The CSS3 text module proposes improvements to the text-decoration property that allows you to set a different color and change the style of the line. CSS introduces four new properties:</p>
+        <blockquote>
+            <p><strong>text-decoration-line</strong> - This takes the same values as text-decoration in CSS2.1 except blink, which has been dropped.</p>
+            <p><strong>text-decoration-color</strong> - This sets the color of the line or lines.</p>
+            <p><strong>text-decoration-style</strong> - This sets the style of the lines. Accepted values are solid, double, dotted, dashes, and wavy. Default is solid.</p>
+            <p><strong>text-decoration-skip</strong> - This specifies which elements. If any lines should skip over. Accepted vakues are none, objects, spaces, ink, and edges. The default is objects, which skips over images and inline blocks. The meaningof spaces is self explanatory. Specifying ink prevents the lines from being drawn over a character. The edges keyword is mainly for use in CHINESE. It creates a seperate line for each character in a group rather than one solid line.</p>
+            <p><code>
+                .under{<br>
+                    text-decoration: underline red wavy; <br>
+                }
+            </code></p>
+
+            <h4>Examples</h4>
+            <blockquote>
+                <p style="text-decoration: underline red wavy;">This text has a wavy red underline</p>
+                <p style="text-decoration: overline blue double-line;">This blue text has a green doubled overline</p>
+                <p style="text-decoration: line-through red;">Red seems a good color for deleted text</p>
+            </blockquote>
+            <p>diko kibaw sa double line ;(</p>
+        </blockquote>
+    </div>
+    <div><h2><u>Indenting the First Line of Text</u></h2>
+        <p>The <code>text-indent</code> property takes a length or a percentage and indents the first line of text in each block by the amount specified. When the value is a percentage, the indentation is a percentage of the the parent element width. The <code>text-indent</code> property automatically indents the first line in each text block. A negative value for <code>text-indentation</code> creates a hanging indent.</p>
+        <h4>Examples</h4>
+        <blockquote style="text-indent: 40px;"> 
+            I'm bending it over You're my four leaf clover I'm so in love, so in love There's no one above up above Forever's a long time, yes My blue jeans Will last me all My life, ohh yes So should we I'm spending all, yeah This time, ooh
+        </blockquote>
+        <p><u><i>40px</i></u></p>
+
+        <blockquote style="text-indent: -40px;"> 
+            I'm bending it over You're my four leaf clover I'm so in love, so in love There's no one above up above Forever's a long time, yes My blue jeans Will last me all My life, ohh yes So should we I'm spending all, yeah This time, ooh
+        </blockquote>
+        <p><u><i>-40px</i></u></p>
+        <hr>
+    </div>
+    <div><h2><u>Switching Between Uppercase and Lowercase</u></h2>
+        <p>The <code>text-transform</code> property converts text to use intial caps, all lowercase, or all uppercase. Its supperted by all browsers:</p>
+        <blockquote>
+            <P><strong>capitalize</strong> - Converts to uppercase the first letter after every space</P>
+            <P><strong>lowercase</strong> - Converts all characters to lowercase</P>
+            <P><strong>uppercase</strong> - Converts all characters to uppercase</P>
+            <P><strong>none</strong> - No conversion</P>
+        </blockquote>
+        <p>The <code>text-transform</code> property is inherited, so it affects all child elements. Set the value to <code>none</code> in a child element to turn off an inherited text transformation rule.</p>
+
+    </div>
+    <div><h2><u>Controlling Whitespace and Line Wrapping</u></h2>
+        <p>Browsers automatically clode up sequences of space, ignore new lines in HTML, one wrap text of the right edge. The <code>white-space</code> property gives you control over the handling of white space property and new lines.</p>
+        <blockquote>
+            <p><strong>normal</strong> - This is the default value and is used to cancel any inherited value.</p>
+            <p><strong>pre</strong> - Preserves all spaces and new lines in the HTML</p>
+            <p><strong>nowrap</strong> - Prevents the browsers from automatically wrapping text</p>
+            <p><strong>pre-line</strong> - Close up sequences of whitespace as in normal text, but honor new lines</p>
+            <p><strong>pre-wrap</strong> - Preserves sequences of whitespace and new line, but automatically wrap text when the border is reached</p>
+        </blockquote>
+        
+        <p>Using <code>pre</code> has similar affect to &lt;pre&gt; tags in HTML, but with the advantage of preserving the current font. Its useful for displaying poetry without the need to insert &lt;br&gt; tags at the end of each line. </p>
+        <h4>Examples: </h4>
+        <blockquote style="background-color: rgb(53, 52, 52); width: 350px; height: 300px;">
+            <p style="white-space: pre; background-color: rgb(53, 52, 52);">
+                I'm super shy, super shy
+                But wait a minute while I make you mine make you mine
+                떨리는 지금도 you're on my mind all the time
+                I wanna tell you but I'm super shy, super shy</p>
+            <blockquote class="linebox">
+                <p style="background-color: rgb(78, 76, 76);">Text normally wraps onto the next line when it reaches the edge of its container</p>
+                <p style="white-space: nowrap; background-color: rgb(78, 76, 76);">Setting <code style="background-color: rgb(78, 76, 76);">white-space</code> to <code style="background-color: rgb(78, 76, 76);">nowrap</code> keeps this all on the same line</p>
+                <p style="white-space: pre-line; background-color: rgb(78, 76, 76);"><code style="background-color: rgb(78, 76, 76);">pre-line</code> Close up sequences of whitespace as in normal text, but honor new lines</p>
+                <p style="white-space: pre-wrap; background-color: rgb(78, 76, 76);"><code style="background-color: rgb(78, 76, 76);">pre-wrap</code> Preserves sequences of whitespace and new line but automatically wrap text when border is reached.</p>
+            </blockquote>
+        </blockquote>
+        <hr>
+    </div>
+    <div><h2><u>Dealing with Text Thats to Long</u></h2>
+        <p>If text is too long to fit into the space available, browsers let it overflow, destroying the design and sometimes making the text illegible. CSS lets you deal with the overflow by breaking the text or hiding it.</p>
+
+        <div><h3>Breaking Overflow Text</h3>
+            <p>When there are no spaces in text, such as long URL, the browser is unable to break it, resulting in an ugly overflow. All browser in current user suppoert the word-wrap property to handle this situation. It accepts the following rules:</p>
+            <blockquote style="white-space: pre;">
+                <strong><u>normal</u></strong> - This is the default. Lines may break only at normal work break points.
+                <strong><u>break-word</u></strong> - Lines can break at arbitrary point if no blank points can be found.
+            </blockquote>
+
+        </div>
+
+        <div><h3>Hiding Overflow Text</h3>
+            <p>To hide overflow text, the overflow property needs to be set to hidden. This simply clips the text. A more elegent way to handle the overflow is to add the <code>text-overflow</code> property, and set its valie to ellipsis. </p>
+
+            <blockquote style="white-space: pre;">
+                .ellipsis{
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                }
+            </blockquote>
+
+
+            <blockquote style="width: 200px; height: auto; background-color: rgb(43, 42, 42);">
+                <strong style="background-color: rgb(80, 78, 78);">word-wrap: break-word;</strong>
+                <p style="background-color: rgb(80, 78, 78); word-wrap: break-word; width: 100px; height: auto;">sobebepolnecloserindabaksitobyorubereniknowikenapordputdatboxeronyorrover</p>
+
+                <strong style="background-color: rgb(80, 78, 78);">overflow: hidden;</strong>
+                <p style="background-color: rgb(80, 78, 78); overflow: hidden; width: 100px; height: auto;">sobebepolnecloserindabaksitobyorubereniknowikenapordputdatboxeronyorrover</p>
+
+                <strong style="background-color: rgb(80, 78, 78);">overflow: hidden;</strong>
+                <strong style="background-color: rgb(80, 78, 78);">text-overflow: ellipsis;</strong>
+                <p style="background-color: rgb(80, 78, 78); overflow: hidden; text-overflow:ellipsis; width: 100px; height: auto;">sobebepolnecloserindabaksitobyorubereniknowikenapordputdatboxeronyorrover</p>
+
+            </blockquote>
+        </div>
+        
+        <hr>
+    </div>
+    <div><h2><u>Adding Shadows to Text</u></h2>
+        <p>The <code>text-shadow</code> property does exactly what you expect, it adds a shadows to text without the need to embed the text in an image. In fact, it can add multiple shadows to text. The text-shadow property expects the following value: </p>
+        
+        <blockquote style="white-space: pre;">
+            A length specifying the horizontal offset of the shadow. A positive value moves the shadow to the right of the text, a negative one moves it to the left.
+            A length specifying the vertical offset of the shadow. A positive value moves the shadow below the text, a negative one moves it above.
+            An optional length specifying the shadowns bluer radius, the shadow is the same color as the text.
+        </blockquote>
+
+        <p>The order of the three length values is fixed, but the color value can come before or after them. Although the color is optional. ommiting it usually produces unsatisfactory result. To create a realistic shadow, its best to use a color with alpha transparency. All browsers that support text-shadow also supports rgba() and hsla() color formats. The style in text-shadow contain the following class: </p>
+
+        <blockquote style="white-space: pre;">
+            <code>
+                .no-blur{
+                    text-shadow: 0.1em 0.1em rbga(0,0,0);
+                }
+                .blur{
+                    text-shadow: 0.1em 0.1em 0.2em rgba(0,0,0,0.4);
+                }
+                .color-blur{
+                    text-shadow: 0.1em 0.1em 0.2em rgba(0,102,102,0.4);
+                }
+            </code>
+        </blockquote>
+        <div >
+            <blockquote style="height: auto; width: 300px; background-color: rgb(59, 59, 59);">
+                <h2 style="background-color: rgb(59, 59, 59);; text-shadow: 0.1em 0.1em rbga(0,0,0);">NO BLUR</h2>
+                <h2 style="background-color: rgb(59, 59, 59);; text-shadow: 0.1em 0.1em 0.2em rgba(0,0,0,0.4);">With Blur</h2>
+                <h2 style="background-color: rgb(59, 59, 59);; text-shadow: 0.1em 0.1em 0.2em rgba(0,102,102,0.4);">With Color Blue</h2>
+            </blockquote>
+        </div>
+        <hr>
+    </div>
+    <div><h2><u>Adding Multiple Shadows To Text</u></h2>
+        <p>You can add more than one snadow to text by creating a comma-seperated list of shadow definition</p>
+
+        <div><h3>Creating Raised and Inset Text</h3>
+            <p>To create the raised and inset letter press effect, you nned to choose four related colors ranging from light to dark. The lightest and darkest colors are used for the shadows. Use the darkest of the remaining colors for the text, and the lighter one for the background. For the raised effect, use the lightest color to create a 1px shadow to the top left of the text. And the darkest way around. The styles in text-shadow look like this:</p>
+            
+            <div>
+                <blockquote style="white-space: pre;"><code>
+                    .raised{
+                        text-shadow: -1px -1px #ffe79b, 1px 1px #7f744d;
+                    }
+                    .inset{
+                        text-shadow: -1px #7f744D, 1px 1px #ffe79b;
+                    }
+    
+                </code></blockquote>
+                
+                <blockquote style="white-space: pre;"><code>
+                    #ffe79b  Light yellow (shadpw)
+                    #ffe79b  Mustard (ackground)
+                    #ccaa3f  Dark mustard (text)
+                    #7f744d  Brown (shadow)
+                </code></blockquote>
+            </div>
+            <div class="shadowtextbox">
+                <p style="background-color: #ccaa3f; text-shadow: -1px -1px #ffe79b, 1px 1px #7f744d; font-size: 2em;">Raised</p><br>
+                <p style="background-color: #ccaa3f; text-shadow: -1px #7f744D, 1px 1px #ffe79b; font-size: 2em;">Inset</p>
+            </div>
+
+        </div>
+    </div>
+    <div><h2><u>Using Multiple Shadows for a More Intense Effect</u></h2>
+        <p>The last two examples in <code>text-shadows</code> demonstrate a suprising feature of the text-shadow property. If shadow definition uses a blur radius, repeating the same definition multiple times intensifies the effect. The last two examples us the following styles: </p>
+
+        <blockquote style="white-space: pre;"><code>
+            .glow{
+                text-shadow: 0 0 0 0.4em #6f9;
+            }
+            .intense-glow{
+                text-shadow: 0 0 0 0.4em #6f9, 0 0 0.4em #6f9, 0 0 0.4em #6f9;
+            }
+
+        </code></blockquote>
+
+        <p>The glow class creates a green text shadow with no offset and a 0.4em blur radius. The intense-glow class simply repeats the same definition three times, resulting in a more intense effect.</p>
+        <hr>
+    </div>
+    <div><h2><a href="../Topics/CSSBoxModel.html">Next Topic</a></h2></div>
+
+
+
+</body>
+<style>
+.linebox{
+    width: 200px;
+    height: 150px;
+    background-color: rgb(43, 42, 42);
+}
+.shadowtextbox{
+    width: 200px;
+    height: 200px;
+    background-color: #ccaa3f;
+    text-align: center;
+    padding: 5px;
+}
+
+.ss{
+    font-family: sans-serif;
+}
+.f{
+    font-family: fantasy;
+}
+.mn{
+    font-family: 'Courier New', Courier, monospace;
+}
+.s{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.c{
+    font-family: cursive;
+}
+</style>
+</html>

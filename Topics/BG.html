@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AddingBG</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/BG.css">
+</head>
+<body>
+    <h1><a href="../CSS Notes Main.html">Back</a></h1>
+    <div>
+        <hr>
+        <h1 style="font-size: 32pt; text-align: center;"><i>Adding Backgrounds</i></h1>
+        <hr>
+    </div>
+    <div>
+        <p>
+            The secret of good web design is drawing the visitors eyes to important parts of the page. Background colors and images help to break up the page and focus attention. Although some images are an important part of the page content, and need to be embedded in the HTML using &lt;img&gt; tags, others are simply decorative touches that should be addes through CSS. Using CSS for background images not only keeps your HTML markup less cluttered and easier to maintain, but it also gives you considerable amount of control over position and size.
+        </p>
+        <hr>
+    </div>
+    <div><h2><u>Controlling Backgrounds with CSS</u></h2>
+        <table>
+            <tr>
+                <th colspan="3">CSS Background Properties</th>
+            </tr>
+            <tr>
+                <th>Property</th>
+                <th>Initial Value</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><code>background-color</code></td>
+                <td>transparent</td>
+                <td>Sets the background color of an element</td>
+            </tr>
+            <tr>
+                <td><code>background-image</code></td>
+                <td>none</td>
+                <td>Sets the background image of an element</td>
+            </tr>
+            <tr>
+                <td><code>background-repeat</code></td>
+                <td>repeat</td>
+                <td>Controls how background images repeat if smaller than the element. By default, images tile horizontally and vertically</td>
+            </tr>
+            <tr>
+                <td><code>background-attachment</code></td>
+                <td>scroll</td>
+                <td>Determins wheter the background image remains in a fixed position or scrolls with the page</td>
+            </tr>
+            <tr>
+                <td><code>background-position</code></td>
+                <td>0% 0%</td>
+                <td>Determines the background images horizontal and vertical position. The default is the top left of the element</td>
+            </tr>
+            <tr>
+                <td><code>background-origin</code></td>
+                <td>padding-box</td>
+                <td>Determines the point from which background position is measured</td>
+            </tr>
+            <tr>
+                <td><code>background-clip</code></td>
+                <td>border-box</td>
+                <td>Determines the area covered by the background</td>
+            </tr>
+            <tr>
+                <td><code>background-size</code></td>
+                <td>auto</td>
+                <td>Controls the size of background images</td>
+            </tr>
+            <tr>
+                <td><code>background</code></td>
+                <td>See individual properties</td>
+                <td>Shorthand property for setting all background properties in a single declaration</td>
+            </tr>
+        </table>
+        <p>
+            Apart from <code>background-color</code>, all the individual properties are concerned with background images. The background properties are not inherited, but the background of a parent element remains visible because the default of backround-color is transparent.
+        </p>
+
+        <div><h3>Changing the Background Color of an Element</h3>
+            <p>
+                As you might expect, the background color property takes as its value a color, which you can be expressed in any of the ways described in <strong>Setting Color Values</strong> in <strong>Size, Colors and Files</strong> namely:
+            </p>
+            <ul>
+                <li>A 3 or 6 digit hexadecimal number</li>
+                <li>A color keyword</li>
+                <li>An rgb() value</li>
+                <li>An hsl() value</li>
+                <li>A color with alpha transparency specified as an rgba() or hsla() value</li>
+            </ul>
+        </div>
+        <hr>
+    </div>
+    <div><h2><u>Setting a Background Color with Alpha Transparency</u></h2>
+        <p>
+            Modern browsers support alpha transparency, which creates a translucent effect that can produce a more pleasant result than a solid block of color in some circumstances. For example below, RV is partially visible through the white background behind the text. This is achieved by the setting the alpha transparencyof the azure(light blue) background to 0.2. To set a background color with alpha transparency, you need to use rgba() or hsla() value.
+        </p>
+
+            <div style="display: flex; align-items: center;" >
+                <div style="background-color: rgb(226, 47, 47); width: 450px; height: 450px; display: flex; justify-content: center; align-items: center; border-radius: 20px; margin: 30px;">
+                    <div style="background-image: url(./imgex/BGs.png); height: 400px; width: 400px; display: flex; align-items: center; border-radius: 20px;">
+                        <h3 style="color: black; font-size: 62pt; float: left; height: auto; width: auto; border-radius: 5px; text-align: center; background: rgba(240,255,255,0.2); padding: 10px;">R<br> V</h3>
+                    </div>
+                </div>
+                <div style="background-color: rgb(44, 34, 23); width: auto; height: auto; padding: 0px; border-radius: 20px;">
+                    <blockquote style="white-space: pre;"><code>
+h3{
+color: black; 
+font-size: 62pt; 
+float: left; 
+height: auto; 
+width: auto; 
+border-radius: 5px; 
+text-align: center; 
+padding: 10px;
+
+<strong>background: rgba(240,255,255,0.2); </strong>
+}
+                    </code></blockquote>    
+                </div>
+            </div>
+        <hr>
+    </div> 
+    <div><h2><u>Using Background Images</u></h2>
+        <p>
+            The remaining background properties deal with adding and controlling the behavior of background images. Theres also the background shorthand property, which allows you to define all aspecs of an elements background (including color) in a single declaration. First, lets take a look at how you add background images.
+        </p>
+
+        <div><h3><u>Adding Background Images</u></h3>
+            <p>
+                The <code>background-image</code> property defines the source of an elements background images. It accepts two possible values, namely:
+            </p>
+
+            <ul>
+                <li><strong><code>url()</code></strong> The path to the images goes between the parenthesis as described in future</li>
+                <li><strong><code>none</code></strong> No background image. This is the default value.</li>
+            </ul>
+
+            <p>
+                All browsers in widesprean support multiple background images on the same element. To specify more than one image, seperate each url() value with comma. if the background image overlap, the first one is drawn on top with each subsequent one behing previous one.
+            </p>
+
+            <div style="display: flex; align-items: center;">
+                <div style="background-image: url(./imgex/playTile.png); width: 50%; height: 400px; background-color: rgb(44, 43, 43); margin: 5px; display: flex; align-items: center; justify-content: center; border-radius: 20px;">
+                    <div style="height: 200px; width: 300px; background-color: rgb(27, 26, 26); text-align: center; border-radius: 20px;">
+                        <h3>Background images are automatically tiled horizontally and vertically</h3>
+                        <h3>This is the actual image thats being used as the page background</h3>
+                        <img src="./imgex/playTile.png" alt="">
+                    </div>
+                </div>
+                <div style="background-color: rgb(27, 27, 27); height: auto; width: auto; border-radius: 10px; margin: 40px;">
+                    <blockquote  style="white-space: pre;"><code>
+body{
+    <strong>background-image: url(./imgex/playTile.png);</strong> 
+    <strong>background-color: rgb(44, 43, 43);</strong>
+
+    width: 50%; 
+    height: 400px; 
+    margin: 5px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+}
+                    </code></blockquote>
+                </div>
+            </div>
+
+            <hr>
+        </div>
+
+    </div>
+    <div><h2><u>Controlling How Background Images Repeat</u></h2>
+        <p>
+            The property that controls the way background images are repeated is called <code>background-repeat</code>.
+        </p>
+
+        <div><h3><u>Values That Work in All Browsers</u></h3>
+            <p>
+                The background-repeat property accepts the following values in all browsers:
+            </p>
+
+            <ul>
+                <li><strong><code>repeat</code></strong> This is the default value. It repeats the image both horizontally and vertically to fill the available space</li>
+                <li><strong><code>repeat-x</code></strong> This repeats the image horizontally only</li>
+                <li><strong><code>repeat-y</code></strong> This repeats the image vertically only</li>
+                <li><strong><code>no-repeat</code></strong> Display the image once only</li>
+            </ul>
+
+            <p>
+                Setting the value of background-repeat to repeat-x tiles the background image across the horizontala axis only. This can be useful for creating a gradient background. The background image needs to be only a thin slice. For example, the background image below is only 20px wide. If you set the background color to the same as bottom of the image, it gives the appearance of an continous color. The style rule for &lt;body&gt; below looks like this:
+            </p>
+
+            <div>
+                <div style="padding: 50px;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="background: url(./imgex/gradient.png); background-repeat: repeat-x; display: flex; justify-content: center; align-items: center; width: 500px; height: 400px; background-color: rgb(75, 12, 12); border-radius: 20px;">
+                            <div style="display: flex; flex-direction: column; align-items: center; width: 300px; height: 200px; background-color: rgb(50, 50, 51); padding: 20px; border-radius: 20px;">
+                                <h3>Horizontal Tiling</h3>
+                                <p>
+                                    This page has a backround image that is tiled horizontally using <code>repeat-x</code>
+                                </p>
+                                <p>
+                                    The image is ambot wide and ambot high.
+                                </p>
+                            </div>
+                        </div>
+                        <div style="width: auto; height: auto; background-color: rgb(5, 28, 29); padding: 20px; border-radius: 20px;margin: 20px;">
+                            <blockquote style="white-space: pre;"><code>
+body{
+    background: url(./imgex/gradient.png); 
+    background-repeat: repeat-x; 
+    background-color: rgb(75, 12, 12);
+
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    width: 600px; 
+    height: 500px; 
+}
+                            </code></blockquote>
+                        </div>
+                </div>
+                <div style="padding: 50px;">
+                    <div style="display: flex; align-items: center;">
+                        <div style="background: url(./imgex/gradient.png); background-repeat: repeat-y; display: flex; justify-content: center; align-items: center; width: 500px; height: 400px; background-color: rgb(75, 12, 12); border-radius: 20px;">
+                            <div style="display: flex; flex-direction: column; align-items: center; width: 300px; height: 200px; background-color: rgb(50, 50, 51); padding: 20px; border-radius: 20px;">
+                                <h3>Vertical Tiling</h3>
+                                <p>
+                                    In this page, background-repeat has been set to repeat-y, so the background image tiles down the side of this page.
+                                </p>
+                                <p>
+                                    The image is ambot wide, so the body has been given a left margin of the same width to center the content in the remaining space. Note that the background extends into the left margin. Normally, background dont extend in to margin of an element. The exception is the body element, which acts as thee canvas for the whole page.
+                                </p>
+                            </div>
+                        </div>
+                    <div style="width: auto; height: auto; background-color: rgb(5, 28, 29); padding: 20px; border-radius: 20px;margin: 20px;">
+                        <blockquote style="white-space: pre;"><code>
+body{
+    background: url(./imgex/gradient.png); 
+    background-repeat: repeat-y;
+    background-color: rgb(75, 12, 12);
+
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    width: 600px; 
+    height: 500px; 
+}
+                        </code></blockquote>
+                    </div>
+                    
+                </div>
+            </div>
+            
+        </div>
+            </div>
+        </div>
+
+        <hr>
+    </div>
+    <div><h2><u>New Features in CSS3</u></h2>
+        <p>
+            In CSS2.1 background images simply tile in the specified direction and are cut off at the edge if they dont fit exactly. CSS3 addresses this issue with two new values for the background-repeat property. Both repeat the background image a sufficient number of times to cover the available space. But they differ in how they then treat the background.
+        </p>
+
+        <ul>
+            <li><strong><code>space</code></strong> Any space left over is evenly distribution between the images</li>
+            <li><strong><code>round</code></strong> The images are rescaled to fit the background</li>
+        </ul>
+
+        <div class="b1">
+            <div class="mb1">
+                <div class="con">
+                    <h2>space</h2>
+                </div>
+            </div>
+            <div class="mb2">
+                <div class="con">
+                    <h2>round</h2>
+                </div>
+            </div>
+        </div>
+        <div class="b1">
+            <div class="mb1b">
+                <div class="con">
+                    <h2>space repeat</h2>
+                </div>
+            </div>
+            <div class="mb2b">
+                <div class="con">
+                    <h2>round repeat</h2>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div><h2><u>Controlling Background images During Scrolling</u></h2>
+        <p>
+            The <code>background-attachment</code> property controls what heppens to background images when the page or element is scrolled. It accepts the following values:
+        </p>
+        <ul>
+            <li><code><strong>scroll</strong></code> This is the default value. The background is fixed with regard to the element, so it scrolls with the page</li>
+            <li><code><strong>fixed</strong></code> The background is fixed in relation to the browser viewport, so it remains in the same position when the page is scrolled</li>
+            <li><code><strong>local</strong></code> The background is fixed in relation to the elements contents. If the element has scrollbar, the background scrolls with the content.</li>
+        </ul>
+        <hr>
+    </div>
+    <div><h2><u>Controlling the Position of Background Images</u></h2>
+        <p>
+            By default, browsers place the top-left corncer of background images a the top left of the element, and apply the background to the whole element(unless you restrict it using background-repeat). However, the background-position property allows you to specify new offsets for the background image to place it exactly where you want. CSS3 introduces two other properties: <code>background-origin</code> and <code>background-clip</code>, which give you control over where the offlsets are measured from and how far the background extends.
+        </p>
+        <p>
+            You specify the offsets for the background-position using any combination of the following:
+        </p>
+
+        <ul>
+            <li>Lenghts,such as pixels and ems</li>
+            <li>Keywords</li>
+            <li>Percentages</li>
+        </ul>
+
+        <table>
+            <tr>
+                <th colspan="2"><u>Keywords and Percentage Values for the background-position Property</u></th>
+            </tr>
+            <tr>
+                <th>Keyword</th>
+                <th>Percentage Equivalent</th>
+            </tr>
+            <tr>
+                <td><code>left</code></td>
+                <td>0%</td>
+            </tr>
+            <tr>
+                <td><code>center</code></td>
+                <td>50%</td>
+            </tr>
+            <tr>
+                <td><code>right</code></td>
+                <td>100%</td>
+            </tr>
+            <tr>
+                <td><code>top</code></td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td><code>bottom</code></td>
+                <td>100%</td>
+            </tr>
+        </table>
+        <div><h3><u>Syntax</u></h3>
+            <p>
+                The background-position property expects one or two values:
+            </p>
+
+            <ul>
+                <li>If you use one value, the other value is automatically set to center or 50%</li>
+                <li>If you use two keywords, the horizontal and vertical values can be in either order</li>
+                <li>If you use any other combination of two values, the first one must specify the horizontal offset and the second one the vertical offset</li>
+            </ul>
+            <p>
+                When using two values, make a habit of always putting them in order: horizontal, vertical. Although specifying background-position as top is valid, 0% right is not.
+            </p>
+
+            <div>
+                <blockquote style="white-space: pre;"><code>
+background-position: left bottom;
+background-position: 30% 40%;
+background-position: 60px 900px;
+                </code></blockquote>
+            </div>
+            
+        </div>
+        <hr>
+    </div>
+    <div><h2><u>Using Negative Offsets with CSS Sprites</u></h2>
+        <p>
+            Skipping the CSS sprites because modern websites uses icons haha
+        </p>
+        <hr>
+    </div>
+    <div><h2><u>Changing Where the Background Begins and How Far it Extends</u></h2>
+        <div>
+            <p>
+            The <code>background-origin</code> property controls the background positioning area, which determins where the offsets for <code>background-position</code> are calculated from. Closely related is the <code>background-clip</code> property, which controls the background painting area, in other words, the extent of the background.
+        </p>
+        <p>
+            The <code>background-origin</code> and <code>background-clip</code> properties accept the following properties, which are explaint diagrammatically bellow:
+        </p>
+        <ul>
+            <li><code>border-box</code> (default for background-clip)</li>
+            <li><code>padding-box</code> (default for background-origin)</li>
+            <li><code>content-box</code></li>
+        </ul>
+            
+        <div style="display: flex; align-items: flex-start;">
+            <div class="bgExOuter">
+                <div class="bgExInn">
+                    <div style="background-image: url(../Topics/imgex/red.png); background-position: 0px 0px; width: 30px; height: 30px; background-repeat: no-repeat;">      
+                    </div>
+                    <div style="width: 30px; height: 30px; background-image: url(../Topics/imgex/green.png); margin: 0 0 0 30px; float: left; z-index: 5;">
+                    </div>
+                    
+                </div>
+            </div>
+            <div style="background-color: brown; width: 300px; height: 200px; border-radius: 30px; display: flex; align-items:flex-start; flex-direction: column; justify-content: center; padding: 30px">
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <div style="background-image: url(../Topics/imgex/blue.png); height: 30px; width: 30px;">
+                    </div>
+                    <h2><code style="font-size: 12pt; padding: 30px;">border-box</code></h2>
+                </div>
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <div style="background-image: url(../Topics/imgex/red.png); height: 30px; width: 30px;">
+                    </div>
+                    <h2><code style="font-size: 12pt; padding: 30px;">padding-box</code></h2>
+                </div>
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <div style="background-image: url(../Topics/imgex/green.png); height: 30px; width: 30px;">
+                    </div>
+                    <h2><code style="font-size: 12pt; padding: 30px;">content-box</code></h2>
+                </div>
+            </div>
+        </div>
+        <p>
+            Image can be repeated from a different position, in this situation I set it in <code>background-repeat: no-repeat; so it only appears once</code>
+        </p>
+        <div>
+            <div style="width: 420px; height:  420px; background-color: rgb(134, 24, 24); display: flex; align-items: center; justify-content: center; border-radius: 30px;">
+                <div style="background-image: url(../Topics/imgex/BGs.png); width: 400px; height: 400px; border-radius: 30px; display: flex; align-items: center; justify-content: center; background-clip: text; -webkit-background-clip: text; color: transparent;">
+                    <div style="font-size: 200pt;letter-spacing: -5px; font-weight:500; line-height: 0.7; font-family: fantasy">
+                        VRVR <br>
+                        VRVR  <br>
+                    
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+        <div>
+            <h3><u>Settint the Size of a Background Images</u></h3>
+            <p>
+                When adding a background image to an element, its important to realize that the background is simply that. The element wont increase its size to accommodate that great image youve chosen, If you want the image to be displayed in full, you need to make sure the element is wide and tall enough. At least, thats the case in older browsers. CSS3 gives you more flexibility with the background-size property, which supported by all browsers in widespread uses.
+            </p>
+            <blockquote>
+                The background-size property accepts the folling value:
+
+                    <strong>contain</strong> Scale the image to the largest possible size so that both its width and height fit into the background positionig area.
+
+                    <strong>cover</strong> Scale the image to its smallest size so that both its width and height can comepletely cover the background positioning area.
+
+                    One or two lengths or percentages
+
+                    When using lengths or percentages, the first value sets the width of the backgroud as auto. Percentage are relative to the background positioning area as determined by background-origin. The contain, cover, and auto keywords all preserve the images aspect ratio.
+            </blockquote>
+            <div style="width: 850px;height: 450px; background-color: white; padding: 25px; display: flex;">
+                <div style="background-image: url(./imgex/BGs.png);background-size: contain; height: 445px; width: 425px; background-color: gray; margin-right: 15px;">
+                </div>
+                <div style="background-image: url(./imgex/BGs.png);background-size:cover; height: 445px; width: 425px; background-color: blue;"></div>
+            </div>
+            <p>
+                The same background images is resized differently without losing its aspect ratio. Bot images containers have a dimention of 445y by 425x.
+            </p>
+            <hr>
+        </div>
+    </div>
+    <div><h2><u>Using the background Shorthand Property</u></h2>
+        <div>
+            <p>
+                Instead of individual properties, you can wrap the definition in a single declaration using the background shorthand property. All browsers support CSS2.1 syntax, which combines the folling properties:
+            </p>
+            <blockquote><code>
+                background-color
+                background-image
+                background-repeat
+                background-attachment
+                background-position
+            </code></blockquote>
+            <p>
+                Values can be in any order. Omitted values use the initial value listed at the beginning tables. For example, the body style rule below contains four background properties:
+            </p>
+            <blockquote>
+                body{
+                    background-color: #FFF;
+                    background-image: url(yawa/animal/piste.jpeg);
+                    background-repeat: no-repeat;
+                    background-attachment: fixed;
+                }
+            </blockquote>
+            <p>
+                They can be combines in a single shorthand rule as a space-seperated list like this:
+            </p>
+            <blockquote>
+                body{
+                    background: url(yawa/animal/piste.jpeg) fixed no-repeat #FFF;
+                }
+            </blockquote>
+            <p>
+                In this example, theres no value for background-position, so it defaults to 0%, 0% in other words, the top left of an element.
+            </p>
+            <p>
+                <Strong>Caustion</Strong> The backgruond shorthand property automatically resets all values to their defaults before assigning the values given in the declaration. This can have unexpected conseqiences if you use the shorthand version at the end of a style rule that already contains individual background properties. Dont use background as quick way of adding a single value, such as color. The shorthand is great for grouping several values, but its easy to override existing values by mistake.
+            </p>
+        </div>
+    </div>
+    <div><h2><u>Adding Multiple Background Images to an element</u></h2>
+        <div>
+            <p>
+                CSS3 allows you to add multiple background images to an element by listing the image sources as a comma seperated list. The firs image in the list is displayed at the front, and all subseqent images are displayed behind. Obviosly, adding multiple images to an element only makes send if you control the default repeat pattern and other background properties. Consequently, in CSS3 compaint browsers all background properties except backgroud-color accept a comma-seperated list of value, which need to be in the same order as the images. If a property has only one value, the same value applies to all images.
+            </p>
+        </div>
+        <div style="display: flex; align-items: center; justify-content: center;">
+            <div style="height: 550px; width: 550px; background-color: orange; background-image: url(./imgex/BGs.png),url(./imgex/BGs.png);background-position: center; background-repeat: no-repeat, repeat; background-size: auto,auto; background-origin: padding-box, border-box; background-clip: content-box, border-box; border-radius: 50px;">
+            </div>
+            <div style="background-color: rgb(134, 24, 24); height: 200px; width: 350px; margin: 0 0 0 2 0px; padding: 0 20px 0 0px; border-radius: 20px;">
+                <blockquote>
+height: 550px; 
+width: 550px; 
+background-color: orange; 
+background-image: url(./imgex/RV.png),url(./imgex/RV.png);
+background-position: center; 
+background-repeat: no-repeat, repeat; 
+background-size: auto,auto; 
+background-origin: padding-box, border-box; 
+background-clip: content-box, border-box; 
+border-radius: 50px;
+                </blockquote>
+                
+            </div>
+        </div>
+        <p>
+            This adds RV.jpeg as the first image, and with RV.jpeg behind. Theres only one value for backround-position, so it applies both to images. In the remaining decalrations, the first value applies to RV.jpeg, and the second one to RV.jpeg. The values for RV.jpeg rest its size, prevent it from repeating and chage its background positioning and painting areas. The other image, RV.jpeg is automatically tiled and covers the whole element.
+        </p>
+    </div>
+</body>
+<style>
+    a{
+        color: white;
+    }
+</style>
+</html>

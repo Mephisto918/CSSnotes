@@ -1,0 +1,238 @@
+*{
+    padding: 0px;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --code: rgb(46, 46, 46);
+    --sample: rgb(83, 83, 83);
+}
+h1,h2,h3,p,strong, h4 {
+    padding: 10px 0 3px 10px;
+}
+p{
+    text-indent: 20px;
+    width: 70%;
+}
+h4{
+    strong{
+        text-indent: 20px;
+        width: 70%;
+        display: inline;
+    }
+}
+body{
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+a{
+    color: white;
+}
+table,th,tr,td{
+    border: 1px solid white;
+}
+ul > li{
+    margin: 0 0 0 25px;
+}
+
+#transform-con{
+    display: flex;
+    gap: 1rem;
+    margin: 1rem;
+}
+#transform-con > *{
+    width: 25%;
+    height: 25%;
+    border-radius: 1rem;
+
+    transform: translateX(0);
+    transform: translateY(0);
+    transform: translate(0,0);
+}
+#rotate-con{
+    display: flex;
+    gap: 1rem;
+    margin: 1rem;
+}
+#rotate-con > *{
+    width: 25%;
+    height: 25%;
+    border-radius: 1rem;
+    
+    transform: rotate(0);
+}
+#transform-origin-con{
+    display: flex;
+    gap: 1rem;
+    margin: 1rem;
+}
+#transform-origin-con > *{
+    width: 25%;
+    height: 25%;
+    border-radius: 1rem;
+    transform: rotate(-2deg);
+}
+#transform-origin-con > img:nth-child(2){
+    width: 25%;
+    height: 25%;
+    border-radius: 1rem;
+    transform-origin: -7rem 33rem;
+}
+#transform-origin-con > img:nth-child(3){
+    width: 25%;
+    height: 25%;
+    border-radius: 1rem;
+    transform-origin: -24rem 63rem;
+}
+
+#scale-con{
+    display: flex;
+    gap: 1rem;
+    margin: 1rem;
+}
+#scale-con > *{
+    width: 25%;
+    height: 25%;
+    border-radius: 1rem;
+}
+#scale-con > img:nth-child(2){
+    width: 25%;
+    height: 25%;
+    border-radius: 1rem;
+    transform: scaleX(0.5);
+}
+#scale-con > img:nth-child(3){
+    width: 25%;
+    height: 25%;
+    border-radius: 1rem;
+    transform: scaleY(0.5);
+}
+#skew-con{
+    display: flex;
+    gap: 1rem;
+    margin: 1rem;
+}
+#skew-con > *{
+    width: 25%;
+    height: 25%;
+    border-radius: 1rem;
+}
+#skew-con > img:nth-child(1){
+    transform: skewX(-30deg);
+}
+#skew-con > img:nth-child(2){
+    transform: skewY(10deg);
+}
+#skew-con > img:nth-child(3){
+    transform: skew(-30deg,10deg);
+}
+
+#duration-con{
+    display: flex;
+    gap: 1rem;
+    margin: 1rem;
+}
+#duration{
+    width: 15rem;
+    height: auto;
+    padding: 10px;
+    background-color: var(--sample);
+    border-radius: 10px;
+}
+#duration:hover{
+    color: black;
+    transition-property: color;
+    transition-duration: 1s;
+}
+#duration-code{
+    background-color: var(--code);
+    padding: 10px;
+    border-radius:10px ;
+}
+.con{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 1rem;
+}
+.sample{
+    width: 15rem;
+    height: auto;
+    padding: 10px;
+    background-color: var(--sample);
+    border-radius: 10px;
+}
+.code{
+    padding: 10px;
+    border-radius:10px ;
+    background-color: var(--code);
+    white-space: pre;
+    font-family: monospace;
+}
+
+.box-con{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem;
+}
+.box-con > div {    
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    border: 1px solid white;
+    transition-duration: 2s;
+}
+.box-con > div:hover {    
+    background-color: white;
+    border: 1px solid black;
+}
+#box1{
+    transition-property: background-color;
+    transition-timing-function: steps(5, start);
+}
+#box2{
+    transition-property: background-color;
+    transition-timing-function: steps(5, end);
+}
+#box3{
+    transition-property: background-color;
+    transition-timing-function: step-start;
+}
+#box4{
+    transition-property: background-color;
+    transition-timing-function: step-end;
+}
+
+.con > #delay {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    margin: 10px;
+    transition-property: background-color, width, height;
+    transition-duration: 1s;
+    transition-delay: 0s, 1s, 2s;
+}
+#delay:hover{
+    background-color: yellow;
+    width: 150px;
+    height: 150px;
+}
+.con > #delay-rev {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    margin: 10px;
+    transition-property: background-color, width, height;
+    transition-duration: 1s;
+    transition-delay: 0s, 1s, 2s;
+}
+#delay-rev:hover{
+    background-color: yellow;
+    width: 150px;
+    height: 150px;
+    transition-delay: 2s, 1s, 0s;
+}

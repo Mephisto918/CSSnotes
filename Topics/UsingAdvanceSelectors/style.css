@@ -1,0 +1,86 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+}
+body{
+    padding: 20px;
+    background-color: black;
+}
+table,th,td,td{
+    border: 1px solid white;
+}
+
+p{
+    text-indent: 20px;
+}
+ul{
+    padding: 0px 0px 0px 40px;
+}
+#adjacent-con{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+}
+#adjacent {
+    background-color: rgb(39, 38, 38);
+    padding: 10px;
+    width: 100px;
+    margin: 0px 10px;
+    border-radius: 10px;
+}
+#adjacent > h3 + p {
+    color: gray;
+}
+#adjacent-code{
+    background-color: rgb(21, 21, 21);
+    padding: 10px;
+    margin: 0px 10px;
+    border-radius: 10px;
+}
+
+#general-con{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+}
+#general{
+    background-color: rgb(39, 38, 38);
+    padding: 10px;
+    width: 100px;
+    margin: 0px 10px;
+    border-radius: 10px;
+}
+#general > h2 ~ p{
+    color: gray;
+}
+#general-code{
+    background-color: rgb(21, 21, 21);
+    padding: 10px;
+    margin: 0px 10px;
+    border-radius: 10px;
+}
+
+#negative-factor-con{
+    display: flex;
+    flex-direction: row;
+    margin: 20px;
+}
+#negative-factor{
+    background-color: rgb(39, 38, 38);
+    padding: 10px;
+    width: auto;
+    margin: 0px 10px;
+    border-radius: 10px;
+    display: inline-table;
+}
+#negative-factor-con > #negative-factor > table > tbody> tr > td:empty{
+    background-color: red;
+}
+#negative-factor-code{
+    background-color: rgb(21, 21, 21);
+    padding: 10px;
+    margin: 0px 10px;
+    border-radius: 10px;
+}

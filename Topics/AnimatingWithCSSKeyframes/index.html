@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1 id="back"><a href="../../CSS Notes Main.html">Back</a></h1>
+    <hr>
+    <h1>Animating with CSS Keyframes</h1>
+    <hr>
+    <div>
+        <h2>Defining Keyframes</h2>
+        <p>
+            Creating a CSS animation is a two-stage process. Unlike CSS transitions, where all the properties are defined in the elements style rules, you create the keyframes seperately. This has the advantage that you can define a set of keyframes and apply the same animation to a different elements.
+        </p>
+        <p>
+            The keyframes describe the state of properties at each stage of the animation. Optionally, they also specify the timing function (similar to <code>transition-timing-function</code>) that controls the pace of the transition between each stage.
+        </p>
+        <p>
+            You define a set of keyframes using <code>@keyframes</code> followed by the name you want to give the animation. All the rules for the keyframes go inside a pair of curly braces. For example, to define the keyframes for an animation <code>highlight</code>:
+        </p>
+        <div class="con">
+            <div class="code">
+@keyframes highlight{
+    keyframe definitions
+}
+            </div>
+        </div>
+        <p>
+            Inside the curly braces, style blocks define the state of the animated properties at each stage. Each style block has a <i>keyframe selector</i> indicating the percentage along the duration of the animation that the keyframe represents. The selector for the starting keyframe can be either 0% or the keyword from. The selector for the ending keyframe can be either 100% or <code>to</code>. All other selectors must be percentages.
+        </p>
+        <p><strong>
+            If you use a percentage value for the starting point. it must be 0%. Ommiting the percentage sign after 0 is invalid as a keyframe selector
+        </strong></p>
+        <p>
+            For example, the following <code>@keyframe</code> rules creates an animation that changes the <code>background-color</code> property from full transparent yellow at the start, increases it to 50% transparency at the halfway point, and fades it back to a fully transparent at the end:
+        </p>
+        <div class="con">
+            <div class="code">
+@keyframe highlight{
+    from {
+        background-color: rgba(225, 204, 0, 0);
+    }
+    50% {
+        background-color: rgba(225, 204, 0, 0.5);
+    }
+    to {
+        background-color: rgba(225, 204, 0, 0.0);
+    }
+}
+            </div>
+        </div>
+        <p>
+            In this example, the same values are used for <code>from</code>
+            and <code>to</code>. To avoid repetition, you can group keyframe selectors as a comma-seperated list. So the following <code>@keyframe</code> rule has exactly the same meaning as the preceding one:
+        </p>
+        <div class="con">
+            <div class="code">
+@keyframe highlight{
+    from, to {
+        background-color: rgba(225, 204, 0, 0);
+    }
+    50% {
+        background-color: rgba(225, 204, 0, 0.5);
+    }
+}
+            </div>
+        </div>
+        <div>
+            <hr>
+            <h3>Specifying the Timing Function Between Keyframes</h3>
+            <p>
+                Optionally, <code>@keyframes</code> rules can specify how the browser should calculate intermediate values between each keyframe using the <code>animation-timing-function</code> property. This accepts the same values as <code>transition-timing-fucntion</code>, namely:
+                <ul>
+                    <li><strong>ease</strong> Starts slow, speeds up, and slows down toward the end</li>
+                    <li><strong>linear</strong> Transitions at an even pace throughout</li>
+                    <li><strong>ease-in</strong> Starts slow and speeds up</li>
+                    <li><strong>ease-out</strong> Starts fast and slows toward the end</li>
+                    <li><strong>ease-in-out</strong> Similar to ease, but slower at each end</li>
+                    <li><strong>cubic-bezier()</strong> Specifies a custom transition using a cubic-bezier curve</li>
+                    <li><strong>step-start</strong> The change takes place at the beginning of the duration</li>
+                    <li><strong>step-end</strong> The change takes place at the end of the duration</li>
+                    <li><strong>steps()</strong> The change takes place in the specified number of equal steps</li>
+                </ul>
+            </p>
+            <p>
+                Adding <code>animation-timing-function</code> to a keyframe tells the browser how to handle the pace of the transition to the next keyframe. For example, the highlight example in the preceding section has been amended to use <code>ease-out</code> for both halves of the animation like this:
+            </p>
+            <div class="con">
+                <div class="code">
+@keyframe highlight{
+    from {
+        background-color: rgba(225, 204, 0, 0);
+        <b>animation-timing-function: ease-out;</b>
+    }
+    50% {
+        background-color: rgba(225, 204, 0, 0.5);
+        <b>animation-timing-function: ease-out;</b>
+    }
+    to {
+        background-color: rgba(225, 204, 0, 0.0);
+    }
+}
+                </div>
+            </div>
+            <p>
+                You can set <code>animation-timing-function</code> on each keyframe except the last one (100% or to). If you set a timing function on the ending keyframe. Its ignored.
+            </p>
+            <p>
+                If you dont specify <code>animation-timing-function</code> for a keyframe, the default ease is used.
+            </p>
+            <p><strong>
+                The same timing function applies to all properties. If you want some properties to change at a different-pace, you need to define a seperate <code>@keyframes</code> rule and apply multiple animations on the target elements.
+            </strong></p>
+
+        </div>
+        <div>
+            <h3>Animating Elements with Keyframes</h3>
+            <p>
+                Once you have defined the keyframes for an animation, you can animate elements in your pages using the CSS properties listed below. There are eight individual properties and a shorthand one.
+            </p>
+            <table>
+                <tr>
+                    <th colspan="3">CSS Animation Properties</th>
+                </tr>
+                <tr>
+                    <th>Property</th>
+                    <th>Initial Value</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>animation-name</code></td>
+                    <td>none</td>
+                    <td>Selects an animation defined in a <code>@keyframes</code> rule and applies it to the element. Setting the value to none overrides an animation coming from the cascade</td>
+                </tr>
+                <tr>
+                    <td><code>animation-duration</code></td>
+                    <td>0s</td>
+                    <td>Sets the duration of an animation</td>
+                </tr>
+                <tr>
+                    <td><code>animation-timing-function</code></td>
+                    <td>ease</td>
+                    <td>Sets the pace of the transition to the next keyframe, as described in the previous section, Can also be used to set the default timing function for keyframes</td>
+                </tr>
+                <tr>
+                    <td><code>animation-iteration-count</code></td>
+                    <td>1</td>
+                    <td>Sets the number of times an animation should run. The value can be a number or the keyword <code>infinite</code></td>
+                </tr>
+                <tr>
+                    <td><code>animation-direction</code></td>
+                    <td>normal</td>
+                    <td>Determines whether an animation should run in reverse on some cycles</td>
+                </tr>
+                <tr>
+                    <td><code>animation-play-state</code></td>
+                    <td>running</td>
+                    <td>Defines wheter an animation is running. Accepted values are <code>running</code> and <code>paused</code></td>
+                </tr>
+                <tr>
+                    <td><code>animation-delay</code></td>
+                    <td>0s</td>
+                    <td>Specifies when an animation should start. A positive value plays athe animation from the beginning after the specified delay. If a negative time is used, the animation starts immediately, but part way through its play cycle at the point it would have reached after the specified offset</td>
+                </tr>
+                <tr>
+                    <td><code>animation-fill-mode</code></td>
+                    <td>none</td>
+                    <td>Defines which property values to apply to the element before the animation begins (if delayed) and after it ends</td>
+                </tr>
+                <tr>
+                    <td><code>animation</code></td>
+                    <td> </td>
+                    <td>Shorthand property that defines all the properties of an animation except <code>animation-play-state</code> in a single declaration</td>
+                </tr>
+            </table>
+            <P>
+                To apply an animation to an elementm both <code>animation-name</code> and <code>animation-duration</code> are required (or their values specified in the <code>animation</code> shorthand property). All other properties are optional.
+            </P>
+            <p>
+                All properties in table above accpets a comma-seperated list of values to apply multiple animations to the same element. Values are applied to animations in the same order as specified in <code>animation-name</code>. If fewer values are specified for a property than the nymber of animation names, the browser cycles throught them in the same way as for CSS transitions. Excess values are ignored.
+            </p>
+            <p>
+                The properties in table above are not inherited, so you can use the <code>inherit</code> keyword if you want an element to inherit the same values as its parent.
+            </p>
+        </div>
+        <div>
+            <h3>Specifying Which Animation to Use</h3>
+            <p>
+                The <code>animation-name</code> property takes as it value on or more names of <code>@keyframes</code> rules. For example, to apply the <code>highlight</code> keyframes to an element, just set the value of <code>animation-name</code> like this in the elements style rule
+            </p>
+            <div class="con">
+                <div class="code">
+animtion-name: highlight;
+                </div>
+            </div>
+            <p>
+                To apply multiple animations, list the names of the <code>@keyframes</code> rules seperated by comma:
+            </p>
+            <div class="con">
+                <div class="code">
+animtion-name: animation1, animation2, animation3;
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>Setting the Duration of an Animation</h3>
+            <p>
+                The <code>animtion-duration</code> property takes as its value one or more times specified as seconds or thousandths of a second(ms). If multiple times are specified, they are applied to the animations in the same order as listed for <code>animation-name</code>
+            </p>
+            <div class="con">
+                <div id="anim">
+                    <div id="box1">
+
+                    </div>
+                    <div id="box2">
+
+                    </div>
+                    <div id="box3">
+
+                    </div>
+                </div>
+                <div id="anim-select">
+                    <h3><a href="#box1">Box1</a></h3>
+                    <h3><a href="#box2">Box2</a></h3>
+                    <h3><a href="#box3">Box3</a></h3>
+                </div>
+                <div class="codes">
+                    <div class="code">
+@keyframes boxes{
+    from{
+        background-color: rgba(255, 255, 255, 0);
+        animation-timing-function: ease-out;
+    }
+    50%{
+        background-color:  rgba(255, 255, 255, 0.5);
+        animation-timing-function: ease-out;
+    }
+    to{
+        background-color: rgba(255, 255, 255, 0);
+    }
+}
+                    </div>
+                    <div class="code">
+#anim > *:target{
+    animation-name: boxes;
+    animation-duration: 2s;
+}
+                    </div>
+                    <div class="code">
+#box1, #box2, #box3{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    border: 1px solid white;
+}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>Setting the Timing Function Between Keyframes</h3>
+            <p>
+                The <code>animation-timing-function</code> controls the pace at which the browser calculates intermediate property values. Although you can apply the same value to the whole animation, it affects the transition between individual keyframes, not the animation from start to finish.
+            </p>
+            <p>
+                There are two ways to set the timing function. You can set it for individual keyframes in the <code>@keyframes</code> rule as shown earlier in this chapter. Alternatively, you can set in the style rule that applies the animation to the element. Timing functions are applied in the following order:
+                <ol>
+                    <li>Values in <code>@keyframes</code> rules always take precedence</li>
+                    <li>If a timing function has not been set for an individual keframe in the <code>@keyframes</code> rule, the valus in the elments style rule is used</li>
+                    <li>If a timing function has not been set in either plave, the default <code>ease</code> is used</li>
+                </ol>
+            </p>
+            <p>
+                In this example in the preceding section, <code>animation-timing-function</code> has been set to <code>ease-out</code> in both keyframes in the <code>@keyframes</code> rule. The styles could be rewritten like this without changing the meaning:
+            </p>
+            <div class="con">
+                <div id="anim2">
+                    <div id="box12">
+
+                    </div>
+                    <div id="box22">
+
+                    </div>
+                    <div id="box32">
+
+                    </div>
+                </div>
+                <div id="anim-select">
+                    <h3><a href="#box12">Box1</a></h3>
+                    <h3><a href="#box22">Box2</a></h3>
+                    <h3><a href="#box32">Box3</a></h3>
+                </div>
+                <div class="codes">
+                    <div class="code">
+@keyframes boxes2{
+    from{
+        background-color: rgba(255, 255, 255, 0);
+    }
+    50%{
+        background-color:  rgba(255, 255, 255, 0.5);
+    }
+    to{
+        background-color: rgba(255, 255, 255, 0);
+    }
+}
+                    </div>
+                    <div class="code">
+#anim2 > *:target{
+    animation-name: boxes;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+}
+                    </div>
+                    <div class="code">
+#box12, #box22, #box32{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    border: 1px solid white;
+}
+                    </div>
+                </div>
+            </div>
+            <p>
+                In this case, there is not a great deal of difference in the amont of code needed. But you might have a more complex animation with ten keyframes where you want a linear transition for each section apart from the first and last. In such a case, you need to set <code>animation-timing-function</code> in the <code>@keyframes</code> rule only for the first and pnultimate keyframes. All other keyframes can be controlled by setting <code>animation-timing-function</code> to <code>linear</code> in the elements style rule.
+            </p>
+        </div>
+        <div>
+            <h3>Setting the Number of Times an Animation Runs</h3>
+            <p>
+                By default, an animation runs only once, but you can change this by setting <code>animation-iteration-count</code>, which accepts a number or the keyword <code>infinite</code> as its value. As you would expect. Setting the value to <code>infinite</code> repeats the animation endlessly. Negative values are invalid
+            </p>
+            <p>
+                Interestingly, the number for <code>animation-iteration-count</code> does notneed to be an integer. The animation ends part-wat through the cycle id you use noneinteger. 
+            </p>
+<!--------------------------------------------------------------------------------------------------------------------------------------------------------->
+            <div class="con">
+                <div id="partial">
+
+                </div>
+                <div class="codes" style="margin-left: 30%;">
+                    <div class="code">
+@keyframes partial-anim {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translate(250px);
+    }
+}
+                    </div>
+                    <div class="code">
+#partial{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    background-color: lightblue;
+    animation-name: partial-anim;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    <h4><strong>    animation-iteration-count: 1.5;</strong></h4>
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+                    </div>
+                </div>
+            </div>
+            <h4><strong>Refresh the page to have the animation running</strong></h4>
+            <p>
+                The animation properties <code>partial-anim</code> keyframes to the box, set the duration to two seconds, and the timing function to <code>linear</code>. As a result, the box takes two seconds to travel 250px across the screen at a steady pace. The value of the <code>animation-iteration-count</code> is set to 1.5, so the animation continues running after the first iteration. The next two properties, <code>animation-direction</code> and <code>animation-fill-mode</code>, are described in detail later, but they have the effect of sending the box back in the opposite direction and fixing it in a position when the animation ends. Because the number of iterations is 1.5, the box comes to a half in the middle of its journey back to its original position.
+            </p>
+        </div>
+        <div>
+            <h3>Specifying Whether the Animation Should Run in Reverse</h3>
+            <p>
+                The <code>animation-direction</code> property controls whether the animation runs in reverse on some or all cycle. This takes as its value one of the following keywords.
+                <ul style="list-style-type: none;">
+                    <li><strong>normal</strong> This is the default. All iterations of the animation run in the order defined by the @keyframes rule</li>
+                    <li><strong>reverse</strong> All iteration run in the reverse order from that defined in the @keyframes rule</li>
+                    <li><strong>alternate</strong> Counting from 1, all odd cycles run in the normal direction, and all even ones in reverse</li>
+                    <li><strong>alternate-reverse</strong> Counting from 1, all odd cycles run in reverse, and all even ones run in the normal direction</li>
+                </ul>
+            </p>
+            <div class="con">
+                <div id="direction">
+                    <div id="normal">
+                        <button id="normalbt">Normal</button>
+                        <div id="dirbox1"></div>
+                    </div>
+                    <div id="reverse">
+                        <button id="reversebt">Reverse</button>
+                        <div id="dirbox2"></div>
+                    </div>
+                    <div id="alternate">
+                        <button id="alternatebt">Alternate</button>
+                        <div id="dirbox3"></div>
+                    </div>
+                    <div id="alternate-reverse">
+                        <button id="alternate-reversebt">Alternate-reverse</button>
+                        <div id="dirbox4"></div>
+                    </div>
+                </div>
+                <div class="codes">
+                    <div class="code">
+@keyframes run {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(250px);
+    }
+    
+}
+                    </div>
+                    <div class="code">
+.animation{
+    animation-name: run;
+}
+                    </div>
+                    <div class="code">
+#dirbox1{
+    animation-direction: normal;
+}
+#dirbox2{
+    animation-direction: reverse;
+}
+#dirbox3{
+    animation-direction: alternate;
+}
+#dirbox4{
+    animation-direction: alternate-reverse;
+}
+                    </div>
+                    <div class="code">
+#dirbox1, 
+#dirbox2, 
+#dirbox3,
+#dirbox4 {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+                    </div>
+                </div>
+            </div>
+            <p>
+                The four squares all share the following animation properties:
+                <div class="codes">
+                    <div class="code">
+animation-duration: 2s;
+animation-timing-function: linear;
+animation-iteration-count: infinite;
+                    </div>
+                </div>
+            </p>
+            <p>
+                The animation is set to repeat endlessly, but the squares dont move until you click the button because <code>animation-name</code> has not been added to the attributes. Clicking the button triggers a JavaScript function that applies the <code>animated</code> class to the square and set its <code>animation-name</code> to <code>run</code>. Clicking the button gain, removes the class and the animation, causing the box to jump back to ts original position
+            </p>
+            <p>
+                The <code>run</code> keyframes are the same as in the preceding example. They simply move the element 250px across the screen. This is how <code>animation-direction</code> affects the repeat pattern:
+                <ul style="list-style-type: none;">
+                    <li><code>normal</code> The squares starts on the left, and moves 500px to the right. When it reaches ots destination, it jumps back to its original position, and starts moving right again</li>
+                    <li><code>reverse</code> The square jumps back 500px to the right, and starts moving left. When it reaches its original position, it jumps back to right, and starts moving left</li>
+                    <li><code>alternate</code> The square starts on the left, and moves 500px to the right. When it reaches its destination, it starts moving back in the opposite direction, and keeps moving back and forth across the screen</li>
+                    <li><code>alternate-reverse</code> The square jumps 500px to the right, and starts moving to the left. When it reaches its original position, it starts moving to the right, and keeps moving back and forth</li>
+                </ul>
+            </p>
+            <p>
+                So, normal and reverse always repeat the keyframes in a single direction, but starting at different ends of the animation. The other values for animation direction repeat the animation both direcitons. The difference between <code>alternate</code> and <code>alternate-reverse</code> lies in where they begin the sequence. After that, they both go back and forth.
+            </p>
+        </div>
+        <div>
+            <h3>Pausing an Animation</h3>
+            <p>
+                The example in the preceeding section controlled whether the animation was running by assigning the <code>animation-name</code> property to a class and toggling the class on and off. As a result, a square wa no longer animated when the class was removes from it, and it jumped back to its original position. However, you can use the <code>animation-play-state</code> property to pause an animation, freezing, the elment its current state. The property accepts the following values:
+                <ul class="nodec">
+                    <li><code>running</code> This is the default statr. The animation runs normally. If the animation has been paused, it resumes from the current point of the cycle</li>
+                    <li><code>paused</code> The animation stops running. The elements continue to display in the state they were in when the animation was paused</li>
+                </ul>
+            </p>
+            <p>
+                Since JavaScript needs time and effort, we can use the <code>:hover</code> pseudo-class to trigger the pause
+            </p>
+            <div class="con">
+                <div id="pause">
+                    <div class="boxpause"></div>
+                </div>
+                <div class="codes">
+                    <div class="code">
+.boxpause{
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    animation-name: pause-ate;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+.boxpause:hover{
+    animation-play-state: paused;
+}
+                    </div>
+                    <div class="code">
+@keyframes pause-ate {
+    0%{
+        transfrom: scale(1);
+    } 
+    25%{
+        transform: scale(1.2);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    75%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+                    </div>
+                </div>
+            </div>
+            <p>
+                The animation cause a 50px square to pulsate by altering its scale every quarter-second. Hovering over the sequence bring some blessed relief by setting <code>animation-play-state</code> to paused. But soon as you move the mouse pointer away, the animation resumes.
+            </p>
+        </div>
+        <div>
+            <h3>Delaying an Animation</h3>
+            <p>
+                The <code>animation-delay</code> property works exactly the same way as <code>transition-delay</code>, which was described in the previous topics. It delays the start of an animation by the amount specified in seconds(s) or miliseconds(ms).
+            </p>
+            <p>
+                If you specify a negative value, the animation starts immediately, but at the point it would have reached at the specified offset. So, if the animation is four seconds long, and <code>animation-delay</code> is set to minus two seconds, it begins halfway through.
+            </p>
+        </div>
+        <div>
+            <h3>Controlling Properties Before and After Animation</h3>
+            <p>
+                The <code>animation-fill-mode</code> property controls the state of an element before and after an animation. For example, if an element changes color during the animation, you can choose whether to preserve that color or return to the original one when the animation finishes. It accepts the following values:
+                <ul class="nodec">
+                    <li><strong>none</strong> This is the default. Properties return to their original state when the animation ends</li>
+                    <li><strong>forwards</strong> Properties retain values set by the final keyframe</li>
+                    <li><strong>backwards</strong> If the animation is delayed by <code>animation-delay</code>, properties assume values set by the first keyframe while waiting for the animation to start</li>
+                    <li><strong>both</strong> Values set by the first and last keyframes are applied before and after the animation</li>
+                </ul>
+            </p>
+            <div class="con">
+                <div id="direction2">
+                    <div id="none">
+                        <button id="nonebt">none</button>
+                        <div id="bafbox1"></div>
+                    </div>
+                    <div id="forwards">
+                        <button id="forwardsbt">forwards</button>
+                        <div id="bafbox2"></div>
+                    </div>
+                    <div id="backwards">
+                        <button id="backwardsbt">backwards</button>
+                        <div id="bafbox3"></div>
+                    </div>
+                    <div id="both">
+                        <button id="bothbt">both</button>
+                        <div id="bafbox4"></div>
+                    </div>
+                </div>
+                <div class="codes">
+                    <div class="code">
+@keyframes run {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(250px);
+    }
+    
+}
+                    </div>
+                    <div class="code">
+.animation{
+    animation-name: run;
+}
+                    </div>
+                    <div class="code">
+#dirbox1{
+    animation-direction: normal;
+}
+#dirbox2{
+    animation-direction: reverse;
+}
+#dirbox3{
+    animation-direction: alternate;
+}
+#dirbox4{
+    animation-direction: alternate-reverse;
+}
+                    </div>
+                    <div class="code">
+#dirbox1, 
+#dirbox2, 
+#dirbox3,
+#dirbox4 {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+                    </div>
+                </div>
+            </div>
+
+            <p>
+                To show how <code>animation-fill-mode</code> affects the animation, theres a two second delay at the start. The animation runs for two iterations, and <code>animation-direction</code> is set to <code>alternate</code>. When the square reaches the left side of the screen, it starts to moving back in the opposite direction. The animation comes to an end when it reaches the right side of the screen. This is how each square is animated when you click its play button
+
+                <ul class="nodec">
+                    <li><strong>none</strong> The square jumps to the right, slides back to the left, and then slides to the right. At the end of the animation, it jumps back to its original position</li>
+                    <li><strong>forwards</strong> The square behaves the same way as none, but it remains on the right when animation is over</li>
+                    <li><strong>backwards</strong> The square immediately jumps to the right of the screen, pauses for two seconds, then moves back and forth across the screen. At the end of the animation, it jumps back to its original position</li>
+                    <li><strong>both</strong> The square behaves the same way as backwards, but remains on the right when the animation is over</li>
+                </ul>
+            </p>
+        </div>
+        <div>
+            <h3>Using the animation Shorthand Property</h3>
+            <p>
+                The <code>animation</code> shorthand property lets you define one or more animations in a single declaration. It accepts values for all the individual properties except <code>animation-play-state</code>. Like the <code>transition</code> shorthand property. the first time value is interpreted as the duration, and the second (if present) is interpreted as delay.
+            </p>
+            <div class="con">
+                <div id="double-anim">
+<h1>KINGSHARK</h1>
+                </div>
+                <div class="codes">
+                    <div class="code">
+#double-anim>h1{
+    font-size: 45pt;
+}
+
+#double-anim>h1:hover{
+    animation: slide 2s ease-out;
+}
+                    </div>
+                    <div class="code">
+@keyframes slide {
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(100px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+                    </div>
+                </div>
+            </div>
+            <p>
+                Theres only one time value, so it represents the duration. No values are set for the number of iterations or direction, so the animation runs only once in the normal direction. It slides the heading into scaleX and bounces back before coming into a halt. The shorthand is the equivalent of the following individual rules:
+            </p>
+            <div class="codes">
+                <div class="code">
+animation-name: slide;
+animation-duration: 2s;
+animation-timing-funcition: ease-out;
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>Applying Multiple Animations</h3>
+            <div class="con">
+                <div id="double-anim-flash">
+                    <h1>KINGSHARK</h1>
+                </div>
+                <div class="codes">
+                    <div class="code">
+#double-anim-flash>h1{
+    font-size: 45pt;
+    
+}
+
+#double-anim-flash>h1:hover{
+    animation: slide 2s ease-out,
+               flash 1s 1s ease-out forwards;
+}
+                    </div>
+                    <div class="code">
+@keyframes slide {
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(100px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+                    </div>
+                    <div class="code">
+@keyframes flash{
+    0%{
+        text-shadow: 0px 0px 0px white;
+    }
+    50%{
+        text-shadow: 0px 1px 20px white;
+    }
+    100%{
+        text-shadow: 0px 0px 0px white;
+    }
+}
+                    </div>
+                </div>
+            </div>
+            <p>
+                The second animation called <code>flash</code> adds an animated text shadow. It has two time values, the first one is the duration and the second is the delay before the animation starts. Theres no number or direction, so the animation runs only once in the normal direction. But <code>animation-fill-mode</code> is specified as <code>forwards</code>, so the property values in the final keyframe are preserved
+            </p>
+            <p>
+                The shorthand is the equivalent of the following individual properties:
+            </p>
+            <div class="codes">
+                <div class="code">
+animation-name: slide, flash;
+animation-duration: 2s, 2s;
+animation-timing-function: ease-out;
+animation-delay: 0s, 2s;
+animation-fill-mode: none, forwards;
+                </div>
+            </div>
+            <p>
+                The values for each property are seperated by commas and are applied to the animations in the same order ast they are listed in <code>animation-name</code>. When using the individual properties like this, you need to specify default values explicitly unless they are shared by all animation. For example, the slide animation runs intermediately, but flash is delayed by two seconds. In the shorthand version, the delay is not specified for slide. But whn the individual properties are used, it needs to be set to 0s. Otherwise it would have the same delay as flash.
+            </p>
+            <p><strong>
+                Delaying an animation by the same amount as the duration of its predecessors has the effect of running animations in sequence, making it easier to build and maintain the keyframes
+            </strong></p>
+        </div>
+    </div>
+    <div>
+        <?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 357.96 279.3">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: green;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="m133.46,15.9c29.44-13.56,63.73-13.76,94.46-4.59,29.92,8.92,56.69,26.42,79.5,47.45,11.4,10.51,22.27,21.91,30.65,35.02,8.85,13.86,13.93,29.25,14.75,45.7.81,16.25-1.61,32.7-5.86,48.36-4.01,14.79-9.94,29.04-17.82,42.19-3.95,6.58-8.37,12.89-13.29,18.78s-10.31,11.71-16.53,16.3c-6.37,4.71-13.63,7.97-21.55,8.87s-16.37-.22-24.24-2.4c-15.48-4.29-29.96-12.23-43.47-20.77-13.55-8.56-26.35-18.23-39.08-27.94-12.73-9.7-25.45-19.43-38.79-28.28-12.61-8.37-25.59-16.14-38.25-24.41-12.43-8.11-24.6-16.71-35.53-26.78s-20.93-22.54-28.44-36.13c-8.01-14.49-13.98-30.01-19.82-45.46-2.89-7.63-5.81-15.83-5.05-24.12.7-7.64,5.45-13.71,11.58-17.99,12.81-8.94,28.9-11.82,44.25-11.9,17.16-.09,34.01,3.38,50.88,6.08,8.62,1.38,17.28,2.57,26,3.06,3.21.18,3.2-4.82,0-5-34.62-1.96-69.65-15.55-104.2-5.53C19.26,10.59,2.64,19.57.32,35.85c-1.21,8.51,1.24,17.03,4.13,24.95s6.11,16.1,9.41,24.04c6.52,15.66,14.06,30.93,24.54,44.35,9.42,12.07,20.9,22.3,33.11,31.48s25.51,17.48,38.6,25.71c13.62,8.56,27.04,17.33,39.97,26.91,26.46,19.6,51.9,41.28,81.92,55.38,15.19,7.13,32.19,12.73,49.14,9.84s28.84-14.7,38.99-27.06c20.24-24.64,32.38-55.22,36.51-86.71,2.29-17.48,1.99-35.7-3.9-52.48-5.33-15.17-14.63-28.54-25.29-40.44s-22.72-22.82-35.48-32.54c-12.84-9.79-26.69-18.3-41.45-24.87C220.34.98,186.13-4.11,153.72,3.65c-7.84,1.88-15.46,4.56-22.78,7.93-2.92,1.34-.38,5.66,2.52,4.32h0Z"/>
+</svg>
+    </div>
+    <h1 class="top"><a href="#back">^</a></h1>
+    <script src="./script.js"></script>
+</body>
+</html>

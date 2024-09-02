@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Menu</title>
+</head>
+<body>
+    <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+        <h1><a href="../../PositionEle.html">Back</a></h1>
+        <h1>Wala nahuman kay kapoy haha, btw page 258 - 262</h1>
+        <div style="display: flex; justify-content: center; align-items: center; background-color: rgb(50, 50, 50); height: 300px; width: 600px; flex-direction: column;">  
+            <ul id="nav">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a>
+                    <ul>
+                        <li><a href="#">Product 1</a></li>
+                        <li><a href="#">Product 2</a>
+                            <ul>
+                                <li><a href="#">Model 1</a></li>
+                                <li><a href="#">Model 2</a></li>
+                                <li><a href="#">Model 3</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Product 3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Services</a>
+                    <ul>
+                        <li><a href="#">Service 1</a></li>
+                        <li><a href="#">Service 2</a></li>
+                        <li><a href="#">Service 3</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Contacts</a></li>
+            </ul>
+
+        </div>
+    </div>
+    
+</body>
+<style>
+    body{
+        background-color: black;
+        color: whitesmoke;
+    }
+    a{
+        color: white;
+    }
+    #nav{
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+    }
+    #nav > li{
+        height: 20px;
+        width: 50px;
+        padding: 5px;
+        margin: 5px;
+        background-color: blue;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+    }
+    #nav > li:hover >ul {
+        display: block;
+        
+    }
+    #nav > li:hover {
+        height: auto;
+        height: 20px;
+        padding: 5px;
+        margin: 5px;
+        background-color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    #nav ul{
+        display: block;
+        position: absolute;
+        background-color: brown;
+        top: 27px;
+
+        padding: 5px;
+        margin: 5px;
+    }
+    #nav ul li{
+        list-style: none;
+        width: 50px;
+        height: 20px;
+        position: relative;
+        left: 0px;
+        top: 0px;
+        padding: 5px;
+        margin: 5px;
+    }
+    #nav > ul li ul li:hover ul  {
+        display: block;
+    }
+    #nav ul li ul li ul li{
+        display: none;
+        position: absolute;
+        background-color: goldenrod;
+        top: 27px;
+
+        padding: 5px;
+        margin: 5px;
+    }
+
+
+
+</style>
+</html>

@@ -1,0 +1,358 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --code: rgb(46, 46, 46);
+    --sample: rgb(83, 83, 83);
+}
+body{
+    background-color: black;
+    color: white;
+    padding: 20px;
+}
+h1,h2,h3,p{
+    padding: 10px 0px 3px 10px;
+}
+h3{
+    font-size: 20pt;
+    text-decoration: underline;
+}
+p{
+    text-indent: 20px;
+    width: 70%;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+table,th,tr,td{
+    border: 1px solid white;
+}
+.nodec{
+    text-decoration: none;
+    list-style-type: none;
+    list-style-position: outside;
+}
+table{
+    width: 70%;
+}
+ul,ol > li{
+    width: 60%;
+    margin: 10px 0 0 45px;
+}
+
+b{
+    font-weight: 900;
+    text-decoration: underline;
+}
+
+.con{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    margin: 1rem;
+}
+.sample{
+    width: 15rem;
+    height: auto;
+    padding: 10px;
+    background-color: var(--sample);
+    border-radius: 10px;
+}
+.code{
+    padding: 10px;
+    border-radius:10px;
+    height: fit-content;
+    display: inline;
+    background-color: var(--code);
+    white-space: pre;
+    font-family: monospace;
+}
+.codes{
+    display: flex;
+    gap: 1rem;
+}
+
+@keyframes boxes{
+    from{
+        background-color: rgba(255, 255, 255, 0);
+        animation-timing-function: ease-out;
+    }
+    50%{
+        background-color:  rgba(255, 255, 255, 0.5);
+        animation-timing-function: ease-out;
+    }
+    to{
+        background-color: rgba(255, 255, 255, 0);
+    }
+}
+#anim>*:target{
+    animation-name: boxes;
+    animation-duration: 2s;
+}
+#box1,#box2,#box3{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    border: 1px solid white;
+}
+#anim{
+    display: flex;
+    gap: 1rem;
+}
+@keyframes boxes2{
+    from{
+        background-color: rgba(255, 255, 255, 0);
+    }
+    50%{
+        background-color:  rgba(255, 255, 255, 0.5);
+    }
+    to{
+        background-color: rgba(255, 255, 255, 0);
+    }
+}
+#anim2>*:target{
+    animation-name: boxes;
+    animation-duration: 2s;
+    animation-timing-function: ease-out;
+}
+#box12,#box22,#box32{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    border: 1px solid white;
+}
+#anim2{
+    display: flex;
+    gap: 1rem;
+}
+
+@keyframes partial-anim {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translate(250px);
+    }
+}
+#partial{
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+    background-color: lightblue;
+    animation-name: partial-anim;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: 1.5;
+    animation-direction: alternate;
+    animation-fill-mode: forwards;
+}
+
+#dirbox1, 
+#dirbox2, 
+#dirbox3,
+#dirbox4 {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+#direction{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+#direction > *{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    width: 400px;
+}
+#direction > * > button{
+    width: 80px;
+    height: 20px;
+    border: none;
+    border-radius: 10px;
+}
+
+@keyframes run {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(250px);
+    }
+    
+}
+.animation{
+    animation-name: run;
+}
+#dirbox1{
+    animation-direction: normal;
+}
+#dirbox2{
+    animation-direction: reverse;
+}
+#dirbox3{
+    animation-direction: alternate;
+}
+#dirbox4{
+    animation-direction: alternate-reverse;
+}
+
+.boxpause{
+    width: 100px;
+    height: 100px;
+    background-color: white;
+    animation-name: pause-ate;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+.boxpause:hover{
+    animation-play-state: paused;
+}
+@keyframes pause-ate {
+    0%{
+        transfrom: scale(1);
+    } 
+    25%{
+        transform: scale(1.2);
+    }
+    50%{
+        transform: scale(1.1);
+    }
+    75%{
+        transform: scale(1.2);
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+
+#bafbox1, 
+#bafbox2, 
+#bafbox3,
+#bafbox4 {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    animation-duration: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: 2;
+    animation-direction: alternate;
+}
+#direction2{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+#direction2 > *{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    flex-direction: row;
+    gap: 1rem;
+    width: 400px;
+}
+#direction2 > * > button{
+    width: 80px;
+    height: 20px;
+    border: none;
+    border-radius: 10px;
+}
+
+@keyframes run2 {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(250px);
+    }
+    
+}
+.animationbaf{
+    animation-name: run2;
+}
+#bafbox1{
+    animation-fill-mode: none;
+}
+#bafbox2{
+    animation-fill-mode: forwards;
+}
+#bafbox3{
+    animation-fill-mode: backwards;
+}
+#bafbox4{
+    animation-fill-mode: both;
+}
+
+#double-anim{
+    margin: 0 100px 0px 0;
+}
+#double-anim>h1{
+    font-size: 45pt;
+    
+}
+#double-anim>h1:hover{
+    animation: slide 2s ease-out;
+}
+@keyframes slide {
+    0%{
+        transform: translateX(0px);
+    }
+    50%{
+        transform: translateX(100px);
+    }
+    100%{
+        transform: translateX(0px);
+    }
+}
+
+#double-anim-flash{
+    margin: 0 100px 0px 0;
+}
+#double-anim-flash>h1{
+    font-size: 45pt;
+    
+}
+#double-anim-flash>h1:hover{
+    animation: slide 2s ease-out,
+               flash 1s 1s ease-out forwards;
+}
+
+@keyframes flash{
+    0%{
+        text-shadow: 0px 0px 0px white;
+    }
+    50%{
+        text-shadow: 0px 1px 20px white;
+    }
+    100%{
+        text-shadow: 0px 0px 0px white;
+    }
+}
+.top{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+}
+.top>a{
+    color: black;
+    font-size: 70pt;
+    transform: translate(-16%,10%);
+}

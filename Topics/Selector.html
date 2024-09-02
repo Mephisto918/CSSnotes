@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Selector</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+    <h2><a href="../CSS Notes Main.html">Back</a></h2>
+    <h1><strong>BASIC CSS SELECTOR</strong></h1>
+        
+            <table class="table">
+        <tr>
+            <th>Pattern/Selector</th>
+            <th>Name</th>
+            <th>Meaning</th>
+        </tr>
+        <tr>
+            <td><code>*</code></td>
+            <td>Universal Selector</td>
+            <td>Matches any element</td>
+        </tr>
+        <tr>
+            <td><code>E</code></td>
+            <td>Type Selector</td>
+            <td>Matches any <code>HTML</code> type <code>E</code>. The selector consists of HTML, tag name withouth angle brackets. For example <code>h1</code> selects <code>&lt;h1&gt;</code></td>
+        </tr>
+        <tr>
+            <td><code>.className</code></td>
+            <td>class</td>
+            <td>Matches elements with the class attribute <code>className</code></td>
+        </tr>
+        <tr>
+            <td><code>#someID</code></td>
+            <td>ID selector</td>
+            <td>Matches elements with the <code>ID</code> attribute <code>someID</code></td>
+        </tr>
+        <tr>
+            <td><code>E:line</code></td>
+            <td>Link psuedo-class</td>
+            <td>Matches elements of type <code>E</code> if <code>E</code> is an unvisited link</td>
+        </tr>
+        <tr>
+            <td><code>E:visited</code></td>
+            <td>Visited psuedo-class</td>
+            <td>Matches elements of type <code>E</code> if <code>E</code> is a visited link</td>
+        </tr>
+        <tr>
+            <td><code>E:hover</code></td>
+            <td>Hover psuedo-class</td>
+            <td>Matches elements of type <code>E</code> when the cursor is hovering over it</td>
+        </tr>
+        <tr>
+            <td><code>E:active</code></td>
+            <td>Active psuedo-class</td>
+            <td>Matches elements of type <code>E</code> at the moment the element is being clicked</td>
+        </tr>
+        <tr>
+            <td><code>E:focus</code></td>
+            <td>Focus psuedo-class</td>
+            <td>Matches elements of type <code>E</code> when the element currently has focus</td>
+        </tr>
+        <tr>
+            <td><code>E:first-letter</code></td>
+            <td>First-letter psuedo-element</td>
+            <td>Matches the first letter of element <code>E</code></td>
+        </tr>
+        <tr>
+            <td><code>E</code></td>
+            <td>First-line psuedo-ekement</td>
+            <td>Matches he first line of element E</td>
+        </tr>
+        <tr>
+            <td><code>E F</code></td>
+            <td>Descendant Selector</td>
+            <td>Wako kibaw ana ngano. Matches <code>F</code> element that is a descendant of an <code>E</code> element</td>
+        </tr>
+        <tr>
+            <td><code>E[attr]</code></td>
+            <td>Attribute Selector</td>
+            <td>Matches elements of type <code>E</code> with the attribute <code>attr</code></td>
+        </tr>
+        <tr>
+            <td><code>E[attr="x"]</code></td>
+            <td>Attribute Selector</td>
+            <td>Matches elements of type <code>E</code> where the value of the attribute exactly "<code>x</code>"</td>
+        </tr>
+        <tr>
+            <td><code>E[attr^="x"]</code></td>
+            <td>Attribute Selector</td>
+            <td>Matches elements of type <code>E</code> where the value attributebe begins with "<code>x</code>"</td>
+        </tr>
+        <tr>
+            <td><code>E[attr$="x"]</code></td>
+            <td>Attribute Selector</td>
+            <td>Matches elements of type <code>E</code> where the value of the <code>attr</code> attribute ends with "<code>x</code>"</td>
+        </tr>
+            </table>
+
+            <hr>
+    <div>
+        <h1><strong><code>Universal Selector</code></strong></h1>
+            <p>The <em><strong>Universal Selector</strong></em> is represented by an asterisk (<code>*</code>). It selects any elements, but is rarely used except to create hacks to hide styles from older browsers.</p>
+            <hr>
+        <h1><strong><code>Type Sekectors</code></strong></h1>
+            <p>A <em><strong>Type Selector</strong></em> uses the name on <strong>HTML</strong> tag without the angle brackets, and redefines the defailt look of the tag. It is also called <em><strong>Tag Selectors</strong></em></p>
+            <hr>
+        <h1><strong><code>Class Selectors</code></strong></h1>
+            <p>A <em><strong>Class Selector</strong></em> applies style rules to elements that have the equivalent class atribute in thier opening <strong>HTML</strong> tag. The selector is created by prefixing the class name bt a period. For example <code>class="warning"</code> in the opening tag.</p>
+            <ul><h2>Class names mut also adhere to the following rules:</h2>
+                <li>No spaces are permitted</li>
+                <li>The only punctuation characters permitted are the hypen (<code>-</code>) and underscore (<code>_</code>)</li>
+                <li>The name cannot begin with a number or a hyphen followed by a number.</li>
+            </ul>
+            <hr>
+        <h1><strong><code>ID Selectors</code></strong></h1>
+            <p>An <em><strong>ID Selector</strong></em> applies stles to elements that have the equivalent id attribute in thier opening <strong>HTML</strong> tag. Unlike classes, which can be applied to multiple elements in the same page. <em><strong>ID</strong></em> on different pages, as long as its only used once on each page.</p>
+            <p>The selector is creating by prefixing the <em><strong>ID</strong></em> with the hash or pound sign (<code>#</code>). For example, #sidebar applied to the element that has <code>id="sidebar"</code> in its opening tag. The rules for naming <em><strong>ID</strong></em>'s are the same as for class names.</p>
+            <hr>
+        <h1><strong><code>Psuedo-classes</code></strong></h1>
+            <p>A <em><strong>Psuedo-classes</strong></em> doesn't rely on a class attribute in the <strong>HTML</strong> markup. but is applied automatically by the browser deoending on the position at the element or its interactive state. The <em><strong>Psuedo-classes</strong></em> apply mainly to links and form elements</p>
+            <hr>
+        <h1><strong><code>Psuedo-elements</code></strong></h1>
+            <p>Like <em><strong>Psuedo-classes</strong></em>, a <em><strong>Psuedo-element</strong></em> is not identified as such by <em>HTML</em> markup. It applies styles to content based on its position in the <em>HTML</em> herirarchy. The most widely supported <em><strong>Psuedo-element</strong></em> are:</p>
+                <ul>
+                    <li><code>[:first-letter]</code> This applies a style to the first letter at the first line inside a block-level element, such as a paragraph as long as nothing else preccedes it.</li>
+                    <li><code>[:first-line]</code> This applies a style for the first line on the text in a block-level element. The length expands and contracts dynamincally if the text is rewrapped.</li>
+                </ul>
+                <hr>
+        <h1><strong><code>Descendant Selectors</code></strong></h1>
+            <p>A <em><strong>Descendant Selector</strong></em> matches any element that is a descendant of another. To create a descendant selector, separate the two selectors by a space, putting the ancestor first. For example, <code>#sidebar p</code> affects only paragraphs that are descendants of an element that has the <em><strong>ID</strong></em> sidebar.</p>
+            <hr>
+        <h1><strong><code>Attribute Selector</code></strong></h1>
+            <p>An <em><code>Attribute Selector</code></em> matches any element that has particular attribute in its opening <strong>HTML</strong> tag. You create an attribute selector by putting the attribute-optionally with a value-in a pair of square brackets after a type <code>(tag)</code> selector.</p>
+                <h3>The following selections described the most common attribute selectors.</h3>
+                <ul>
+                    <li>Match Any Value</li>
+                        <p>The simplest type of attribute selector matches an elements that contains a particular attribute in its opening tag. The values of the attribute is <em>unimportant</em>. For example, the following style rule adds a five-pixel red border around every image that contains the alt attribute:</p>
+                        <p><code>
+                            img[alt]{<br>
+                                border: 5px solid red;<br>
+                            }
+                        </code></p>
+                        <p>This can be useful for checking that all image have alternate text before uploading your site. You can see instantly if the alt attribute is missing from any image because they won't have a border on your images, that is.</p>
+                    
+                    <li>Match an Exact Value</li>
+                        <p>To select elements with attribute that have a specific value, add on equal sign after the attribute followed by the value you want to match. This is particularly useful when styling forms. For example, the styling rules gives all text inputs fields a width of 250 pixels.</p>
+                            <p><code>
+                                input type="text"{<br>
+                                    color: red;<br>
+                                }
+                            </code></p>
+                    <li>Match the Beginning of a Value</li>
+                        <p>You can select elements bt matchmaking only the first few characters of an attribute's value. Precede the equal sign with a caret or circumflex like this:</p>
+                        <p><code>
+                            a [href^="http://"]{<br>
+                                color: red;<br>
+                            }
+                        </code></p>
+                        <p>This matches all links where the href attribute begins with http://. In other words, it matches all external links, except those made over a secure connection.</p>
+                    <li>Match the End of a Value</li>
+                        <p>To match the last few characters of an attributes value, precede the equal sign with a dollar sign. For example, the following style matches all links to PDF documents, and displays a PDF symbol alongside the link text.</p>
+                        <p><code>
+                            a [href$="pdf"]{<br>
+                                padding-right: 20px;<br>
+                                background-image: url(...../images/pdficon_small.gid);<br>
+                                background-repeat: no-repeat;<br>
+                                background-position: right-center;<br>
+                            }
+                        </code></p>
+                </ul>
+                <hr>
+            <h1><strong><code>Group Multiple Selectors</code></strong></h1>
+                <p>To avoid repetition when applying the same styles to several elements, you can group selectors as a comma-seperated list. For example, the example style rule changes the color of all headings: </p>
+                <p><code>
+                    h1, h2, h3, h4, h5, h6 {<br>
+                        color; red;<br>
+                    }
+                </code></p>
+            
+            <hr>
+
+            <h1><strong><code>Using Class Selectors</code></strong></h1>
+                <p>used in <code>class=""</code></p>
+                <p>You can use class selectors like this: </p>
+                <p><code>
+                    .box {<br>
+                        width: 120px;
+                        height: 40px;
+                    }
+                </code></p>
+                <p>You can also use a class selector in a descendant selector like this:</p>
+                <p><code>
+                    .box a:link {<br>
+                        wako kibaw unsay properties ani :( <br>
+                    }
+                </code></p>
+                <p>You can also prefix the class selector with another selector to target elements precisely, for example:</p>
+                <p><code>
+                    p.box { <br>
+                        color: black; <br>
+                    }
+                </code></p>
+                <p>Note! It becomes a descendant selector when you put spaces between the period. For example:</p>
+                <p><code>
+                    p .box{ <br>
+                        color: gray; <br>   
+                    }
+                </code></p>
+                <hr>
+            <h1><strong><code>Using Psuedo-elements</code></strong></h1>
+                <p>You append the psuedo-element to the basic selector in the same way as psuedo-class, for example:</p>
+                <p><code>
+                    p.box:first-line{<br>
+                        text-tansform: uppercase; <br>
+                    }
+                </code></p>
+                <div >
+                    <p class="box">first line <br>
+                        second line
+                    </p>
+                </div>
+                <p>To style just the first letter of an element, use the <code>:first-letter</code> element like this:</p>
+                <p><code>
+                    p:first-letter{<br>
+                        text-transform: 26px;
+                    }
+                </code></p>
+                <div>
+                    <p class="box2">first letter <br>
+                    second letter</p>
+                </div>
+    </div>
+        <hr>
+    <div>
+        <h1><u>What Heppens When Style Rules Conflic?</u></h1>
+        <p>The basic principle of the cascade is that a style definition that comes after another 
+            overrides the earlier one in case of a conflict. However, not all selectors are equal. Calculating which style rule 
+            wins also depends on a concept known as <em>Specificity</em>.</p>
+
+            <ul>
+                <li>Count the number of <code>ID</code> selectors in the selector as <code>a</code></li>
+                <li>Count the number of class selectors psuedo-class, and attribute selectors in the selector as <code>b</code></li>
+                <li>Count the number of type selector and psuedo-elements in the selector as <code>c</code></li>
+                <li>Ignore the universal selector</li>
+                <li>String <code>abc</code> together to get selector's Specificity</li>
+                <li>Inline styles always take precedence</li>
+            </ul>
+            <div>
+                <p>In other words, ID selectors have a value of 100; class, pseudo-class, and attribute selectors each have a value of 10; and type selectors and pseudo-elements have a value of 1. The CSS2.1 formula expresses each group as a comma-separated list of four numbers. The values are assigned like this:</p>
+
+                <ul>
+                    <li>Inline style: 1, 0, 0, 0</li>
+                    <li>ID style: 0, 1, 0, 0</li>
+                    <li>Class, Psuedo-classe, or attribute selector: 0, 0, 1, 0</li>
+                    <li>Type selector or psuedo-element: 0, 0, 0, 1</li>
+                </ul>
+            </div>
+            <div>
+                <p>Using both formulas, you can calculate the specificity of selectors used in the exercises like this:</p>
+                <p>
+                    <code>a </code>specificity   1 or 0, 0, 0, 1<br>
+                    <code>a:link </code>          specificity  11 or 0, 0, 1, 1<br>
+                    <code>#nav a:link </code>     specificity 111 or 0, 1, 1, 1<br>
+                    <code>p.box:first-lin </code> specificity 12 or 0, 0, 1, 2<br>
+                </p>
+            </div>
+        <hr>
+    </div>
+
+</body>
+</html>

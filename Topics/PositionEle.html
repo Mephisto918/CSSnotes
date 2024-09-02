@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Position Elements</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/BG.css">
+</head>
+<body style="display: block;">
+    <h1><a href="../CSS Notes Main.html">Back</a></h1>
+    <h1 style="text-align: center; font-size: 32pt;"><u><i>Positioning Elements Precisely</i></u></h1>
+    <hr>
+    <div><h2>How Does CSS Positioning Work?</h2>
+        <p>
+            The float property that you learned previously takes an element out of the normal flow of the document, but its position is sitll controlled by where it appears in the markup. You cant arbitrarly float an image alongside text that in a completely different part of the page. <br>Css positionning takes a different approach by allowing you to remove an element from the flow of the document and place it wherever you want on the page. But theres a catch, and a pretty serious one at that. Once an element has been position, it cease to interact with other elements on the page. So, you cant flow other content around it or use margins to seperate it from other elements that remain in the document flow. The positioned element resides on a seperate layer in front of the normal content. This introduces a third dimension that allows you to make elements overlap. <br> To position an lement you use the position property in combination with the other properties listed below.
+
+            <table>
+                <tr>
+                    <th colspan="3"><i>Properties Used for CSS Positioning</i></th>
+                </tr>
+                <tr>
+                    <th>Property</th>
+                    <th>Initial Value</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>position</code></td>
+                    <td>static</td>
+                    <td>Controls how an element is positioned. When set to absolute or fixed, the element is removed completely from the normal flow of the document. When set to relative, the element is moved relative to its position in the normal flow, but a space is left where it would normally have been. The default value, static, means the element remains in the normal flow and is not positioned.</td>
+                </tr>
+                <tr>
+                    <td><code>top</code></td>
+                    <td>auto</td>
+                    <td>Specifies the topp offset of a positioned element. A positive value moves the element down. A negative value moves it up.</td>
+                </tr>
+                <tr>
+                    <td><code>left</code></td>
+                    <td>auto</td>
+                    <td>Specifies the left offset of a positioned element. A positive value moves the element to the right. A negative value moves it to the left</td>
+                </tr>
+                <tr>
+                    <td><code>right</code></td>
+                    <td>auto</td>
+                    <td>Specifies the right offset of a positioned element. A postive value moves the element to the left. A negative value moves it to the right</td>
+                </tr>
+                <tr>
+                    <td><code>bottom</code></td>
+                    <td>auto</td>
+                    <td>Specifies the bottom offset of a positioned element. A postive value moves the element to the up. A negative value moves it to the down</td>
+                </tr>
+                <tr>
+                    <td><code>z-index</code></td>
+                    <td>auto</td>
+                    <td>Sets the stacking order of positioned elements. If elements are the same stacking contents, one with highter z-index appears in front</td>
+                </tr>
+                <tr>
+                    <td><code>clip</code></td>
+                    <td>auto</td>
+                    <td>Defines the area of an absolutely positioned element that remains visible</td>
+                </tr>
+            </table>
+        </p>
+        <hr>
+    </div>
+    <div><h2>Understanding the Different Types of Positioning</h2>
+        <p>
+            The position property requres one ot the following values:
+            <table>
+                <tr>
+                    <td><code>absolute</code></td>
+                    <td>This removes the element, including the child elements, completely from the flow of the document, and position it at the specified offsets. If the element is nested inside the another position element, the offsets are calculated with references to the positioned parent. Otherwise, the offsets are calculated with reference to the page</td>
+                </tr>
+                <tr>
+                    <td><code>fixed</code></td>
+                    <td>his is similar to absolute, but the offsets are always calculated with references to the browser viewport</td>
+                </tr>
+                <tr>
+                    <td><code>relative</code></td>
+                    <td>This moves the element relative to its normal position in the document flow, but without affecting the posiiton of other elements</td>
+                </tr>
+                <tr>
+                    <td><code>static</code></td>
+                    <td>his leaves the element in the normal document flow</td>
+                </tr>
+            </table>
+            The position property is not inherited, so you can use the inherit keyword if you want a child element to inherit the sa,e type of positioning as its parent
+        </p>
+        <hr>
+    </div>
+    <div><h2>Identifying the Containing Block</h2>
+        <p>
+            Web pages are made up of boxes or blocks nested inside each other. In the nirmal flow of the document, the size and position of a nested element are determined by its parent, or containing block. <br> With CSS positioning, an elements containing block isnt neccessari;y the same as its parent. It depend on the value assigned to the position property.
+
+            <ul>
+                <li>If an elements position is absolute, the containing block is the nearest posiitoned ancestor. In otherwords, the containing block must have a position of absolute, ficed or relative. If no such elements exist, the page is the containing block</li>
+                <li>If an elements positions is fixed, the contaning block is the browsers viewport</li>
+                <li>If an elements position is relative, the containing block is the nearest block level ancestor, in other words, its parents</li>
+            </ul>
+        </p>
+        <hr>
+    </div>
+    <div><h2>Setting the Offsets of a Positioned Element</h2>
+        <p>
+            You specify where an element is positioned by setting offsets from its containing block with the top, right, bottom, and left proerties, all which accepts a length or a percentage. The offsets are calculated from the same sides of the element and its containing block. Below shoes an example of a posiitoned element witht the following offsets:
+            
+            <div style="display: flex; align-items: center; justify-content: center;">
+                <blockquote><code>
+    top: 100px;
+    left: 150px;
+                </code></blockquote>
+                <div style="width: auto; height: auto;">
+                    <div style="width: 300px; height: 180px;background-color: rgb(36, 48, 48); color: rgb(221, 215, 215); display: inline-block;">
+                        <div style="background-color: gray; width: 100px; height: 30px; margin: 100px 0px 0px 150px; display: flex; align-items: center; justify-content: center;">
+                            Positioned Element
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            In this example, the top of the positioned element are calculated from the sides of its containing block, and the elements left edge is 150px to the right of the containing blocks left side. If you dont specify an offset or you use the keyword auto, the element occupies the position it normally would, unless its prevented from doing so by another offset. For example, if you dont set a value for the left offset, the left edge of the element is where it would be in the normal flow of the document. But a specific value for the right offset could move the entire element, shifting the left edge to a different position.
+        </p>
+        <p>
+            Note! Percentage values for top and bottom are relative to the containing blocks height. Values for right and left are relative to the containing blocks width. Unlike a background image, setting left to 50% doesnt center a positioned element. It positions the elements left edge halfway acrss the containing block.
+        </p>
+        <hr>
+    </div>
+    <div><h2>Using Relative Positioning</h2>
+        <p>
+            Relative positioning moves an element relative to its normal position in the document flow, but without affecting any nonpositioned elements. Below demonstrates the basics principle by moving it 50px down and 100px to the right with the following style rules:
+
+            <div style="display: flex; justify-content: center; align-items: center;height: 300px; width: auto;">
+                <div>
+                    <blockquote><code>
+background-color: gray; 
+position: relative; 
+width: 110px; 
+top: 0px; 
+right: 0px;
+                    </code></blockquote>
+                </div>
+                <div style="background-color: rgb(36, 48, 48); height: 110px; width: 300px; text-align: center; padding: 10px;">
+                    In this example, that thing is positioned as relative
+                    <div style="background-color: gray; position: relative; width: 110px; top: 0px; right: 0px;">position: relative;</div>
+                    it still has the space that it occupied in the original flow. Below proves that it leaves a space to its original position
+                    <div style="display: flex; justify-content: center; align-items: center; margin: 10px 0px 0px 0px; border: 2px solid gray;">
+                        <div style="background-color: gray; width: 110px; margin: 2px;">position: static;</div>
+                        <div style="background-color: gray; position: relative; width: 110px; top: 20px; right: 20px; margin: 2px;">position: relative;</div>
+                        <div style="background-color: gray; width: 110px; margin: 2px;">position: static;</div>
+                    </div>
+                </div>
+            </div>
+
+            <i>Relative positioning doesnt affect the position of surrounding elements.</i> Admittedly, this isnt very useful. Strange though it may sound, one of the most common uses of relative positioning is to leave the element exactly where it was in the first place. The reason for doing so is to create a containing block for an absolutely positioned element nested inside. Because a realtively positioned element reamins within the normal document flow, it moces in harmony with other elements if the page is reflowed for any reason, such elemets as the browser being resized. Using it as the containing block for an absolutely positioned one keeps the two elements in sync, preventing the absolutely positioned element from moving out of alignment with the rest of the page.
+        </p>
+
+
+    <hr>
+    </div>
+    <div><h2>Using Absolute Positioning</h2>
+        <p>
+            There are two important differences between absolute and fixed positioning namely:
+            <ul>
+                <li>The offsets in fixed positioning are always calculated with reference to the browser vieport. With absolute positioning, the offset are calculated with reference to the elements containing block--sometimes thihs it the page, but not always</li>
+                <li>With the fixed positioning, the element never moves.An absolute positioned element is anchored to its containing block, and it scrolls with the rest of the page</li>
+            </ul>        
+            To demonstrate the importance of the containing block, below explains how they work
+            <div style="display: flex; flex-direction: column;">
+                <a href="./ExterEx/PosEle/ConBlockPage.html">Containing Block: Page</a>
+                <a href="./ExterEx/PosEle/ConBlockRel.html">Containing Block: Relative</a>
+                <a href="./ExterEx/PosEle/Fixed.html">Position: Fixed</a>
+            </div>
+        </p>
+    
+        <hr>
+    </div>
+    <div><h2>Setting the Stacking Order with z-index</h2>
+        <p>
+            Positioned elements are displayed on an independent layer in front of other elements. As the examples in the preceding section show, this makes it possible to overlap nonpositioned elements. When two positioned elements overlap, the last one in the underlying HTML is displayed in front.
+        </p>
+        <div style="display: flex; justify-content: center; align-items: center; ">
+            <div style="background-color: rgb(37, 37, 37); width: 700px; height: 400px; display: flex; align-items: center; justify-content: center;">
+                <div style=" width: 200px; height: 200px; position: relative; transform:rotate(0deg); overflow:visible;">
+                    <div style="display: flex; background-color: rgb(255, 42, 0); width: 150px; height: 150px; position: absolute; z-index: 1; right: -10px; top: -50px; display: flex; justify-content: center; align-items: center; color: gray; font-size: 18px; border-radius: 50%;">index: 1;</div>
+                    <div style="display: flex; background-color: red; width: 150px; height: 150px; position: absolute; z-index: 2; left: -50px; top: -10px; display: flex; justify-content: center; align-items: center; color: gray; font-size: 18px; border-radius: 50%;">index: 2;</div>
+                    <div style="display: flex; background-color: rgb(128, 90, 0); width: 150px; height: 150px; position: absolute; z-index: 3; bottom: -50px; left: -10px; display: flex; justify-content: center; align-items: center; color: gray; font-size: 18px; border-radius: 50%;">index: 3;</div>
+                    <div style="display: flex; background-color: blue; width: 150px; height: 150px; position: absolute; z-index: 4; bottom: -10px; right: -50px; display: flex; justify-content: center; align-items: center; color: gray; font-size: 18px; border-radius: 50%;">index: 4;</div>
+                    
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div><h2>Understanding the Stacking Context</h2>
+        <p>
+            From time to time, pleas for help appear in online forums from designers who cant understand why a positioned element wont come to the front no matter how heigh they set the z-index. A positioned elements containing block not only determines where the offsets are calculated from, but it also stablishes the stacking context, chich restrics how z-index is applied. Put simply, it doesnt matter how high you set an elements z-index, what matter is the z-index of the containing block.
+            
+        </p>
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <div style="display: flex; align-items: center; justify-content: center; background-color: rgb(37, 37, 37); width: 600px; height: 300px; position: relative;">
+                <div style="display: flex; background-color: rgb(128, 90, 0); height: 150px; width: 300px; position: absolute; z-index: 2; left: 50px; top: 30px;">
+                    <h2 style="position: absolute; left: 50px; top:
+                    40px; font-size: 16pt; color: whitesmoke;">index: 2</h2>
+                    <div style="display: flex; background-color: rgb(128, 90, 0); height: 70px; width: 70px; position: absolute; right: -130px; border-radius: 50px; top: 40px; display: flex; justify-content: center; align-items: center; z-index: 5;">
+                        <h2 style=" font-size: 20pt; color: whitesmoke;">5</h2>
+                    </div>
+                
+                </div>
+                <div style="display: flex; background-color: blue; height: 150px; width: 300px; position: absolute; z-index: 1; right: 200px; bottom: 30px;">
+                    <h2 style="position: absolute; left: 50px; top:
+                    60px; font-size: 16pt; color: whitesmoke;">index: 1</h2>
+                    <div style="display: flex; background-color: blue; height: 70px; width: 70px; position: absolute; right: -80px; top: -20px; border-radius: 50px; display: flex;align-items: center; justify-content: center; z-index: 2000;">
+                        <h2 style=" font-size: 20pt; color: whitesmoke;">2000</h2>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <p>
+            The reason the blue circle isnt displayed in front is because the blue containing block has a lower z-index than the gold containing block of the blue circle. It doesnt matter how high you make an elements z-index, its the z-index of its containing block that determines the ultimate stacking order.
+        </p>
+
+        <hr>
+    </div>
+    <div style="position: relative;"><h2>Using CSS Positioning for Tooltips and Menus</h2>
+        <p>When used in combination, relative and absolute positioning open up possibilitis for dynamic techniques that previously relied on JavaScript. For example, you can nest an absolutely positioned element inside a relative positioned one and hide its content by moving it offscreen or seeting its display property to none. When the user hovers over the relatively positioned element, you can reveal the absolutely positioned one by changing its offset or by setting its display property to block.</p>
+
+        <div><h3>Adding a Style Tooltip to an Image</h3>
+            <p>
+                Images are inline elements, so to add a tooltip to an image, make its nearest containing block relatively positioned. You can then nest a paragraph for the tooltip inside the same block, and make it absolutely positioned. Use the absolutely positioned paragraphs offsets to hide it, and reset them when the suers hover over the containing block.
+
+
+            </p>
+            <div style="display: flex; align-items: center; justify-content: center; position: relative; ">
+                <div style="width: 400px; height: 400px; position: relative;" id="rv">
+                    <img src="./imgex/BGs.png" style="z-index: 1;">
+                    <p style="display: flex; justify-content: center; align-items: center; height: 150px; width: 150px; color: black; background-color: red; font-size: 42pt; position: absolute; top: 65px; left: 125px; border-radius: 50%;">RV</p>
+                    
+                    <div style="width: 300px; height: 150px; background-color: black; position: absolute; left: 400px; top: 0px;">
+                        <blockquote><code>
+#rv p {
+    visibility: hidden;
+}
+                        </code></blockquote>
+                    </div>
+                    <div style="width: 300px; height: 150px; background-color: black; position: absolute; left: 400px; bottom: 0px;">
+                        <blockquote><code>
+#rv:hover p {
+    visibility: visible;
+}
+                        </code></blockquote>
+                    </div>
+                </div>
+                
+
+            </div>
+            
+        </div>
+        <div><h3>Creating a CSS Drop-down Menu</h3>
+            <p>
+                Navigation menus are frequently created by styling unordered lists, and a submenu is another list nested inside a list item. So, if the list is relatively positioned, you can hide the submenu and display it when hovering over its parent.
+            </p>
+
+            <div><h4><u>Introducing the Child Selector</u></h4>
+                <p>
+                    A child selector matches an element that is the child of another--in other words, it must be at the next level of HTML hierarchy, and no deeper. Take the following markup
+                </p>
+
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <div style="width: auto; height: auto; padding: 5px; background-color: rgb(42, 42, 42); margin: 5px; border-radius: 30px;">
+                        <blockquote><code>
+&gt;blockqoute&lt;
+    &gt;p&lt;
+        To be, or &gt;em&lt;not&gt;/em&lt; to be
+    &gt;/p&lt;
+&gt;/blockqoute&lt;
+                        </code></blockquote>
+                    </div>
+                    <p>
+                        In this example, the &gt;em&lt; tag is a child of &gt;p&lt;, but not of &gt;blockqoute&lt;. The &gt;em&lt; tag is a descendant of the &gt;blockqoute&lt;, but not one of its childrem.
+                    </p>
+                    <div style="width: auto; height: auto; padding: 5px; background-color: rgb(42, 42, 42); margin: 5px; border-radius: 30px;">
+                        <blockquote><code>
+blockqoute &gt;p {
+    font-style: italic;
+}
+                        </code></blockquote>
+                    </div>
+                    <p>
+                        To create a child selector, add the greater than sign (&gt;) between the parent and child selector. For example, the following child selector targets all paragraphs that are all direct children of a &gt;blockqoute&lt; element and renders them in italic font.
+                    </p>
+                </div>
+                <p>
+                    With the help of child selectors, you can apply style that affect only the direct child of the list items that currently has focus or is being hovered over. This makes it possible to reveal a hidden submenu only when hovering over its parent, and hide it again when the cursor moves away.
+                </p>
+
+                <a href="./ExterEx/PosEle/CSSMenu.html"><h3>CSS Menu</h3></a>
+
+                </div>
+                
+            </div>
+        </div>
+    <hr>
+    </div>
+    
+    
+</body>
+<style>
+    #rv{
+        cursor: pointer;
+    }
+    #rv p {
+        visibility: hidden;
+    }
+    #rv:hover p {
+        visibility: visible;
+    }
+
+    a{
+        color: white;
+    }
+    .box{
+        width: auto; 
+        height: auto; 
+        background-color: rgb(36, 48, 48); 
+        color: rgb(221, 215, 215); 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        padding: 15px 15px 15px 15px; 
+        flex-direction: column; 
+        margin: 10px;
+    }
+    body{
+        background-color: black;
+        color: whitesmoke;
+    }
+</style>
+</html>

@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D Transform and Transition</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1><a href="../../CSS Notes Main.html">Back</a></h1>
+    <div>
+        <div>
+            <hr>
+            <h2>Using 2D Transforms</h2>
+            <table>
+                <tr>
+                    <th colspan="3">Property for Two-Dimentional Transforms</th>
+                </tr>
+                <tr>
+                    <th>Property</th>
+                    <th>Initial Value</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>transform</code></td>
+                    <td>none</td>
+                    <td>Specifies how the element is to be transformed. Takes as its value a space-seperated list of transform function</td>
+                </tr>
+                <tr>
+                    <td><code>transform-origin</code></td>
+                    <td>50% 50%</td>
+                    <td>Spacifies the anchor point of the transform. Takes one or two length, percentage, or keyword representing the horizontal and vertical positions, respectively. If only one value is given, the vertical position defaults to center.</td>
+                </tr>
+            </table>
+            <div>
+                <h3>2D Transform Functions</h3>
+                <table>
+                    <tr>
+                        <th colspan="2">Two-Dimentional Transform Function</th>
+                    </tr>
+                    <tr>
+                        <th>Function</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><code>translateX()</code></td>
+                        <td>Moves the element along the X axis by the specified length or percentage</td>
+                    </tr>
+                    <tr>
+                        <td><code>translateY()</code></td>
+                        <td>Moves the element along the Y axis by the specified length or percentage</td>
+                    </tr>
+                    <tr>
+                        <td><code>translate()</code></td>
+                        <td>Moves the element from its default position. Takes two comma-seperated lengths or percentages. The first value represents the horizontal offset and the second the vertical offset. If only one value is given, the element is moved only horizontally.</td>
+                    </tr>
+                    <tr>
+                        <td><code>rotate()</code></td>
+                        <td>Rotates the element around its anchor point by the specified angle</td>
+                    </tr>
+                    <tr>
+                        <td><code>scaleX()</code></td>
+                        <td>Scales the element along the X axis by the specified scaling factor</td>
+                    </tr>
+                    <tr>
+                        <td><code>scaleY()</code></td>
+                        <td>Scales the element along the Y axis by the specified scaling factor</td>
+                    </tr>
+                    <tr>
+                        <td><code>scale()</code></td>
+                        <td>Scales the element. Tales one or two numbers as the scaling factor. If one number is given, both axes are scaled by the same multiplier. If two comma-seperated numbers are given, the first applies to the X axis and the second to the Y axis</td>
+                    </tr>
+                    <tr>
+                        <td><code>skewX()</code></td>
+                        <td>Skews the element along the X axis by the specified angle</td>
+                    </tr>
+                    <tr>
+                        <td><code>skewY()</code></td>
+                        <td>Skew the element along the Y axis by the specified angle</td>
+                    </tr>
+                    <tr>
+                        <td><code>matrix()</code></td>
+                        <td>Specifies a 2D transform using a transform matrix of siz values</td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <h3>Changing an Elements Position with translate()</h3>
+                <p>
+                    The <code>translate()</code> function and its sinlge-axis counterpart <code>translateX()</code> and <code>translatey()</code> have a similar effect as relative positioning. They move an element from its default position without affecting the position of surrounding elements. Used in combination with other transfrom function, they can move an element at the same time as scaling, rotating, or skewing it.
+                </p>
+                <p>
+                    Please use inspect tool as I have the css codes there
+                </p>
+                <div id="transform-con">
+                    <img src="./img/17.jpg" alt="">
+                    <img src="./img/2.jpg" alt="">
+                    <img src="./img/16.jpg" alt="">
+                </div>
+            </div>
+            <div>
+                <h3>Rotating Elements</h3>
+                <p>
+                    To rotate an element, use the <code>transform</code> property and set its value with <code>rotate()</code> function, which takes an angle as its argument. You can express the angle using degrees, radians, gradians, or turns. Degrees and turns are the easiest to use. One turn is equal to 350deg.
+                </p>
+                <p>
+                    Use the inspect tool to take control of the css
+                </p>
+                <div id="rotate-con">
+                    <img src="./img/28.jpg" alt="">
+                    <img src="./img/19.jpg" alt="">
+                    <img src="./img/30.jpg" alt="">
+                </div>
+            </div>
+            <div>
+                <h3>Changing the Acnhor Point with transform-origin</h3>
+                <p>
+                    By default, 2D transforms originate from the center of an element. With <code>translate()</code>, it makes no difference where the movement is calculated from. The result is always the same. However, within the other transform fucntions, it can make a significant difference. Bellow the images are rotated around their center points. But you can change the anchor point using the <code>transform-origin</code>
+                </p>
+                <p>
+                    Use the inspect tool to modify the transform-origin
+                </p>
+                <div id="transform-origin-con">
+                    <img src="./img/26.jpg" alt="">
+                    <img src="./img/36.jpg" alt="">
+                    <img src="./img/4.jpg" alt="">
+                </div>
+            </div>
+            <div>
+                <h3>Scaling Elements</h3>
+                <p>
+                    To scale an element, use the <code>transform</code> property and set its value with the <code>scaleX() scaleY() scale()</code> functions. The first two functions take a number as their sole argument, and use it as a scaling factor for the X or Y axis, respectively. For example, below contains three identical images. The first one is renderes at its normal size, but the second one is scaled to half its normal width, and the third one to half its normal height. By default, scaling is done from the center of an element.
+                </p>
+                <div id="scale-con">
+                    <img src="./img/13.jpg" alt="">
+                    <img src="./img/13.jpg" alt="">
+                    <img src="./img/13.jpg" alt="">
+                </div>
+                <p>
+                    The <code>scale()</code> function accepts one or two arguments. If you pass it a single number, the same scaling factor is applied to both axes. If you pass it two numbers seperated by a comma, the first is used as the scaling factor for X axis and the second for the Y axis
+                </p>
+                <div style="display: flex;gap: 1rem;margin: 1rem;">
+                    <img src="./img/13.jpg" alt="" style="width: 25%;height: 25%;border-radius: 1rem;transform: scale(0.5);">
+                </div>
+            </div>
+            <div>
+                <h3>Flipping Elements</h3>
+                <p>
+                    The table above does not contain a transform function to flip elements horizontally or vertically, but you can achieve the same effect by passing negative values to <code>scaleX() scaleY() scale()</code>. Setting the value to -1 preserves the original size, but flips the element on the relevant axis. 
+                </p>
+                <p>
+                    See inspect tool 
+                </p>
+                <div style="display: flex;gap: 1rem;margin: 1rem;">
+                    <img src="./img/13.jpg" alt="" style="width: 25%;height: 25%;border-radius: 1rem;transform: scale(-1,1);">
+                </div>
+            </div>
+            <div>
+                <h3>Skewing Elements</h3>
+                <p>
+                    To skew an element, use the <code>transform</code> property and set its values by passing an angle as the argument to <code>skewX() skewY</code>. With <code>skewX()</code>, a positive angle skews the element to the left, and negative angle skews it to the right. With <code>skewY()</code>, a positive angle skews the elements vertically and rotates it in a clockwise direction. A negative angle rotates it in an anticlockwise direction.
+                </p>
+                <p>
+                    Use inspect tool 
+                </p>
+                <div id="skew-con">
+                    <img src="./img/22.jpg" alt="">
+                    <img src="./img/32.jpg" alt="">
+                    <img src="./img/35.jpg" alt="">
+                </div>
+            </div>
+            <div>
+                <h3>Transforming Elements with the matrix() Function</h3>
+                <p>
+                    The <code>matrix()</code> function specifies a 2D transform in a form of a <i>transformation matrix</i> <a href="http://en.wikipedia.org/wiki/Transformation_matrix">(http://en.wikipedia.org/wiki/Transformation_matrix)</a>. The function requires siz arguments, all of which are numbers seperated by commas.
+                </p>
+                <h4><strong>Tip</strong> Unless you are an expert in linear algebra (ako kay dele haha), you can forget about the <code>matrix()</code> function. Although it allows you to combine multiple transforms in a single operation, everthing that the <code>matrix()</code> function does can be achieved using the individual transform function described in the precedeing topics</h4>
+                <p>
+                    The last two arguments always specify the number of pixels you want to move (translate) the element along the horizontaland vertical axes, respectively. The first four arguments control other transforms.
+                </p>
+                <p>
+                    In most cases, the first and fourth arguments are the scaling factors for the horizontal and vertical axes, respectively. The second argument usually controls the angle of vertical skew, while the third one controls horizontal skew. All four arguments are used in combination to rotate the element. What makes using the <code>matrix()</code> function complicated is the need to convert angles of skew and rotation using trigonometric functions.
+                </p>
+            </div>
+            <hr>
+        </div>
+        <div>
+            <h2>Animating Property Values with CSS Transitions</h2>
+            <p>
+                When the value of a property changes, such as on hovering over an element, the change is instantaneous. When you mouse over a link, the spped of the change isnt really important.
+            </p>
+            <table>
+                <tr>
+                    <th colspan="3">CSS Transition Properties</th>
+                </tr>
+                <tr>
+                    <th>Property</th>
+                    <th>Initial Value</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>transition-property</code></td>
+                    <td>all</td>
+                    <td>Specifies the names of the CSS properties to which the transition is to be applied</td>
+                </tr>
+                <tr>
+                    <td><code>transition-duration</code></td>
+                    <td>0s</td>
+                    <td>Specifies how long the transition should take in seconds or milliseconds. Negative values are not allowed</td>
+                </tr>
+                <tr>
+                    <td><code>transition-timing-function</code></td>
+                    <td>ease</td>
+                    <td>Describes the pace of changing using easing or stepping keywords or functions</td>
+                </tr>
+                <tr>
+                    <td><code>transition-delay</code></td>
+                    <td>0s</td>
+                    <td>Defines when the transition should start measured in seconds or milliseconds. A positive value delays the start. A negative value initiates the transition immediately, but part-way through its cycle at the point it would have reaached after the specified offset.</td>
+                </tr>
+                <tr>
+                    <td><code>transition</code></td>
+                    <td></td>
+                    <td>Shorthand property that sets all four values in a single declaration</td>
+                </tr>
+            </table>
+            <div>
+                <h3>Choosing Which Properties to Animate</h3>
+                <p>
+                    The transition-property accpets the keywall all or a comma seperated list of properties you want to animate. Only those properties listed below cam be animated
+                </p>
+                <p>
+                    The list of animatable properties below does not include shorthand properties, such as border, margin or padding. You need to animate the individual properties.
+                </p>
+                <p style="white-space: pre;"><code>
+background-color 
+column-gap * 
+min-width
+background-position 
+column-rule-color * 
+opacity
+background-size * 
+column-rule-width * 
+outline-color
+border-bottom-color 
+column-width * 
+outline-offset
+border-bottom-width 
+crop 
+outline-width
+border-left-color 
+font-size 
+padding-bottom
+border-left-width 
+font-size-adjust * 
+padding-left
+border-right-color 
+font-stretch 
+padding-right
+border-right-width 
+font-weight 
+padding-top
+border-spacing 
+height 
+right
+border-top-color 
+left 
+text-decoration-color *
+border-top-width 
+letter-spacing 
+text-indent
+border-top-left-radius * 
+line-height 
+text-shadow
+border-top-right-radius * 
+margin-bottom 
+top
+border-bottom-right-radius * 
+margin-left 
+transform *
+border-bottom-left-radius * 
+margin-right 
+transform-origin *
+bottom margin-top 
+vertical-align
+box-shadow * 
+marker-offset * 
+visibility
+clip 
+max-height 
+width
+color 
+max-width 
+word-spacing
+column-count * 
+min-height 
+z-index
+                </code></p>
+            </div>
+            <div>
+                <h3><S></S>pecifying the Duration of the Transition</h3>
+                <p>
+                    You specify the duration of the transition with <code>transition-duration</code> property, which expects a single duration or comma-seperated list of durations. Times can be set in seconds or thousandths of a second (ms). 
+                </p>
+                <p>
+                    If you specify just one value, the same duration apllies to all properties being transitioned. If you supply multiple durations, they are applied to the properties in the same order as they are listed in transition-property.
+                </p>
+                <div id="duration-con">
+                    <div id="duration">
+                        <h1>Hover me!</h1>
+                    </div>
+                    <div id="duration-code">
+<p style="white-space: pre;"><code>
+#duration:hover{
+    color: black;
+    transition-property: color;
+    transition-duration: 1s;
+}
+</code></p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3>Setting the Pace of the Transition</h3>
+                <p>
+                    The <code>transition-timing-function</code> property controls how intermediate values are calculated during the transition. The property accepts one or more of the following values as a comma-seperated list:
+                    <ul style="list-style-type: none;">
+                        <li><strong><code>ease</code></strong> Starts slow, speeds up, and slows towards the end</li>
+                        <li><strong><code>linear</code></strong> Transitions at an even pace throughout</li>
+                        <li><strong><code>ease-in</code></strong>Starts slow and speeds up</li>
+                        <li><strong><code>ease-out</code></strong> Starts fast and slows towards the end</li>
+                        <li><strong><code>ease-in-out</code></strong> Similar to ease, but slower at each end</li>
+                        <li><strong><code>cubic-bezier()</code></strong> Specifies a custom transition using a cubic-bezier curve</li>
+                        <li><strong><code>step-start</code></strong> The change takes place at the beginning of the duration</li>
+                        <li><strong><code>step-end</code></strong> The change takes place at the end of the duration</li>
+                        <li><strong><code>steps()</code></strong> The change takes place in the specified number of equal stpes</li>
+                    </ul>
+                </p>
+                <p>
+                    As with <code>transition-duration</code>, a single value is applied to all transition. If you specify multiple values as a comma-seperated list, they are applied in the same order to the individual propertues listed in transition-proerty. Excess values are ignored, and if you specify fewer transition-timing-function values than properties, the browser cycle through them.
+                </p>
+
+                <p>
+                    The first five keywords in the preceeeding list are consntants for easing functions and based on a cubic-bezier curve. If you have used Flash, you will be famillar with the concept of <i>easing</i>, which varies the pace of a transition(or tweenm as its called Flash). The cubic-bezier() function allows you to customize the pace. It takes four arguments like border-top-right-radius
+                    <div class="code" style="white-space: pre;">
+<code>
+cubic-bezier(x1, y1, x2, y2);
+</code>
+                    </div>
+                    Both x1 and x2 must be in the range 0-1. The y1 and y2 values can exceed that range.
+                </p>
+                <p><br><br> 
+                    The <code>steps()</code> function takes two arguments: the number of discrete steps in the transition and the keyword <code>start</code> or <code>end</code>. If you omit the second argument, it defualts to <code>end</code>. Each changes color at a different pace
+                </p>
+                <div class="con">
+                    <div class="box-con">
+                        <div id="box1">
+
+                        </div>
+                        <div id="box2">
+
+                        </div>
+                        <div id="box3">
+
+                        </div>
+                        <div id="box4">
+
+                        </div>
+                    </div>
+                    <div class="code">
+
+div {    
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    border: 1px solid white;
+    transition-duration: 2s;
+}
+#box1{
+    transition-property: background-color;
+    transition-timing-function: steps(5, start);
+}
+#box2{
+    transition-property: background-color;
+    transition-timing-function: steps(5, end);
+}
+#box3{
+    transition-property: background-color;
+    transition-timing-function: step-start;
+}
+#box4{
+    transition-property: background-color;
+    transition-timing-function: step-end;
+}
+                    </div>
+                </div>
+                <p>
+                    The <code>transition-duration</code> property is set to a deliberately long five seconds. The first two elements use the <code>steps()</code> function to change the color in five discrete steps. However, the timing is affected by the second argument. The first div uses start, to the color immediately changes to the first intermediate shade. In the next div, the second argument is end. As a result, the color does not change until the first second has passed. <br> The last two div elements use the <code>step-start</code> and <code>step-end</code> constants. The first changes color immediately on mouse over and mouseout. The last one does not change unless the mouse pointer is held over for full 2 seconds. When you mouse away from div. it does not rever to white until two seconds have passed.
+                </p>
+            </div>
+            <div>
+                <h2>Delaying the Transition</h2>
+                <p>
+                    By default, transitions starts immediately, but you can use the <code>transition-delay</code> property to delay the whole or part of  a transition. Like the other transition properties, it accepts a single time value or a comma-seperated list of values. A single value applies to all properties being transitioned. A list of values is applied to properties in the same order as the are listed in <code>transition-property</code>
+                </p>
+                <p>
+                    Delaying a propertys transition by the same amount as the previous propertys duration creates a sequence of changes. For example, the styles change the background color, width, and height of a box on hover like this:
+                </p>
+                <div class="con">
+                    <div id="delay">
+
+                    </div>
+                    <div class="code">
+#delay {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    margin: 10px;
+    transition-property: background-color, width, height;
+    transition-duration: 1s;
+    transition-delay: 0s, 1s, 2s;
+}
+#delay:hover{
+    background-color: yellow;
+    width: 150px;
+    height: 150px;
+}
+                    </div>
+                </div>
+            </div>
+            <div>
+                <h3>Changing the Reverse Transition</h3>
+                <p>
+                    As the example from before, transition delays are executed in the same order as when the element returns to its normal state. In many cases, this is unlikely to cause a problem. But if you want to run a sequence of transition-reverse, its quite easy to do.
+                    <p>
+                        All thats needed is to define <code>transition-delay</code> in two places
+                        <ul>
+                            <li>The timings for the forward sequence go in the style rule that define the state after the transition, for example in the <code>:hover</code> pseudo-class</li>
+                            <li>The timings for the reverse sequence go in the style rule that defines the elements normal state</li>
+                        </ul>
+                    </p>
+                    <div class="con">
+                        <div id="delay-rev">
+    
+                        </div>
+                        <div class="code">
+#delay-rev {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    margin: 10px;
+    transition-property: background-color, width, height;
+    transition-duration: 1s;
+    transition-delay: 0s, 1s, 2s;
+}
+#delay-rev:hover{
+    background-color: yellow;
+    width: 150px;
+    height: 150px;
+    transition-delay: 2s, 1s, 0s;
+}
+                        </div>
+                    </div>
+                    <p>in <code>#delay-rev:hover</code> I added <code>transition-delay: 2s, 1s, 0s;</code> which reversed in the original <code>transition-delay</code> values</p>
+                </p>
+            </div>
+        </div>
+        <div>
+            <hr>
+            <h2>Using the Shorthand Property</h2>
+            <p>
+                Instead of using the individual properties, you can define a transition in a single declaration with the <code>transition</code> shorthand property. For a single property, just list the values seperated by spaces, For example, the following applies a one-second linear transition to <code>background-color</code>, delayed by a quarted of a second:
+            </p>
+            <div class="con">
+                <div class="code">
+transition: background-color 1s 250ms linear;
+                </div>
+            </div>
+            <p><strong>To jump to the end state immediately after a delay, use a single time value equal to the length of the delay, and set the timing function to <code>step-end</code></strong> is 0s</p>
+            <p>
+                To apply transition values to all properties, just set the values you want to change from the initial values listed before. For example, if you want all properties to transition over half a second without delay, this is all you need:
+                <div class="con">
+                    <div class="code">
+transition: 500ms;
+                    </div>
+                </div>
+                <p>
+                    Alternatively, if you want to make it clear that all properties are affected, inlcude <code>all</code> keyword:
+                </p>
+                <div class="con">
+                    <div class="code">
+transition: all 500ms;
+                    </div>
+                </div>
+                <p>
+                    In both case, the default <code>ease</code> timing function will be used
+                </p>
+                <p>
+                    To apply different values to each property, use multiple shorthand definition seperated by commas. For example the previous code to which there was delay, it can be wriiten like this
+                </p>
+                <div class="con">
+                    <div class="code">
+#delay-rev {
+    width: 100px;
+    height: 100px;
+    background-color: blue;
+    margin: 10px;
+    transition-property: background-color 1s 2s,
+                         width 1s 1s, 
+                         height 1s;
+}
+                    </div>
+                </div>
+            </p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex2</title>
+</head>
+<body>
+    <div class="c">
+        <h1><a href="../../CSSBoxModel.html">Back</a></h1>
+    </div>
+
+    <div>
+        <div class="a">
+            <blockquote><code>
+span{
+    margin: 20px;
+    padding: 20px;
+    font-weight: bold;
+}
+#inline-block{
+    display: inline-block;
+}
+            </code></blockquote>
+
+            <div style="height: auto; width: 415px; background-color: #333; padding: 10px">
+
+                <p style="background-color: #333;">
+                    There seemed to be no use in waiting by the little door, so she went back to the table half hoping she might fint anohter key on it, or at any rate <span>a book of rules for shutting people up like telescopes</span>:this time she found a little bottle on it, (which certainly was not here before, said Alice) and round the neck of the bottle was a papaer label, with the words <span id="inline-block">DRINK ME</span> beatifully printed on it in large letters.
+                </p>
+            </div>
+            
+        </div>
+        <div class="b">
+            <blockquote><code>
+.span2{
+    margin: 20px;
+    padding: 20px;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: top;
+    background-color: rgba(146, 146, 70, 0.322);
+
+}
+.inline-block2{
+    display: inline-block;
+    background-color: rgba(146, 146, 70, 0.322);
+    
+}
+            </code></blockquote>
+
+            <div style="height: auto; width: 415px; background-color: #333; padding: 10px">
+                
+                <p style="background-color: #333;">
+                    There seemed to be no use in waiting by the little door, so she went back to the table half hoping she might fint anohter key on it, or at any rate <span class="span2">a book of rules for shutting people up like telescopes</span>:this time she found a little bottle on it, (which certainly was not here before, said Alice) and round the neck of the bottle was a papaer label, with the words <span class="inline-block2">DRINK ME</span> beatifully printed on it in large letters.
+                </p>
+            </div>
+            
+        </div>
+        <div class="a">
+            <div style="height: auto; width: 600px;">
+                <p>Examining the 2nd exameple, these can be seen:</p>
+                <ul style="color: inherit;">
+                    <li>The background and border of the inline &lt;span&gt; obscures the preceding line</li>
+                    <li>The next line displayed over the background and border of the inline &lt;span&gt;</li>
+                    <li>The text in the inline &lt;span&gt; wraps normally, splitting the box over multiple lines</li>
+                    <li>If you resize the brownser window, the inline block is never split.</li>
+                </ul>
+                <p>In other words, setting the display property to <code>inline-block</code> gives the element all the characteristics of a block-level element, but displays it inline. You can verify this in 2nd display which adds text-align and vertical align properties to the style rules.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+<style>
+    div{
+        color: rgb(212, 210, 210);
+    }
+    .c{
+        display: flex; justify-content: center; align-items: center; padding: 25px; color: white;
+    }
+    .a{
+        display: flex; justify-content: center; align-items: center; padding: 25px;
+    }
+    .b{
+        display: flex; justify-content: center; align-items: center; padding: 25px;
+    }
+    body{
+        background-color: black;
+    }
+    p{
+        color: rgb(212, 210, 210);
+    }
+
+    span{
+        margin: 20px;
+        padding: 20px;
+        font-weight: bold;
+    }
+    #inline-block{
+        display: inline-block;
+    }
+    
+    .span2{
+        margin: 20px;
+        padding: 20px;
+        font-weight: bold;
+        text-align: center;
+        vertical-align: top;
+        background-color: rgba(146, 146, 70, 0.322);
+    }
+    .inline-block2{
+        display: inline-block;
+        background-color: rgba(146, 146, 70, 0.322);
+
+    }
+
+    blockquote{
+        margin: 20px;
+        white-space: pre;
+        color: white;
+        padding: 10px;
+        background-color: rgb(29, 29, 29);
+    }
+
+    
+</style>
+</html>

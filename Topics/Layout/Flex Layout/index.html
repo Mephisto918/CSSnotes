@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexible Box Layout</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="../maincss/stylemain.css">
+</head>
+<body>
+    <h1><a href="../../../CSS Notes Main.html">Back</a></h1>
+    <h1>Flexible Box Layout</h1>
+    <div>
+        <div>
+            <hr>
+            <p>
+                The main characteristics of flexible box layout is that it creates a block known as <i>flex container</i>, where the flow of the document can be literally turned on its head. Everything inside the flex container becomes a <i>flex item</i>, which can be displayed in a different order from the underlying HTML. Margins also behave differently inside a flex container, allowing you to distribute elements evenly or seperate them into groups aligned on opposite sides.
+            </p>
+            <div class="con">
+                <div id="fig-flex">
+                    <div class="card">
+                        <div class="randomimgcard"></div>
+                        <h1>Random Card First</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed vestibulum felis. Nunc ac ex et velit euismod dictum. Vestibulum pellentesque felis nec augue aliquet tempus. Aenean ultrices, quam sit amet sagittis eleifend, nibh ipsum fermentum leo, vel tincidunt neque dui nec turpis.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="randomimgcard"></div>
+                        <h1>Random Card</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed vestibulum felis. Nunc ac ex et velit euismod dictum. Vestibulum pellentesque felis nec augue aliquet tempus. Aenean ultrices, quam sit amet sagittis eleifend, nibh ipsum fermentum leo, vel tincidunt neque dui nec turpis.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="randomimgcard"></div>
+                        <h1>Random Card Last</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed vestibulum felis. Nunc ac ex et velit euismod dictum. Vestibulum pellentesque felis nec augue aliquet tempus. Aenean ultrices, quam sit amet sagittis eleifend, nibh ipsum fermentum leo, vel tincidunt neque dui nec turpis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <p>
+                To also control its children using css is by adding this style rul:
+            </p>
+            <div class="con">
+<div class="codes">
+    <div class="code">
+.last{
+order: -1;
+}
+    </div>
+</div>
+            </div>
+            <div class="con">
+                <div id="fig-flex">
+                    <div class="card">
+                        <div class="randomimgcard"></div>
+                        <h1>Random Card First</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed vestibulum felis. Nunc ac ex et velit euismod dictum. Vestibulum pellentesque felis nec augue aliquet tempus. Aenean ultrices, quam sit amet sagittis eleifend, nibh ipsum fermentum leo, vel tincidunt neque dui nec turpis.
+                        </p>
+                    </div>
+                    <div class="card">
+                        <div class="randomimgcard"></div>
+                        <h1>Random Card</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed vestibulum felis. Nunc ac ex et velit euismod dictum. Vestibulum pellentesque felis nec augue aliquet tempus. Aenean ultrices, quam sit amet sagittis eleifend, nibh ipsum fermentum leo, vel tincidunt neque dui nec turpis.
+                        </p>
+                    </div>
+                    <div class="card last">
+                        <div class="randomimgcard"></div>
+                        <h1>Random Card Last</h1>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed vestibulum felis. Nunc ac ex et velit euismod dictum. Vestibulum pellentesque felis nec augue aliquet tempus. Aenean ultrices, quam sit amet sagittis eleifend, nibh ipsum fermentum leo, vel tincidunt neque dui nec turpis.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>Understanding Flex Layout Terminilogy</h3>
+            <p>
+                The Flex Layout Terminilogy describes the main components of flex layout. 
+            </p>
+            <p>
+                To eliminate ambiguity when dealing with so many options, the W3C has created specific Terminilogy to describe the main components of flex layout. Knowing what the terms refer to is important in understanding the values used for key properties in flex layout.
+            </p>
+            <p>
+                Below shows a diagrammatic representation of a flex container for a left-to-right language where the flex items are displayed in one or more rows.
+            </p>
+            <div class="figure">
+                <img src="./img/flex.png" alt="">
+            </div>
+            <p>
+                Example from before is an example of this sort of flex container. It contains three flex items, the card elements that describe the cards. In term of flex layout terminilogy, they run across the flex conatiners <i>main axis</i>. In right-to-left language, The main axis runs in the opposite direction. The conatiners <i>cross axis</i> runs perpendicularly to the main axis.
+            </p>
+            <p>
+                In addition to being flex items, the article elements are flex container on their own right, and they display their contents as a column. As figure below shows, the main axis of a flex container that displays flex items in columns runs from top to the bottom of the container, the cross axis runs from left to right.
+            </p>
+            <div class="figure">
+                <img src="./img/flexWithAxes.png" alt="">
+            </div>
+            <p>
+                When flex items are displayed in columns, the main and cross axis are transposed
+            </p>
+            <p>
+                The followinf terms are used to refer to the different parts and dimensions of flex containers and flex items, the figure above shows them on a flex container where the main axis runs left to right:
+                <ul style="nodec">
+                    <li><i>Main axis:</i> The primary axis along which flex items are laid out. When the items are laid out in rows, it runs from left-to-right in English and other European languages. For columns, it runs from top to bottom</li>
+                    <li><i>Main-start:</i> The side of the flex container where the main axis begins</li>
+                    <li><i>Main-end:</i> The side of the flex container where the main axis ends</li>
+                    <li><i>Main-size:</i> The size of a flex item or container measuring the main axis. In row, its the items width. In column, its the items height</li>
+                    <li><i>Cross-axis: </i>The axis perpendicular to the main axis is called the cross axis</li>
+                    <li><i>Cross-start:</i> The side of the flex container where the cross axis begins. When the flex items are laid out in rows, its the top. When they are laid out in columns in a left-to-right language, its the lef side.</li>
+                    <li><i>Cross-end:</i> The side where the cross axis ends</li>
+                    <li><i>Cross-size:</i> The size of a flex item or container measured along the cross axis. In a row, its the items height. In a column, its the items width.</li>
+                </ul>
+            </p>
+            <div class="figure">
+                <img src="./img/flex-mainParts.jpg" alt="">
+            </div>
+        </div>
+        <div>
+            <h3>Creating a Flex Container</h3>
+            <p>
+                The Flexible Box Layout module adds two new values for the <code>display</code> property:
+                <ul style="nodec">
+                    <li><strong>flex</strong> The element becomes a block-level flex container</li>
+                    <li><strong>inline-flex</strong> The element becomes an inline flex container</li>
+                </ul>
+                The difference between these two values lies in how the element interacts with surrounding elements. In the overwhelming majority of cases, flex is the value you will need. Using the <code>inline-flex</code> creates a flex container that is displayed inline in a similar way to setting <code>display: inline-block</code> (see "understanding The Difference Between inline and inline-block" in CSS Box model, here is a link <a href="../../CSSBoxModel.html">BoxMOdel</a>) 
+            </p>
+            <p>
+                A flex container establishes a flex formatting context for all its content. This has the following consequences:
+                <ul>
+                    <li>All child elements automatically becomes flex items</li>
+                    <li>Floats do not intrude into the flex container, means that floated elements do not disrupt or affect the layout of elements inside a flex container. The flex container and its items are not impacted by floated elements, allowing them to be managed separately.</li>
+                    <li>Adjacent vertical margins on flex items are  not merged</li>
+                    <li>You cannot use multi-column layout inside a flex conainer</li>
+                    <li>The float, clear, and vertical-align properties have no effect on flex items</li>
+                </ul>
+            </p>
+        </div>
+        <div>
+            <h3>Controlling the Flow in a Flex Container</h3>
+            <p>
+                In the standard CSS box model, the flow of a document displays elements in the order that they appear in the underlying HTML markup. Flex layout lets you control the direction of the flow inside  a flex  container using properties listed below
+            </p>
+            <table>
+                <tr>
+                    <th colspan="3">Properties that Control the Flow Inside a Flex Container</th>
+                </tr>
+                <tr>
+                    <th>Property</th>
+                    <th>Initial Value</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>flex-direction</code></td>
+                    <td>row</td>
+                    <td>Sets the direction of the main axis. Flex items can be laind out in rows or columns in forward or reverse order</td>
+                </tr>
+                <tr>
+                    <td><code>flex-wrap</code></td>
+                    <td>nowrap</td>
+                    <td>Controls whether the container allows multiple rows and columns. Also affects the direction of the cross axis</td>
+                </tr>
+                <tr>
+                    <td><code>flex-flow</code></td>
+                    <td>row nowrap</td>
+                    <td>Shorthand property for <code>flex-direction</code> and <code>flex-wrap</code></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/">CSS-TRICKS, a guid to flexbox</a>
+    <script src="./script.js"></script>
+</body>
+</html>
+
+<!-- for card templates
+<div class="card">
+    <div class="randomimgcard"></div>
+    <h1>Random Card</h1>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla sed vestibulum felis. Nunc ac ex et velit euismod dictum. Vestibulum pellentesque felis nec augue aliquet tempus. Aenean ultrices, quam sit amet sagittis eleifend, nibh ipsum fermentum leo, vel tincidunt neque dui nec turpis.
+    </p>
+</div>
+
+-->

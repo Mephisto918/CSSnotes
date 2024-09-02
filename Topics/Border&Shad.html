@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AddingBorders/Shadows</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/BG.css">
+</head>
+<body>
+    <h1><a href="../CSS Notes Main.html">Back</a></h1>
+    <div>
+        <hr>
+        <hr>
+        <h1 style="text-align: center;"><u><i >Adding Borders and Drop Shadows</i></u></h1>
+        <hr>
+        <hr>
+    </div>
+    <div><h2><u>Creating Basic Borders</u></h2>
+        <p>
+            Because CSS gives you control over the color, style, and width of each side of an element, there are no fewer than 20 properties just for basic borders. The reason there are so many is to reduce the amount of typing. Most properties are shorthand version. Once you know the basic principles, you can choose whichever best suits your needs. However, lets start by looking at the individual properties.
+        </p>
+        
+        <div><h3>Setting Indiviual Border Properties</h3>
+            <p>
+                Indiviual properties allow you to set each aspect of an elements borders independently. Below lists the individiual border properties that are supported by all browsers in current use.
+            </p>
+
+            <table>
+                <tr>
+                    <th colspan="3">Individual Border Properties</th>
+                </tr>
+                <tr>
+                    <th>Property</th>
+                    <th>Initial Value</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>border-top-color</code></td>
+                    <td>currentColor</td>
+                    <td>Sets the color for the top border</td>
+                </tr>
+                <tr>
+                    <td><code>border-right-color</code></td>
+                    <td>currentColor</td>
+                    <td>Sets the color for  the right border</td>
+                </tr>
+                <tr>
+                    <td><code>border-bottom-color</code></td>
+                    <td>currentColor</td>
+                    <td>Sets the color for the bottom border</td>
+                </tr>
+                <tr>
+                    <td><code>border-left-color</code></td>
+                    <td>currentColor</td>
+                    <td>Sets the color for the left border</td>
+                </tr>
+                <tr>
+                    <td><code>border-top-style</code></td>
+                    <td>none</td>
+                    <td>Sets the style for the top border</td>
+                </tr>
+                <tr>
+                    <td><code>border-right-style</code></td>
+                    <td>none</td>
+                    <td>Sets the style for the right border</td>
+                </tr>
+                <tr>
+                    <td><code>border-bottom-style</code></td>
+                    <td>none</td>
+                    <td>Sets the style for the bottom border</td>
+                </tr>
+                <tr>
+                    <td><code>border-left-style</code></td>
+                    <td>none</td>
+                    <td>Sets the style for the left border</td>
+                </tr>
+                <tr>
+                    <td><code>border-top-width</code></td>
+                    <td>medium</td>
+                    <td>Sets the width of the top border</td>
+                </tr>
+                <tr>
+                    <td><code>border-right-width</code></td>
+                    <td>medium</td>
+                    <td>Sets the with for the right border</td>
+                </tr>
+                <tr>
+                    <td><code>border-bottom-width</code></td>
+                    <td>medium</td>
+                    <td>Sets the width for the bottom border</td>
+                </tr>
+                <tr>
+                    <td><code>border-left-width</code></td>
+                    <td>medium</td>
+                    <td>Sets the width for the left border</td>
+                </tr>
+            </table>
+            <p>
+                The color properties accept any color value, but for cross-browser compability, its best to use hexadecimal notation, a color keyword, or rgb(). If you specify  a color with alpha transparency using rbga() or hsl() some ignore(old reference) and color and use the text color instead. To specify an opaque fallback color for older browsers, you need to use shorthand properties as descrbied later. Browsers also use the text color if you dont set a color for the border.
+            </p>
+            <p>
+                The style properties accept any of the following kewords: none, hidden, dotted, dashed, solid, double, groove, ridge, inset, or outset. Although none is the default value, its also useful for supressing an unwanted border. The hidden value is used with table borders. Using solid and double produces consistent results in all browser, but there are minor differences between browsers and operating system in how the other styles are renderd. There is no way to control the spacing of the dots and dashes, but browsers normally create symmetrucal corners for dotted and dashed,
+            </p>
+
+            <div style="padding: 5px;">
+                <div style="display: flex; align-items: center;">
+                    <div style="height: 80px;width: 140px; background-color: gray; border-style: dashed; border-width: 5px; display: flex; justify-content: center; align-items: center; margin: 10px;">
+                        dashed
+                    </div>
+                    <div style="height: 80px;width: 140px; background-color: gray; border-style: dotted; border-width: 5px; display: flex; justify-content: center; align-items: center;margin: 10px;">
+                        dotted
+                    </div>
+                    <div style="height: 80px;width: 140px; background-color: gray; border-style: double; border-width: 5px; display: flex; justify-content: center; align-items: center;margin: 10px;">
+                        double
+                    </div>
+                    <div style="height: 80px;width: 140px; background-color: gray; border-style: groove; border-width: 5px; display: flex; justify-content: center; align-items: center;margin: 10px;">
+                        groove
+                    </div>
+                </div>
+                <div style="display: flex; align-items: center;">
+                    <div style="height: 80px;width: 140px; background-color: gray; border-style: inset; border-width: 5px; display: flex; justify-content: center; align-items: center;margin: 10px;">
+                        inset
+                    </div>
+                    <div style="height: 80px;width: 140px; background-color: gray; border-style: outset; border-width: 5px; display: flex; justify-content: center; align-items: center;margin: 10px;">
+                        outset
+                    </div>
+                    <div style="height: 80px;width: 140px; background-color: gray; border-style: ridge; border-width: 5px; display: flex; justify-content: center; align-items: center;margin: 10px;">
+                        ridge
+                    </div>
+                    <div style="height: 80px;width: 140px; background-color: gray; border-style: solid; border-width: 5px; display: flex; justify-content: center; align-items: center;margin: 10px;">
+                        solid
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div><h3>Using Border Shorthand Properties</h3>
+            <p>
+                To avoid unneccesarrily verbose style rules, CSS provides not one, but eight shorthand properties for definig borders, as listed below.
+            </p>
+
+            <table>
+                <tr>
+                    <th colspan="2"><i>Border Shorthand Properties</i></th>
+                </tr>
+                <tr>
+                    <th>Property</th>
+                    <th>Description</th
+                </tr>
+                <tr>
+                    <td><code>border-color</code></td>
+                    <td>Defines the color of each border</td>
+                </tr>
+                <tr>
+                    <td><code>border-style</code></td>
+                    <td>Defines the style of each border</td>
+                </tr>
+                <tr>
+                    <td><code>border-width</code></td>
+                    <td>Defines the with of each border</td>
+                </tr>
+                <tr>
+                    <td><code>border-top</code></td>
+                    <td>Sets the color, style, and with of the top border</td>
+                </tr>
+                <tr>
+                    <td><code>border-right</code></td>
+                    <td>Sets the color, style, and width of the right border</td>
+                </tr>
+                <tr>
+                    <td><code>border-left</code></td>
+                    <td>Sets the color, style, and width of the left border</td>
+                </tr>
+                <tr>
+                    <td><code>border-bottom</code></td>
+                    <td>Sets the color, style, and with of the bottom border</td>
+                </tr>
+                <tr>
+                    <td><code>border</code></td>
+                    <td>Sets the same color, style, and width for all four borders.</td>
+                </tr>
+            </table>
+            <p>
+                The border-color, border-style, and border-width shorthand properties accepts up to four values following the same formula as the shorthand for magins and padding:
+            </p>
+            <blockquote>
+            <strong><i>One value:</i></strong> Applies equally to all four sides
+            <strong><i>Two values: </i></strong>The first applies to the top and bottom, and the second wo the left and right
+            <strong><i>Three values: </i></strong>The first applies to the top, the second to the left and right, and the third to the bottom
+            <strong><i>Four values: </i></strong>The values are applied in clockwise order starting from top
+            </blockquote>
+            <p>
+                The border-top, border-right, border-bottom, and border-left shorthand properties accpet a space seperated list of the color, style,and width values that you want to apply to that side. The values can be in any order.
+            </p>
+            <blockquote>
+                h1{
+                    border-left: teal solid 20px;
+                }
+            </blockquote>
+            <p>
+                The border shorthand property also takes a space seperated list of color, stlye, and width values, which can be in any order. The same value is applied to all four sides of the element. If a value isnt specified, the initial value for the individual property is applied. If you want the same border on all four sides, the border shorthand is clearly the best option. For example, the following definition creats a 4px double red border around an element:
+            </p>
+            <blockquote>
+                border: 4px double #F00;
+            </blockquote>
+        </div>
+        <hr>
+    </div>
+    <div><h2><u>Adding Round Corners and Drop Shadows Without Images</u></h2>
+        <p>
+            Creating rounded corners and top shadows once took a lot of patient effor, but now takes just a few seconds.
+        </p>
+        <div><h3>Creating Rounded Corners With border-radius</h3>
+            <p>
+                If youre tired of being boxed in by angular designs, the border-radius and related properties might be just what youve been waiting for. In spite of the name, an element doestn need to have a vorder for your to give it rounded corners. You can adjust each corner individuwally or apply the same values to each one. Whats more, you can set the horizontaland vertical radii of each corner seperatelym so yore not limited to uniform shaped. This fine degree of control can make the syntax seem overhelming at first, but its not difficult. Whats more, there are visual tools available to do the calculations for you.
+            </p>
+            <table>
+                <tr>
+                    <th colspan="3">Rounded Corner Properties</th>
+                </tr>
+                <tr>
+                    <th>Property</th>
+                    <th>Initial Value</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>border-top-left-radius</code></td>
+                    <td>0</td>
+                    <td>Rounds an elements top-left corner</td>
+                </tr>
+                <tr>
+                    <td><code>border-top-right-radius</code></td>
+                    <td>0</td>
+                    <td>Rounds the top-right corner</td>
+                </tr>
+                <tr>
+                    <td><code>border-bottom-left-radius</code></td>
+                    <td>0</td>
+                    <td>Rounds the bottom-left corner</td>
+                </tr>
+                <tr>
+                    <td><code>border-bottom-right-radius</code></td>
+                    <td>0</td>
+                    <td>Rounds the bottom right corner</td>
+                </tr>
+                <tr>
+                    <td><code>border-radius</code></td>
+                    <td></td>
+                    <td>Sets the values for all corners in a single declaration</td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+    <div><h2><u>Rounding Individual Corners</u></h2>
+        <div>
+            <p>
+                The individiual individiual properties take one or two lenghts or percentages, which are used to calclate the curve applied to the corner. Percentages are relative to both the elements width and height.
+            </p>
+            <ul>
+                <li>A single length creates an evenly rounded curve</li>
+                <li>A single percentage creates an evenly rounded curve only if the element is square. Otherwise, the browser calculates the percentage values of the width and height, and treats them as two values</li>
+                <li>With two values, the first sets the horizontal radius of a quarter ellipse and the second sets the vertical radius</li>
+                <li>If any value is 0, the corner is square</li>
+            </ul>
+            <p>
+                In the following example, each corner is set using different method.
+            </p>
+            <div style="display: flex; align-items: center; justify-content: center;">
+                <div style="height: 100px; width: 100px; border-top-left-radius: 25px; border-top-right-radius: 30%; border-bottom-left-radius: 50% 30%; border-bottom-right-radius: 100px 45px; background-color: aliceblue;">
+                </div>
+                <blockquote>
+                    #box{
+                        height: 200px;
+                        width: 200px;
+                        border-top-left-radius: 25px;
+                        border-top-right-radies: 30%;
+                        border-bottom-left-radius: 50% 30%;
+                        border-bottom-right-radies: 100px 45px;
+                    }
+                    </blockquote>
+            </div>
+            <p>
+                The top-left corner is shaped using a single length, which produces an evenly rounded curve. The top-right corner uses a single percentage, but the element isnt square. So, the browser calculates 30% of the width (60px) and 30% of the height (45px). The resulting values are used as the horizontal and vertical radii of a quarter ellipse. The bottom two corners create identical curves using percentage ang lengths.
+            </p>
+        </div>
+        <div><h3>Using border-radius shorthand</h3>
+            <p>
+                The border-radius shorthand property sets all four corners in a single declaration. Using it can be either freindlishly complex or blissfully simple. Lets start with a simple example, which is probably the way most people use it.
+            </p>
+            <div style="width: 500px; height: 330px;">
+                <div style="display: flex; align-items: center;justify-content: center;">
+                    <div style="background-color: teal; width: 200px; height: 150px; border-radius: 25px;">
+                    </div>
+                    <blockquote>
+background-color: teal; 
+width: 200px; 
+height: 150px;
+border-radius: 25px;
+                    </blockquote>
+                    
+                </div>
+                <div style="display: flex; align-items: center;justify-content: center; margin: 20px 0 0;">
+                    <div style="background-color: teal; width: 150px; height: 150px; border-radius: 50%;">
+                    </div>
+    
+                    <blockquote>
+background-color: teal;
+width: 150px; 
+height: 150px; 
+border-radius: 50%;
+                    </blockquote>
+    
+                   
+                </div>
+            </div>
+            <p>
+                Using border-radius with a single value applies the same curve to all corners
+            </p>
+
+            <p>
+                Using border-radius with more than one value is less straightforward. First lets deal with using the same value for the horizontal and vertical radii of each curve.
+
+                <blockquote>
+        <strong><i>Two values:</i></strong> The first applies to the top-left and bottom-right corners. The second applies to the top-right and bottom-left corners.
+        <strong><i>Three values: </i></strong>The first applies to the top-left corner. The second applies to the top-right and bottom-left corners. The third applies to bottom-right corner.
+        <strong><i>Four values:</i></strong> The values are applied to each corner in a vlockwise direction starting from top left.
+                </blockquote>
+                Its when you want to use different values for horizontal and vertical radii that the border-radius shorthand becomes mind-mumbling complex, taking 2-8 values. Unless you want to apply the same values to each other, its brobably much easier to use the individual properties for each corner. Still, Ill explain how it works and let you make up your own mind.
+
+                The values for the horizontal and vertical raii are seperated by a forward slash. However, you dont specify each pair seperately. All horizontal values come before the slash, and all vertical value come after. And this is where the syntax becomes really complex, you dont need to use the same number of values before and after the slash. So, for example, you could have three horizontal values before the lash and two vertical ones after slash. The rules regarding which corners the values apply to are the same as just described for two, three and four values.
+            </p>
+            <p>
+                The folling styles for box1 using border-radius shorthand have exactly the same meaning as the individual rules for box2 below
+            </p>
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <blockquote>
+.box1{
+    border-radius: 20% 10% 40% / 15% 30%;
+}
+
+.box2{
+    border-top-left-radius: 20% 15%;
+    border-top-right-radius: 10% 30%;
+    border-bottom-right-radius: 40% 15%;
+    border-bottom-left-radius: 10% 30%;
+}
+                    </blockquote>
+                    <div>
+                        <div style="height: 100px; width: 100px; background-color: teal; border-top-left-radius: 20% 15%;
+                        border-top-right-radius: 10% 30%;
+                        border-bottom-right-radius: 40% 15%;
+                        border-bottom-left-radius: 10% 30%;">
+        
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <hr>
+    </div>
+    <div><h2><u>Using border-radius with Background Images</u></h2>
+        <p>
+            When you apply border-radius to an element that has a background image, the image is clipped by the curve, and the parents elemets background shows through.
+        </p>
+
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <div style="width: 800px; height: 450px; background-color: gray; display: flex; justify-content: first baseline; align-items: center;">
+                <div style="background-image: url(./imgex/BGs.png); height: 400px; width: 300px;background-position: -45px; margin: 0 0 0 10px; background-repeat: no-repeat; border-radius: 90%/90% 90% 90% 90%;">
+    
+                </div>
+                <div style="width: 425px; height: 375px; background-color: cornflowerblue; margin: 20px; padding: 10px;">
+                    <div style="color: black;">
+                        <h1 style="text-align: center; font-size: 32pt; margin-top: -2px; font-family:fantasy;">Chill Kill</h1>
+                        <blockquote style="font-size: 14pt; margin-top: -30px; font-family: fantasy; letter-spacing: 2px;font-weight: 300;">
+(Hey!) Dont think about tomorrow
+(Yoo hoo!) Your sparkle is still on
+Gonna change at long last
+Tears down my cheeks melting that ice
+
+What a Chill Kill!
+I know you will
+Bring me lightning like a winner
+Waiting for you here
+For a Happy ending
+
+What a Chill Kill!
+                        </blockquote>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <blockquote>
+            background-image: url(./imgex/BGs.png); 
+            height: 400px; 
+            width: 300px;
+            background-position: -45px; 
+            margin: 0 0 0 10px; 
+            background-repeat: no-repeat; 
+            border-radius: 90%/90% 90% 90% 90%;
+        </blockquote>
+        <hr>
+    </div>
+    <div><h2>Applying Rounded Corners to Various Border Styles</h2>
+        <p>
+            So far, all examples of border-radius have shown only solid borders and elements without a border. However, rounded corners can be applied to any border style. As with color transition, its left up to browser to decide how to treat the style on the curve.
+        </p>
+
+        <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;"> 
+            <div style="display: flex; flex-direction: row;">
+                <div style="height: 100px; width: 125px; background-color:magenta; border-style: dashed; border-width: 5px; margin: 10px; display: flex; justify-content: center; align-items: center;" class="b">
+                    dashed
+                </div>
+                <div style="height: 100px; width: 125px; background-color:magenta; border-style: dotted; border-width: 5px; margin: 10px; display: flex; justify-content: center; align-items: center;" class="b">
+                    dotted
+                </div>
+                <div style="height: 100px; width: 125px; background-color:magenta; border-style: double; border-width: 5px; margin: 10px; display: flex; justify-content: center; align-items: center;" class="b">
+                    double
+                </div>
+                <div style="height: 100px; width: 125px; background-color:magenta; border-style: groove; border-width: 5px; margin: 10px; display: flex; justify-content: center; align-items: center;" class="b">
+                    groove
+                </div>
+            </div>
+            <div style="display: flex; flex-direction: row;">
+                <div style="height: 100px; width: 125px; background-color:magenta; border-style: inset; border-width: 5px; margin: 10px; display: flex; justify-content: center; align-items: center;" class="b">
+                    inset
+                </div>
+                <div style="height: 100px; width: 125px; background-color:magenta; border-style: outset; border-width: 5px; margin: 10px; display: flex; justify-content: center; align-items: center;" class="b">
+                    outset
+                </div>
+                <div style="height: 100px; width: 125px; background-color:magenta; border-style: ridge; border-width: 5px; margin: 10px; display: flex; justify-content: center; align-items: center;" class="b">
+                    ridge
+                </div>
+                <div style="height: 100px; width: 125px; background-color:magenta; border-style: solid; border-width: 5px; margin: 10px; display: flex; justify-content: center; align-items: center;" class="b">
+                    solid
+                </div>
+            </div>
+        </div>
+        <hr>
+
+    </div>
+    <div><h2>Adding Drop Shadows With box-shadow</h2>
+        <p>
+            The box-shadow property adds one or more drop shadow to an element. You specify a shadow using 2-4 space seperated lenghts, which represent the following values(in this order).
+
+            <blockquote>
+                <strong><i>Horizontal offset:</i></strong> A positive value positions the shadow to the right. A negative value positions it to the left.
+                <strong><i>Vertical offset:</i></strong> A positive value moves the shadow down. A negative value moves it up.
+                <strong><i>Blur radius:</i></strong> If ommited or set to 0, the shadow has a crisp edge. Negative values are not allowed.
+                <strong><i>Spread distance:</i></strong> A positive value causes the shape to expand in all directions. A negative value (used with an inset shadow) causes it to contract. To create a spread effect without setting a blue radius, the third length must be set to 0
+            </blockquote>
+            In addition to these lengths, you can specify a color. Otherwise, the shadow is the same color as elements text. By default, the shadow is drawn outside the element, but you can draw it inside the elmeent by adding the inset keyword. To specify multilple shadwos on the same element, seperate the definition of each shadow with a comma. The shadow effects are drwon with the first one on top, and each subsequent one layered behin. If you want shadows to overlap, list the smaller ones first.
+        </p>
+        
+        <blockquote>
+            drop{
+                box-shadow: 5px 5px 7px rbga(0,0,0,0.3);
+            }
+        </blockquote>
+
+        <p>
+            The next two rules add the inset keyword:
+            
+        </p>
+        <div style="display: flex; justify-content: center; align-items: center; flex-direction: row;">
+            <div style="display: flex; align-items: center; justify-content: center; flex-direction: column;">
+                <div style="width: 150px; height: 50px; background-color: magenta; box-shadow: inset 10px 10px 10px rgba(0,0,0,0.3); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 15px; "> Positive Inset
+                </div>
+                <div style="width: 150px; height: 50px; background-color: magenta; box-shadow: inset -10px -10px 10px rgba(0,0,0,0.3); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 15px;margin: 20px 0 0 0;"> Negative Inset
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <blockquote>
+.positiveInset{
+    box-shadow: inset 10px 10px 10px rgba(0,0,0,0.3);
+}
+.negativeInset{
+    box-shadow: inset -10px -10px 10px rbga(0,0,0,0.3);
+}
+                </blockquote>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div><h2>Simulating Multicolored Borders</h2>
+        <p>
+            Combining a spread shape with offsets and a blur radius rarely produces an attractive effect. However, using multiple spread shapes with no offset or blur offers an easy way to create multicolored borders. The box-shadow property accepts multiple shadow effects as a comma sperated list. Each subsequent effect is painted behind the precedeing one, so the smallest one mus come first followed by the others in increasing size. The style rule for this looks like this:
+        </p>
+
+        <div style="display: flex; justify-content: center; align-items: center; margin: 50px 0 0 0;">
+            <div style="text-align: center; width: 200px;
+            height: 20px; background-color: magenta; border-radius: 20px; box-shadow: #a0d5d6 0 0 0 5px, #789aa1 0 0 0 10px, #ad9a27 0 0 0 15px, #304345 0 0 0 20px">Multiple Borders
+
+            </div>
+            <div>
+                <blockquote>
+text-align: center; 
+width: 200px;
+height: 20px; 
+background-color: magenta; 
+border-radius: 20px; 
+box-shadow: 
+#a0d5d6 0 0 0 5px,
+#789aa1 0 0 0 10px,
+#ad9a27 0 0 0 15px,
+#304345 0 0 0 20px
+                </blockquote>
+            </div>
+        </div>
+        <p>
+            The horizontal and vertical offsets are blur radius in each value are set to 0. The spread value in each one is increamented by 5px, producing the result seen above. the div has rounded corners, to the spread colors added by box-shadow follow the same outline.
+                
+        </p>
+        <hr>
+    </div>
+    <div><h2>Using Border Images</h2>
+        <p>
+            For a more decorative border, you need to use an image. In CSS2.1, this involves creating up to nine images and wrapping the element in a complex series of div elements. In CSS3 simplifies the process by using just in image, which the browser automatically slices into nine sections to build the border. The browser positions the four corner slices, and scale or tiles each side to fill the with and heigth, The dimensions of the border image arent important. You just need a design that can be sliced this way.
+        </p>
+        <div><h3>Individual Properties for Border Images</h3>
+            <p>
+                There are five individual properties for border images, as described below:
+
+                <table>
+                    <tr>
+                        <th colspan="3">Individual Properties for Border Images</th>
+                    </tr>
+                    <tr>
+                        <th>Property</th>
+                        <th>Initial Value</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><code>border-image-source</code></td>
+                        <td>none</td>
+                        <td>Specifies the image to use for borders</td>
+                    </tr>
+                    <tr>
+                        <td><code>border-image-slice</code></td>
+                        <td>100%</td>
+                        <td>Sets the inward offsets form each side of the image, dividing it into four corners, four edges, and a center section.</td>
+                    </tr>
+                    <tr>
+                        <td><code>border-image-width</code></td>
+                        <td>1</td>
+                        <td>Sets the amount of spaces allocated to the border image on each side.</td>
+                    </tr>
+                    <tr>
+                        <td><code>border-image-outset</code></td>
+                        <td>0</td>
+                        <td>Specifies how far the border image should extend beyond the border box.</td>
+                    </tr>
+                    <tr>
+                        <td><code>border-image-repeat</code></td>
+                        <td>stretch</td>
+                        <td>Specifies how the slices are scaled and tiled along the horizontal and vertical edges.</td>
+                    </tr>
+                </table>
+                The first two properties, border-image-source and border-image-slice, are required. The other properties are optional.
+            </p>
+
+        </div>
+        <div><h3>Specifying the Image and Its Slices</h3>
+            <p>
+                The border-image-source property tells the browser which image to use for the borders. You specify the image in normal way with url(). The border image slive property defines how the image should be sliced up. It expects 1-4 numbers or percentages that indicate how much of each side should be used for the border. The values are treated in a similar way to margin and padding shorthand namely:
+
+                <blockquote>
+                    <strong><i>One value:</i></strong> Applies to all sides
+                    <strong><i>Two values:</i></strong> The first value applies to the top and bottom, and the second to the right and left sides
+                    <strong><i>Three values:</i></strong> The first value applies to the top, the second to the right and left sides, and the third one to the bottom
+                    <strong><i>Four values:</i></strong> The values apply to each other starting from the top and moving clockwise
+                </blockquote>
+                The unusual aspects of using numbers with border-image-slice is that they are not followed by a unit of measurement, such as px or erm. Thi is because the property is intended to be used with scalable cevtor graphics (SVG) as well as JPEG, PNG, or GIF images. When using an ordinary image, the value is the number if pixel measured from the edge that you want to use as a slice. If your using an SVG imge, the numbers are vector coordinates. Percentage values for top and bottom are relative to the images height. Those for the right and left are relative to the images width. According to the specification, the center slice should be discarded. To preserve the center slice, add fill keyword.
+            </p>
+
+        </div>
+        <div><h3>Controlling the Size and Position of the Border Image</h3>
+            <p>
+                The border-image-property sets the width of the slices, not the with of the border. Its a subtle, but important differences. Border images are normally displayed within the elements border box. IF you dont create a border around the element using the properties descrbed at the beginnning, there no space between the border and the padding boxes. Consequently, image wont be displayed or will be squeezed to almost nothing
+            </p>
+            <p>
+                The border-image-width property accepts up to four values, which are allocated to each sode in the same way as slices. The values can be specified as lengths, percentage, or numbers. A number represents a multiple of the computed border-width. Percentages are relative to the width or height of the border box for horizontal and vertical slices, respectively
+            </p>
+
+            <div style="display: flex; align-items: center; justify-content: center;">
+                <div style="border:24px double magenta; width: 200px;height: 200px; border-image-source: url(./imgex/RvFrame.png); border-image-slice:24 fill; font-size: 90pt; color: magenta; display: flex; justify-content: center; align-items: center;">
+                        RV
+                </div>
+                <div style="border: 20px double; width: 350px; height: 200px; border-image-source: url(./imgex/RvFrame.png); border-image-slice: 20 fill;">
+                    <blockquote>
+    <code>
+    border:100px double magenta; 
+    width: 500px;
+    height: 500px; 
+    border-image-source: url(./imgex/RvFrame.png); 
+    border-image-slice: 50; 
+    font-size: 150pt; 
+    color: magenta; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    </code>
+                    </blockquote>
+                </div>
+            </div>
+            <p>
+                First set a border with with <code>border</code> keyword setting a width of the border and then the border-image-slice so that it can fill the border sides
+            </p>
+        </div>
+        <div><h3>Setting How the Slices Fill the Sides</h3>
+            <p>
+                By default, the browser stretches each slices so that it fills the gap between the corners. It does so without changing the height for the top and bottom slices, or the width for the right and left slices. However, the border-image-repeat property lets you specify how to handle the slices with the following keywords.
+
+                <blockquote>
+                    <code>stretch</code> This is the default. The slices are scaled along the axis to fill the gap
+                    <code>repeat</code> The image is tiled from the center of the side to fill the gap
+                    <code>round</code> The image is rescaled if neccessary to fill the gap an exact number of times
+                    <code>space</code> The image is repeated an exact nymber of times to fill the gap. If theres insufficient space for an exact number, the extra space is distributed evenly leaving a gap between individual tiles.
+                </blockquote>
+                If you use on keyword, it applies to all sides. If you use two keywords, the first one applies to the top and bottom, and the second applies to the right and left.
+                <blockquote>
+                    border-image-repeat: stretch round;
+                </blockquote>
+            </p>
+        </div>
+        <hr>
+    </div>
+    <div><h2>Using the Shorthand Property for Border Images</h2>
+        <p>
+            The shorthand border-image property combines the five individual properties in a single declaration.
+        </p>
+        <div><h3>Full Shorthand Syntax</h3>
+            <blockquote><code>
+    border-image: source slices / width / outset repeat;
+            </code></blockquote>
+            <p>
+                As explained before, only the image source and slices are required. The other three values are optional. However, note the following rules:
+
+                <ul>
+                    <li>If you include 1-4 values for width, they must follow the values for slices, seperated by a forward slash</li>
+                    <li>To include 1-4 values for outset, they must follow the width values, seperated by a forward slash</li>
+                    <li>You cannot specify values for outset without also setting width</li>
+                    <li>If you omit width and outset, there should be no slash between any of the values</li>
+                </ul>
+            </p>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <div style="width: 300px; height: 300px; color: magenta;border-image: url(./imgex/RvFrame.png) 24 fill / 18px 12px 24px / 6px 12px 12px round stretch;">
+
+                </div>
+                <div>
+                    <div>
+                        <blockquote>
+    width: 300px;
+    height: 300px;
+    color: magenta;
+    border-image: url(./imgex/RvFrame.png);
+    border-image-slice: 24 fill;
+    border-image-width: 18px 12px 24px;
+    border-image-outset: 6px 12px 12px;
+    border-image-repeat: round stretch;
+                        </blockquote>
+                    </div>
+                    <div>
+                        <blockquote>
+    width: 300px; 
+    height: 300px; 
+    color: magenta;
+    border-image: url(./imgex/RvFrame.png) 24 fill / 18px 12px 24px / 6px 12px 12px round stretch;
+                        </blockquote>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+
+    </div>
+</body>
+<style>
+    a{
+        color: white;
+    }
+    .b{
+        border-radius: 1em 3em;
+    }
+</style>
+</html>

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AdvanceSelectors</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1><a href="../../CSS Notes Main.html">Back</a></h1>
+    <div class="con">
+        <hr>
+        <h2>Selecting First, Last, and Only Instances</h2>
+        <table>
+           <tr>
+            <th>Pseudo-class</th>
+            <th>Description</th>
+           </tr>
+           <tr>
+            <td>:first-child</td>
+            <td>Selecs an element that is the first child of its parent</td>
+           </tr>
+           <tr>
+            <td>:last-child</td>
+            <td>Selects an element that is the last child of its parent</td>
+           </tr>
+           <tr>
+            <td>:only-child</td>
+            <td>Selects an element that is the only child of its parent and has no siblings.</td>
+           </tr>
+           <tr>
+            <td>:first-of-type</td>
+            <td>Selects an element that is the last sibling of its type</td>
+           </tr>
+           <tr>
+            <td>:last-of-type</td>
+            <td>Selects an element that is the last sibling of its type</td>
+           </tr>
+           <tr>
+            <td>only-of-type</td>
+            <td>Selects an element that is the only sibling of its type. It can have other siblings, but not of the same type</td>
+           </tr>
+        </table>
+        <p>The difference between the "child" and "of-type" psuedo-classes lies in the relationship of the target element to its parent. The <code>:first-child</code> psuedo-class applies to the first element nested inside its parent, whereas the <code>:first-of-type</code> applies the first element of that particular type within its parent.</p>
+        <hr>
+    </div>
+    <div class="con">
+        <h2>Selecting Elements Based on their Position in a Series</h2>
+        <table>
+            <tr>
+                <th colspan="2">Pseudo-classes that Select Elements from a Series</th>
+            </tr>
+            <tr>
+                <th>Pseudo-class</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><code>:nt-child()</code></td>
+                <td>Selects the nth-child of its parent using the value between the parentheses</td>
+            </tr>
+            <tr>
+                <td><code>:nth-last-child()</code></td>
+                <td>Selects the nth-child() of its parent counting from the last one</td>
+            </tr>
+            <tr>
+                <td><code>nth-of-type()</code></td>
+                <td>Selects the nth sibling of its type</td>
+            </tr>
+            <tr>
+                <td><code>:nth-last-of-type()</code></td>
+                <td>Selects the nth sibling of its type counting from the last one</td>
+            </tr>
+        </table>
+        <p>
+            To use these pseudo-classes, you can pass a value to the parentheses indicating the position in the series that you want to select. The value can be number, a keyword, or a formula.
+        </p>
+        <div>
+            <h3>Using a Number to Specify the Position</h3>
+            <p>
+                Passing a number to one of the pseudo-classes selects the element at that position in the series. Unlike JavaScript and many other programming languages, the series begins at 1.
+            </p>
+            <p>
+                The nth-last pseudo-classes count from the end of the parent element.
+            </p>
+        </div>
+        <div>
+            <h2>Using a Keyword</h2>
+            <p>
+                The two keywords that you can use with the pseudo-classes are odd and even.
+                <ul>
+                    <li>odd - Selects an element that is an odd number in the series</li>
+                    <li>even - Selects an element that is an even number in the series</li>
+                    <li>n - Selects the nth element in the series</li>
+                    <li>2n - Selects the 2n element in the series</li>
+                    <li>2n+1 - Selects the 2n+1 element in the series</li>
+                    <li>3n - Selects the 3n element in the series</li>
+                    <li>3n+1 - Selects the 3n+1 element in the series</li>
+                    <li>3n+2 - Selects the 3n+2 element in the series</li>
+                    <li>an+b - Selects all element that are an+b-1, for all positive integer or zero n.</li>
+                </ul>
+            </p>
+
+        </div>
+    </div>
+    <div class="con">
+        <hr>
+        <h2>Selecting Elements Based on Their Relationship with Anohter</h2>
+        <table>
+            <tr>
+                <th colspan="3">Combinators</th>
+            </tr>
+            <tr>
+                <th>Pattern</th>
+                <th>Name</td>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><code>E F</code></td>
+                <td>Descendant combinator</td>
+                <td>Selects any F element that is a decendant of an E element. The descendant can be nested at any level.</td>
+            </tr>
+            <tr>
+                <td><code>E > F</code></td>
+                <td>Child combinator</td>
+                <td>Selects any F elemet that is the direct child of an E element.</td>
+            </tr>
+            <tr>
+                <td><code>E + F</code></td>
+                <td>Adjacent sibling combinator</td>
+                <td>Selects an F elemenet that immediately follows a sibling of type E</td>
+            </tr>
+            <tr>
+                <td><code>E ~ F</code></td>
+                <td>General sibling combinator</td>
+                <td>Selects all F elements that follow a sibling of type E</td>
+            </tr>
+        </table>
+        <div>
+            <h3>Using the Adjacent Sibling Combinator</h3>
+            <p>
+                The adjacent sibling combinator matches an element immediately preceded by a sibling of the specified type. To create an adjacent sibling combinator, add a plus sign (+) between two selector. For example, the following selector applies styles to every paragraph that is immediately preceded by an h3 heading
+            </p>
+
+            <div id="adjacent-con">
+                <div id="adjacent">
+                    <h3>Heading 1</h3>
+                    <p>P1 target</p>
+    
+                    <h3>Heading 2</h3>
+                    <p>P1 target</p>
+                    <p>P2 target</p>
+                </div>
+                <div id="adjacent-code">
+                    <p style="white-space: pre;">
+h3 + p {
+    color: gray;
+}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <h3>Using the General Sibling Combinator</h3>
+            <p>
+                The general siblings combinator matches elements that are preceded by a specific element at the same level of HTML hierarchy. You create it by adding a title (~) between the two selectors. For example, the following selector matched paragraph that are preceded by an h2 heading that is also a sibling: h2 ~ p
+            </p>
+            <p>
+                The general sibling combinator differs from the adjacent sibling combinator in two important respects:
+
+                <ul>
+                    <li>The general sibling combinator targets all matching elements, not just the first</li>
+                    <li>It does not matter if other element are interposed between the elements specified in the general sibling combinator. The intevening elements are skipped until the next match is found</li>
+                </ul>
+                <div id="general-con">
+                    <div id="general">
+                        <h2>Heading 1</h2>
+                        <p>P1 targer</p>
+
+                        <h2>Heading 2</h2>
+                        <p>P1 target</p>
+                        <p>P2 target</p>
+                        <p>P3 target</p>
+                    </div>
+                    <div id="general-code">
+                        <p style="white-space: pre;">
+h2 ~ p{
+    color: gray;
+}
+                        </p>
+                    </div>
+                </div>
+            </p>
+        </div>
+    </div>
+    <div class="con">
+        <hr>
+        <h2>Selecting Form Elements Based on Their State</h2>
+        <table>
+            <tr>
+                <th colspan="2">Pseudo-classes that Select From Elements Based on Their State</th>
+            </tr>
+            <tr>
+                <th>Pseudo-class</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><code>:enabled</code></td>
+                <td>Matches a form element that is not disabled</td>
+            </tr>
+            <tr>
+                <td><code>:disabled</code></td>
+                <td>Matches a form element that is disabled</td>
+            </tr>
+            <tr>
+                <td><code>:checked</code></td>
+                <td>Matches a form element that has been checked or selected</td>
+            </tr>
+            <tr>
+                <td><code>:indeterminate</code></td>
+                <td>Matches a form element that is in an inderterminate state</td>
+            </tr>
+            <tr>
+                <td><code>:default</code></td>
+                <td>Matches the default options among a group sililar elements</td>
+            </tr>
+            <tr>
+                <td><code>:valid</code></td>
+                <td>Matches elements that have a valid state</td>
+            </tr>
+            <tr>
+                <td><code>:invalid</code></td>
+                <td>Matches elements that have an invalid data value</td>
+            </tr>
+            <tr>
+                <td><code>:in-range</code></td>
+                <td>Matches elements with a data value that is within the prescribed range</td>
+            </tr>
+            <tr>
+                <td><code>:out-of-range</code></td>
+                <td>Matches elements with a data value that is outside the prescribed range</td>
+            </tr>
+            <tr>
+                <td><code>required</code></td>
+                <td>Matches required form elements</td>
+            </tr>
+            <tr>
+                <td><code>:optional</code></td>
+                <td>Matches form elements that are not required</td>
+            </tr>
+            <tr>
+                <td><code>:read-only</code></td>
+                <td>Matches elements whos contents cannot be altered by the user</td>
+            </tr>
+            <tr>
+                <td><code>:read-write</code></td>
+                <td>Matches elements, such as text input fields, whose contents can be altered by the user</td>
+            </tr>
+        </table>
+    </div>
+    <div class="con">
+        <h2>Selecting Elements Based on Negative Fact</h2>
+        <table>
+            <tr>
+                <th colspan="2">Psuedo-classes Based on Negative Factors</th>
+            </tr>
+            <tr>
+                <th>Pseudo-class</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><code>:not()</code></td>
+                <td>Matches elements bsed on a negative condition</td>
+            </tr>
+            <tr>
+                <td><code>:empty</code></td>
+                <td>Matches elements that have no content. To be empty, an element cannot be even have whitespace between the opening ang closing tags</td>
+            </tr>
+        </table>
+        <p>
+            To use the :not() psuedo-class, you place a simple selector as the condition between the parentheses. The condition must be one of the following:
+
+            <ul>
+                <li>The universal selector(*)</li>
+                <li>A type selector</li>
+                <li>An attribute selector</li>
+                <li>A class or pseudo-class</li>
+                <li>An ID selector</li>
+            </ul>
+        </p>
+        <div id="negative-factor-con">
+            <div id="negative-factor">
+                <table>
+                    <tr>
+                        <td>no whitespace</td>
+                        <td>no whitespace</td>
+                        <td>no whitespace</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>no whitespace</td>
+                        <td></td>
+                        <td></td>
+                        <td>no whitespace</td>
+                        <td>no whitespace</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td>no whitespace</td>
+                        <td>no whitespace</td>
+                        <td></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="negative-factor-code">
+                <p style="white-space: pre;">
+table > tbody> tr > td:empty{
+    background-color: red;
+}
+                </p>
+            </div>
+        </div>
+        <div>
+            <h3>Other Selectors</h3>
+            <table>
+                <tr>
+                    <th colspan="2">Miscellaneous Pseudo-class</th>
+                </tr>
+                <tr>
+                    <th>Pseudo-class</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>:root</code></td>
+                    <td>Matches the root element of the document. In HTML, this is always the &gt;html&lt; element</td>
+                </tr>
+                <tr>
+                    <td><code>:target</code></td>
+                    <td>Matches the target of a URL fragment, such as an ID or named anchor</td>
+                </tr>
+                <tr>
+                    <td><code>:lang()</code></td>
+                    <td>Matches elements based on their language.</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <h3>Attribute Selectors</h3>
+            <table>
+                <tr>
+                    <th colspan="2">Miscellaneous Attribute Selectors</th>
+                </tr>
+                <tr>
+                    <th>Pattern</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>E[attr * = "x"]</code></td>
+                    <td>Matches any E element where <code>attr</code> attribute conatins the substring x</td>
+                </tr>
+                <tr>
+                    <td><code>E[attr ~ = "x"]</code></td>
+                    <td>Matches any E element where the <code>attr</code> attribute is a list of space-seperated values one of which is exactly x</td>
+                </tr>
+                <tr>
+                    <td><code>E[attr | = "x"]
+                    </code></td>
+                    <td>Matches any E element where the value of the <code>attr</code> is either exactly x or x immediately followed by a hyphen</td>
+                </tr>
+            </table>
+        </div>
+        <div>
+            <h3>Pseudo-elements for Generated</h3>
+            <table>
+                <tr>
+                    <th colspan="2">Pseudo-elements For Generated Content</th>
+                </tr>
+                <tr>
+                    <th>Psuedo-elements For Generated Content</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>::before</code></td>
+                    <td>Creates generated content before element</td>
+                </tr>
+                <tr>
+                    <td><code>::after</code></td>
+                    <td>Creates generated content after an element</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

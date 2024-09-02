@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex1</title>
+</head>
+<body>
+    
+    <div id="centered">
+        <div>
+            <p>As you learned you cneter text elements using <code>text-align</code> property and setting its value to center. The draft CSS3 box model proposes introducing a similar property, tentatively called <code>alignment</code> or <code>block-align</code> , for block-level elements. But until the specification is implemented but browsers, you can center a block-level element by giving it a declared width and setting the left and right margins to <code>auto</code></p>
+        </div>
+    </div>
+    <div class="back">
+        <p>Specifying a width and setting horizontally margins to auto centers a block-level element</p>
+    </div>
+    <div class="back">
+        <h1><a href="../../CSSBoxModel.html">Back</a></h1>
+    </div>
+    
+</body>
+
+<style>
+    body{
+        background-color: black;
+    }
+    #centered{
+        background-color: #555;
+        border: 2px solid #333;
+        width: 400px;
+        margin: 20px auto;
+        padding: 20px;
+        color: white;
+    }
+    .back{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+    }
+</style>
+</html>

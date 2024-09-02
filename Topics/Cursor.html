@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursor</title>
+    <link rel="stylesheet" href="../CSS/Cursor.css">
+</head>
+<body>
+    <h2><a href="../CSS Notes Main.html">Back</a></h2>
+    <h1>Changing the Look of the Cursor</h1>
+    <hr>
+    <h2><strong><code>General Purpose Cursor</code></strong></h2>
+        <table>
+            <tr>
+                <th>Keyword</th>
+                <th>Example</th>
+                <th>Description </th>
+            </tr>
+            <tr>
+                <td><code>auto</code></td>
+                <td class="auto">cursor</td>
+                <td>Browser selects cursor base on current context.</td>
+            </tr>
+            <tr>
+                <td><code>default</code></td>
+                <td class="df">cursor</td>
+                <td>Default cursor - usually an arrow</td>
+            </tr>
+            <tr>
+                <td><code>none</code></td>
+                <td class="nn">cursor</td>
+                <td>Cursor is hidden</td>
+            </tr>
+        </table>
+        <hr>
+    <h2><strong><code>Links and Status Cursors</code></strong></h2>
+        <table>
+            <tr>
+                <th>Keyword</th>
+                <th>Example</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><code>context-menu</code></td>
+                <td class="cm">cursor</td>
+                <td>Context menu is available for the current object</td>
+            </tr>
+            <tr>
+                <td><code>help</code></td>
+                <td class="help">cursor</td>
+                <td>Help is available</td>
+            </tr>
+            <tr>
+                <td><code>pointer</code></td>
+                <td class="pt">cursor</td>
+                <td>Indicates a link</td>
+            </tr>
+            <tr>
+                <td><code>progress</code></td>
+                <td class="progress">cursor</td>
+                <td>Indicates something is happening, but that user still interact with the browser</td>
+            </tr>
+            <tr>
+                <td><code>wait</code></td>
+                <td class="wait">cursor</td>
+                <td>Indicates the browser is busy and user should wait</td>
+            </tr>
+        </table>
+        <hr>
+    <h2><strong><code>Selection Cursor</code></strong></h2>
+        <table>
+            <tr>
+                <th>Keyword</td>
+                <th>Example</td>
+                <th>Description</td>
+            </tr>
+            <tr>
+                <td><code>cell</code></td>
+                <td class="cell">cursor</td>
+                <td>Indicates a cell or set of cells may be selected</td>
+            </tr>
+            <tr>
+                <td><code>crosshair</code></td>
+                <td class="ch">cursor</td>
+                <td>Display two thin interacting lines</td>
+            </tr>
+            <tr>
+                <td><code>text</code></td>
+                <td class="text">cursor</td>
+                <td>Indicates text can be selected</td>
+            </tr>
+            <tr>
+                <td><code>vertical-text</code></td>
+                <td class="vt">cursor</td>
+                <td>Indicates vertical-text can be selected</td>
+            </tr>
+        </table>
+    <hr>
+    <h2><strong><code>Drag and Drop Cursors</code></strong></h2>
+        <table>
+            <tr>
+                <th>Keyword</td>
+                <th>Example</td>
+                <th>Description</td>
+            </tr>
+            <tr>
+                <td><code>alias</code></td>
+                <td class="al">cursor</td>
+                <td>Indicates that an alias or shortcut is to be created</td>
+            </tr>
+            <tr>
+                <td><code>copy</code></td>
+                <td class="cp">cursor</td>
+                <td>Indicates that something is to be copied</td>
+            </tr>
+            <tr>
+                <td><code>move</code></td>
+                <td class="mv">cursor</td>
+                <td>Indicates that somethingis to be moved</td>
+            </tr>
+            <tr>
+                <td><code>no-drop</code></td>
+                <td class="nd">cursor</td>
+                <td>Indicates tbat the dragged item cannot be droppped at the current location</td>
+            </tr>
+            <tr>
+                <td><code>not-allowed</code></td>
+                <td class="na">cursor</td>
+                <td>The requested action will not be carried out</td>
+            </tr>
+        </table>
+    <hr>
+    <h2><strong><code>Resizing and Scrolling Cursors</code></strong></h2>
+        <table>
+            <tr>
+                <th>Keyword</td>
+                <th>Example</td>
+                <th>Description</td>
+            </tr>
+            <tr>
+                <td><code>
+                    e-resize <br>
+                    n-resize <br>
+                    ne-resize <br>
+                    nw-resize <br>
+                    s-resize <br>
+                    se-resize <br>
+                    sw-resize <br>
+                    w-resize <br>
+                </code></td>
+                <td class="enne">cursor</td>
+                <td>Indicates that some edge is to be moved. Depends on the direction</td>
+            </tr>
+            <tr>
+                <td><code>
+                    ew-resize <br>
+                    ns-resize <br>
+                    nesw-resize <br>
+                    nwse-resize <br>
+                </code></td>
+                <td class="brc">cursor</td>
+                <td>Indicates a bidirectional rezie cursor</td>
+            </tr>
+            <tr>
+                <td><code>col-resize</code></td>
+                <td class="cr">cursor</td>
+                <td>Indicates the column can resized horizontally</td>
+            </tr>
+            <tr>
+                <td><code>row-resize</code></td>
+                <td class="rr">cursor</td>
+                <td>Indicates the row can be resized vertically</td>
+            </tr>
+            <tr>
+                <td><code>all-scroll</code></td>
+                <td class="as">cursor</td>
+                <td>Indicates that something can be scrolled in any direction</td>
+            </tr>
+        </table>
+    <hr>
+    <h1>Custom Cursor</h1>
+            <p><code>
+                .yawa:hover{<br>
+                    cursor: url(bisag unsa na file), url(yawa,png), pointer;<br>
+                }
+            </code></p>
+    <h1>Cursor Offset</h1>
+            <p><code>
+                .yawa:hover{<br>
+                    cursor: url(bisag unsa na file) 12 12, url(yawa,png) 15 15, default;<br>
+                }
+            </code></p>
+</body>
+</html>

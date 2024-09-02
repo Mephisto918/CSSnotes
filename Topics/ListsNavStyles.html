@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ListsNavStyles</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="../CSS/BG.css">
+</head>
+<body>
+    <h1><a href="../CSS Notes Main.html">Back</a></h1>
+    <h1 style="text-align: center; font-size: 32pt;"><u><i>Styling Lists and Navigation Menus</i></u></h1>
+    <hr>
+    <div><h2>Styling Unordered and Ordered Lists</h2>
+        <p>
+            CSS has three individual properties and a shorthand property designed to style bullted and numbered lists. They are listed below.
+
+            <table>
+                <tr>
+                    <td colspan="3">List Properties in CSS</td>
+                </tr>
+                <tr>
+                    <th>Property</th>
+                    <th>Initial Value</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>list-style-type</code></td>
+                    <td>disc</td>
+                    <td>Determines the type of symbol used. By default, unordered lists use a solid disc, and ordered lists use a number followed by a period</td>
+                </tr>
+                <tr>
+                    <td><code>list-style-position</code></td>
+                    <td>outside</td>
+                    <td>Controls whether the symbol or number is displayed as a hanging indent(default) or nested inside the list item</td>
+                </tr>
+                <tr>
+                    <td><code>list-style-image</code></td>
+                    <td>none</td>
+                    <td>Allows you to use your own image in place of an automatically generated symbol</td>
+                </tr>
+                <tr>
+                    <td><code>list-style</code></td>
+                    <td>See individual properties</td>
+                    <td>Shorthand property that lets you specify all properties in a single declaration</td>
+                </tr>
+            </table>
+            All properties above are inherited, so the same values are used by nested list unless you create specific rules to override them.
+        </p>
+        <hr>
+    </div>
+    <div><h2>Unordered Lists</h2>
+        <p>
+            When used with unordered lists, list-style-type offers a choice of just three symbols: disc(default), circle, and square. Below shows what they look like
+        </p>
+        <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;">
+            <div style="display: flex; justify-content: center; align-items: center; flex-direction: row;">
+                <div style="width: auto; height: auto; padding: 10px; background-color: teal; margin: 10px; color: black;">
+                    <h4 style="text-align: center;">disc (default for &lt;ul&gt;)</h4>
+                    <ul style="list-style-type: disc;">
+                        <li>Chill Kill</li>
+                        <li>Feel my Rhythm</li>
+                        <li>Birthday</li>
+                    </ul>
+                </div>
+                <div style="width: auto; height: auto; padding: 10px; background-color: teal; margin: 10px; color: black;">
+                    <h4 style="text-align: center;">circle</h4>
+                    <ul style="list-style-type: circle;">
+                        <li>Drama</li>
+                        <li>Savage</li>
+                        <li>Welcome to My World</li>
+                    </ul>
+                </div>
+                <div style="width: auto; height: auto; padding: 10px; background-color: teal; margin: 10px; color: black;">
+                    <h4 style="text-align: center;">square</h4>
+                    <ul style="list-style-type: square;">
+                        <li>Cool with you</li>
+                        <li>ETA</li>
+                        <li>Get up</li>
+                    </ul>
+                </div>
+            </div>
+            <blockquote><code>
+ul{
+    list-style-type: disc;
+}
+            </code></blockquote>
+        </div>
+    </div>
+    <div><h2>Ordered Lists</h2>
+        <p>
+            Theres a much wider choice of symbols for ordered lists. All browsers support the 11 keywords listed in CSS2.1 specification: decimal (default), decimal-leading-zero, lower-roman, upper-roman, lower-greek, lower-alpha, upper-alpha, lower-latin, upper-latin, armenian, and goergian.
+        </p>
+
+        <div style="display: flex; justify-content: center; align-items: center; flex-direction: column;"> 
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <div class="box">
+                    <h4>decimal (default for &lt;ol&gt;)</h4>
+                    <ol>
+                        <li>Mina</li>
+                        <li>Sana</li>
+                        <li>Momo</li>
+                    </ol>
+                </div>
+                <div class="box">
+                    <h4>decimal-leading-zero</h4>
+                    <ol style="list-style-type: decimal-leading-zero;">
+                        <li>Winter</li>
+                        <li>Karina</li>
+                        <li>NingNing</li>
+                    </ol>
+                </div>
+                <div class="box">
+                    <h4>lower-roman</h4>
+                    <ol style="list-style: lower-roman;">
+                        <li>Seulgi</li>
+                        <li>Wendy</li>
+                        <li>Irene</li>
+                    </ol>
+                </div>
+                <div class="box">
+                    <h4>upper-roman</h4>
+                    <ol style="list-style: upper-roman;">
+                        <li>Hyaerin</li>
+                        <li>Dannielle</li>
+                        <li>Hanni</li>
+                    </ol>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <div class="box">
+                    <h4>lower-greel</h4>
+                    <ol style="list-style: lower-greek;">
+                        <li>Get up</li>
+                        <li>I dont wanna fight</li>
+                        <li>your shadows</li>
+                    </ol>
+                </div>
+                <div class="box">
+                    <h4>lower-alpa</h4>
+                    <ol style="list-style-type: lower-alpha;">
+                        <li>Meet me at five</li>
+                        <li>If I matter</li>
+                        <li>To you</li>
+                    </ol>
+                </div>
+                <div class="box">
+                    <h4>upper-alpha</h4>
+                    <ol style="list-style: upper-alpha;">
+                        <li>Like I say I do so</li>
+                        <li>Get up</li>
+                        <li>I dont wanna fight your shadows</li>
+                    </ol>
+                </div>
+                <div class="box">
+                    <h4>lower-latin</h4>
+                    <ol style="list-style: lower-latin;">
+                        <li>Meet me At five if I matter</li>
+                        <li>To you</li>
+                        <li>Like I say I do</li>
+                    </ol>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <div class="box">
+                    <h4>upper-latin</h4>
+                    <ol style="list-style: upper-latin;">
+                        <li>Whats your</li>
+                        <li>ETA</li>
+                        <li>Whats your</li>
+                    </ol>
+                </div>
+                <div class="box">
+                    <h4>armenian</h4>
+                    <ol style="list-style-type: armenian;">
+                        <li>Drama</li>
+                        <li>I bring drama</li>
+                        <li>With my girls on the back</li>
+                    </ol>
+                </div>
+                <div class="box">
+                    <h4>goergian</h4>
+                    <ol style="list-style: georgian;">
+                        <li>What a Chill Kill</li>
+                        <li>I know You will</li>
+                        <li>Bring me Lightning</li>
+                    </ol>
+                </div>
+            </div>
+            <h2>Some chuy kung pasikat kaayo ka</h2>
+            <div style="display: flex; align-items: center; justify-content: center;">
+                <div class="box">
+                    <h3>cjk-ideographic</h3>
+                    <ol style="list-style: cjk-ideographic;">
+                        <li>Sheesh</li>
+                        <li>Linya na symbol</li>
+                        <li>Sa numbering system</li>
+                    </ol>
+                </div>
+                <div class="box">
+                    <h3>hebrew</h3>
+                    <ol style="list-style: hebrew;">
+                        <li>Sheesh</li>
+                        <li>Linya na symbol</li>
+                        <li>Sa numbering system</li>
+                    </ol>
+                </div>
+                <div class="box">
+                    <h3>hiragana</h3>
+                    <ol style="list-style: hiragana;">
+                        <li>Sheesh</li>
+                        <li>Linya na symbol</li>
+                        <li>Sa numbering system</li>
+                    </ol>
+                </div>
+                <div class="box">
+                    <h3>higarana-iroha</h3>
+                    <ol style="list-style: hiragana-iroha;">
+                        <li>Sheesh</li>
+                        <li>Linya na symbol</li>
+                        <li>Sa numbering system</li>
+                    </ol>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <div class="box">
+                    <h3>katakana</h3>
+                    <ol style="list-style: katakana;">
+                        <li>Sheesh</li>
+                        <li>Linya na symbol</li>
+                        <li>Sa numbering system</li>
+                    </ol>
+                </div>
+                <div class="box">
+                    <h3>katakana-iroha</h3>
+                    <ol style="list-style: katakana-iroha;">
+                        <li>Sheesh</li>
+                        <li>Linya na symbol</li>
+                        <li>Sa numbering system</li>
+                    </ol>
+                </div>
+                <div class="box">
+                    <h3>upper-greek</h3>
+                    <ol style="list-style: upper-greek;">
+                        <li>Sheesh</li>
+                        <li>Linya na symbol</li>
+                        <li>Sa numbering system</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div><h2>Changing the Position of the Symbol</h2>
+        <p>
+            The list-style-position property accepts just two vakues, namely:
+
+            <ul>
+                <li><code>inside</code> This tucks the bullet or number inside the list item, so that it is flush with the left edge in left-to-right languages like English</li>
+                <li><code>outside</code> This is the default position, which puts the bullet or number outside the list item like hangging indent</li>
+            </ul>
+            The styles in list-style-position include the following ckass:
+        </p>
+        <div>
+            <div style="display: flex; justify-content: center;align-items: center;">
+                <div style="width: 200px; height: auto; background-color: rgb(36, 48, 48); color: rgb(221, 215, 215); display: flex; align-items: center; justify-content: center; padding: 15px 15px 15px 15px; flex-direction: column; margin: 10px;">
+                    <ul>
+                        <li>By default, the bullet or number is outside the list item</li>
+                        <li>You can change this by setting list-style-position to inside</li>
+                    </ul>
+                    <ol>
+                        <li>Order lists are treated exactly the same</li>
+                        <li>The text is indented, but the number remains outside</li>
+                    </ol>
+                </div>
+                <div style="width: 200px; height: auto; background-color: rgb(36, 48, 48); color: rgb(221, 215, 215); display: flex; align-items: center; justify-content: center; padding: 15px 15px 15px 15px; flex-direction: column; margin: 10px;">
+                    <ul style="list-style-position: inside;">
+                        <li>By default, the bullet or number is outside the list item</li>
+                        <li>You can change this by setting list-style-position to inside</li>
+                    </ul>
+                    <ol style="list-style-position: inside;">
+                        <li>Order lists are treated exactly the same</li>
+                        <li>The text is indented, but the number remains outside</li>
+                    </ol>
+                </div>
+            </div>
+            <div style="display: flex; justify-content: center; align-items: center;">
+                <div style="display: flex; justify-content: center; align-items: center;">
+                    <blockquote><code>
+list-style-position: outside;
+                    </code></blockquote>
+                </div>
+                <div style="display: flex; align-items: center; justify-content: center;">
+                    <blockquote><code>
+list-style-position: inside;
+                    </code></blockquote>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div><h2>Replacing the Symbol with Your Own Image</h2>
+        <p>
+            The list-style-image property allows you to replace the symbol with an image of your own. Although it works with both ordered and unordered list, the same image is used for every item. So, in practical terms, it makes sense only with unordered lists. <br>As shown below, the image used in place of the default disc. The image used in this example is 30x30px, which produces a larger shape than the defualt bullet. As a general rule, the height of the image shouldnt exceed the font size of the text.
+        </p>
+
+        <div>
+            <ul style="width: 5px; height: 5px; background-size: contain; list-style-image: url(./imgex/green.png);">
+                <li>yawa</li>
+                <li>nimal</li>
+            </ul>
+        </div>
+
+    </div>
+    <div style="padding-top: 50px;"><h2>Using the list-style Shorhand Property</h2>
+        <p>
+            The list-style shorthand property accepts the same values as the individual list-style-type,list-style-position, and list-type-image properties. You can define all three values, seperated by a space, or just one or two. Any value that is omiited uses the initial value listed before.
+        </p>
+        <div style="display: flex; justify-content: center; align-items: center;">
+            <div class="box">
+                <blockquote><code>
+    ul{
+        list-style-image: url(../yawa/animal.png);
+        list-style-type: square;
+    }}
+                </code></blockquote>
+            </div>
+            <div class="box">
+                <blockquote><code>
+    ul{
+        list-style: url(../yawa/animal.jpeg) square;
+    }
+                </code></blockquote>
+            </div>
+        </div>
+
+    </div>
+    
+</body>
+<style>
+    a{
+        color: white;
+    }
+    .box{
+        width: auto; 
+        height: auto; 
+        background-color: rgb(36, 48, 48); 
+        color: rgb(221, 215, 215); 
+        display: flex; 
+        align-items: center; 
+        justify-content: center; 
+        padding: 15px 15px 15px 15px; 
+        flex-direction: column; 
+        margin: 10px;
+    }
+</style>
+</html>

@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FloatingElementsForLaytout</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+    <h1><a href="../CSS Notes Main.html">Back</a></h1>
+
+    <div>
+        <hr>
+        <h1 style="text-align: center;"><i style="font-size: 32pt;">Floating Elements for Layout</i></h1>
+        <hr>
+    </div>
+    <div>
+        <p>
+            As explained in the preceeding chapter notes, CSS treats HTML elements as boxes. Block-level elements force whatever follows them down the page, even if theres sufficient room alongside. Inline elements sits alongside their neighbors, but if one element is taller then the rest, it affects the line height. For example, images are treated as inline elements. Inserting one in a block of text forces the text to align with the bottom of the image, as shown bellow.
+        </p>
+
+        <div style="height: 300px; width: 450px; background-color: #222; padding: 20px;">
+            <h2>Our 2 sides</h2>
+            <div>
+                <p>
+                    We all have that 2 sides that are always hidden, because of that we deny them as they exist beyond our control.
+                </p>
+                <p>
+                    <img src="../imgs/FEfL.png" style="width: 200px; height: 200px;"> The eagerness to deny our hunger for money. By denying it, it becomes stronger as it takes over our goal to be more responsible in using the money
+                </p>
+            </div>
+        </div>
+        <p><i>Text doesnt automatically flow around an image</i></p>
+
+        <p>
+            To get text to flow around an image, you need to use the <code>float</code> property, which takes an element out of the normal flow of the document and moves it to the one side to make room for whatever follows. So, if you float an image to the left, the following text flows into the empty spcae created on the right. The same happens with block-level elements. When you float a block-level elements, as long as theres sufficient space alongside the floated block, the following elements are no longer forced into nre line, and they can move up. Floating a &lt;div&gt; element alongside another is a common technique for creating main content area and sidebar.
+        </p>
+        <p>
+            Learning how to use float property is an essential skill in current web page layout. The basic principles are very simple, but floating elements can have unexpected consequences.
+        </p>
+        <hr>
+    </div>
+
+    <div><h2><u>How to Float an Element</u></h2>
+        <div>
+            <p>
+                You can float any element, unless its <code>display</code> property is set to <code>none</code>, or it uses absolute or fixed positioning. The float property accepts the values below
+            </p>
+    
+            <table>
+                <tr>
+                    <th colspan="2">Values Accepted by the float property</th>
+                </tr>
+                <tr>
+                    <th>Value</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>left</code></td>
+                    <td>The element generates a block that is floated to the left inside its parent. Following elements up into the empty space on the right</td>
+                </tr>
+                <tr>
+                    <td><code>right</code></td>
+                    <td>Same as left, but the block is floated to the right and other elements fill the space on the left.</td>
+                </tr>
+                <tr>
+                    <td><code>none</code></td>
+                    <td>The element is not floated. This is the default value.</td>
+                </tr>
+            </table>
+    
+            <p>
+                Because <code>float</code> property is not inherited, you can also use the inherit keyword to force inheritance from the parent element. The main purpose of none is to override another style rule. For example, CSS3 media queries allow you to serve different styles depending on a device feature, such as screen width. For destop monitors, your styles will probably float images to left or right. But on mobile phone, you could set float to none, and use another styles to center the image.
+            </p>
+        </div>
+        <div>
+            <h3><u>Using Float to Flow Text Around Images</u></h3>
+
+            <p>
+                The old-school way of flowing text around an image was to add the align attribute in the &lt;img&gt; tag, and set its value to left or right. It did the job but no space was left between the image and the surrounding text. To compensate, you needed to use the <code>hspace</code> attribute, but this adds the same amount on both sides of the image. Similarly, the <code>vpace</code> attribute adds the same vertical space on the top and bottom of an image, destroying the layout.
+            </p>
+            <h3 style="text-align: center;"><u><a href="./ExterEx/FloatingEle/Ex1.html">Example 1</a></u></h3>
+        </div>
+        <hr>
+
+    </div>
+    <div><h2><u>Preventing Elements from Moving Alongside a Floated Element</u></h2>
+        <p>
+            To force an element to move down below a floated element, such as an image, use the clear property, whiche accepts the values listed below.
+        </p>
+
+        <table>
+            <tr>
+                <th colspan="2">Values Accepted by the clear Property</th>
+            </tr>
+            <tr>
+                <th>Value</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td><code>left</code></td>
+                <td>Forces the element to a new line below any left-floated elements</td>
+            </tr>
+            <tr>
+                <td><code>right</code></td>
+                <td>Foreces the element to a new line below any right-floated elements</td>
+            </tr>
+            <tr>
+                <td><code>both</code></td>
+                <td>Forces the element to a new line below any floated elements</td>
+            </tr>
+            <tr>
+                <td><code>none</code></td>
+                <td>Floats acts normally. This is the default, but it can be used to override an earlier rule that uses the clear property.</td>
+            </tr>
+        </table>
+
+        <p>
+            Becase <code>clear</code> is not inherited, you can use the <code>inherit</code> keyword to make a child element act the same way as its parent.
+        </p>
+
+        <div style="display: flex; align-items: center; justify-content: center; margin: 5px;">
+            <div style="width: auto; height: auto; padding: 2px; background-color: #111; margin: 10px;">
+                <blockquote style="white-space: pre;"><code>
+    img{
+    float: left;
+    }
+    .DawnAndParagraph{
+        clear: left;
+    }
+                </code></blockquote>
+            </div>
+            <div style="height: auto; width: 450px; background-color: #222; padding: 20px;">
+                <h2>Our 2 sides</h2>
+                <div>
+                    <p>
+                        We all have that 2 sides that are always hidden, because of that we deny them as they exist beyond our control.
+                    </p>
+                    <p>
+                        The eagerness to deny our hunger for money. By denying it, it becomes stronger as it takes over our goal to be more responsible in using the money. <img src="../imgs/FEfL.png" style="width: 200px; height: 200px; float: left; margin: 15px;"> There seemed to be no use in waiting by the little door, so she whent back to the half hoping she might fint another key on it, or at any rate a book of rules for shutting people up like a telescope, whit time she found a little bottle on it, (which certainly was not here before, said Alice) and round the neck of the bottle was a paper lael, with the words Drink Me! beautifully printed on it in large letters. The dragon became the larges species devouring anything on its sight include the rocky flesh of the neptune and the gasses of jupiter, as long as it exist there will no peace amongst the celestials. It needs to be removed and baniseh before it can wreck more havoc amongs the stars. And I am Optimus Prime, Calling all autobots!
+                    </p>
+                    <div style="clear: left;">
+                        <h2>Dawn-Star</h2>
+                        <p>
+                            Close to the Italian border lies the tiny city state of Monaco, home to the rich and famous. Surrounded on three sided by France and by the eight holds.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <h3 style="text-align: center;"><i>The heading now occupies a line of its own</i></h3>
+
+        <p>
+            Althout the <code>clear</code> property has a seperate values for clearing left-and right-floated elements, its often convenient to set <code>clear</code> to both to avoid having to change the value if you decide to alter your layout and float elements in the opposite direction. For example, by using the following style for h3 headings, it doesnt matter if the preceeding image is floated left or right.
+        </p>
+        <hr>
+    </div>
+    <div><h2><u>Centering an Image</u></h2>
+        <p>
+            The float property doesnt have an option for centering an element. But while were on the subject of aligning images, this seems like a logical place to explaint how to center an image.
+        </p>
+        <p>
+            As explained in the previous chapter, you center a block-level element by giving it a width and setting its left and right margin to auto. Browsers automatically obtain the dimentions of an image even if you dont specify the width and height attributes int the image tag. But images are inline elements, so setting the left and right margins to auto has no effect on its own. However, all you need to do is to set the images display property to block, and its centered.
+        </p>
+
+        <div style="display: flex; align-items: center; justify-content: center; margin: 5px;">
+            <div style="width: auto; height: auto; padding: 2px; background-color: #111; margin: 10px;">
+                <blockquote style="white-space: pre;"><code>
+    img{
+        float: left;
+        display: block; 
+        margin: 15px auto;
+    }
+    .DawnAndParagraph{
+        clear: left;
+    }
+                </code></blockquote>
+            </div>
+            <div style="height: auto; width: 450px; background-color: #222; padding: 20px;">
+                <h2>Our 2 sides</h2>
+                <div>
+                    <p>
+                        We all have that 2 sides that are always hidden, because of that we deny them as they exist beyond our control.
+                    </p>
+                    <p>
+                        The eagerness to deny our hunger for money. By denying it, it becomes stronger as it takes over our goal to be more responsible in using the money. <img src="../imgs/FEfL.png" style="width: 200px; height: 200px; display: block; margin: 15px auto;"> There seemed to be no use in waiting by the little door, so she whent back to the half hoping she might fint another key on it, or at any rate a book of rules for shutting people up like a telescope, whit time she found a little bottle on it, (which certainly was not here before, said Alice) and round the neck of the bottle was a paper lael, with the words Drink Me! beautifully printed on it in large letters. The dragon became the larges species devouring anything on its sight include the rocky flesh of the neptune and the gasses of jupiter, as long as it exist there will no peace amongst the celestials. It needs to be removed and baniseh before it can wreck more havoc amongs the stars. And I am Optimus Prime, Calling all autobots!
+                    </p>
+                    <div style="clear: left;">
+                        <h2>Dawn-Star</h2>
+                        <p>
+                            Close to the Italian border lies the tiny city state of Monaco, home to the rich and famous. Surrounded on three sided by France and by the eight holds.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+    </div><hr><h2 style="text-align: center; font-size: 32pt;"><u>Naa nakoy gipang skip kay kapoy na</u></h2><hr>
+    <hr>
+    <div><h2><u>Adding a Caption to an Image</u></h2>
+        <p>
+            As the old saying goes, an image is worth a thousand words. But a few choice words added to an image as a caption can make all the difference. HTML 5 introduces two new tags, &lt;figure&gt; and &lt;figcaption&gt;, specifically designed to handle images with captions. You wrap the image inside a &lt;figure&gt; element together with its caption in a &lt;figcaption&gt; element. Instead of floating the image, you float the &lt;figure&gt; element.
+        </p>
+
+        <p>
+            Unfortunately, you cant use the &lt;figure&gt; and &lt;figcaption&gt; tags inside a paragraph because theyre regarded as block-level elements, or flow content to use the HTML 5 terminology for elements that are used in the body of document. In the past, browsers have been very forgiving if you break the rules, so you might be tempted to nest a &lt;figure&gt; and &lt;figcaptio&gt; inside a paragraph like this: 
+        </p>
+
+        <div style="display: flex; align-items: center; justify-content: center; margin: 5px;">
+            <div style="width: auto; height: auto; padding: 2px; background-color: #111; margin: 10px;">
+                <blockquote style="white-space: pre;"><code>
+img{
+float: left;
+}
+.DawnAndParagraph{
+    clear: left;
+}
+                </code></blockquote>
+            </div>
+            <div style="height: auto; width: 450px; background-color: #222; padding: 20px;">
+                <h2>Our 2 sides</h2>
+                <div>
+                    <p>
+                        We all have that 2 sides that are always hidden, because of that we deny them as they exist beyond our control.
+                    </p>
+                    <p >
+                        The eagerness to deny our hunger for money. By denying it, it becomes stronger as it takes over our goal to be more responsible in using the money. <figure style="float: left;"><img src="../imgs/FEfL.png" style="width: 200px; height: 200px; float: left; margin: 15px;"><figcaption style="color: greenyellow;">I Have 2 sides</figcaption></figure> There seemed to be no use in waiting by the little door, so she whent back to the half hoping she might fint another key on it, or at any rate a book of rules for shutting people up like a telescope, whit time she found a little bottle on it, (which certainly was not here before, said Alice) and round the neck of the bottle was a paper lael, with the words Drink Me! beautifully printed on it in large letters. The dragon became the larges species devouring anything on its sight include the rocky flesh of the neptune and the gasses of jupiter, as long as it exist there will no peace amongst the celestials. It needs to be removed and baniseh before it can wreck more havoc amongs the stars. And I am Optimus Prime, Calling all autobots!
+                    </p>
+                    <div style="clear: left;">
+                        <h2>Dawn-Star</h2>
+                        <p>
+                            Close to the Italian border lies the tiny city state of Monaco, home to the rich and famous. Surrounded on three sided by France and by the eight holds.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div style="width: auto; height: auto; padding: 2px; background-color: #111; margin: 10px;">
+                <blockquote style="white-space: pre;"><code>
+&lt;figure style="float: left;"&gt
+    &lt;img src="../imgs/FEfL.png" 
+        style="width: 200px; 
+        height: 200px; 
+        float: left; 
+        margin: 15px;"&gt;
+            &lt;figcaption 
+                style="color: greenyellow;"
+                &gt;I Have 2 sides
+            &lt;/figcaption&gt;
+&lt;/figure&gt; 
+                </code></blockquote>
+            </div>
+        </div>
+        <hr>
+    </div>
+    <div><h2><u>Using Multiple Classes on an Element</u></h2>
+        <p>
+            Instead of using the HTML 5 &lt;figure&gt; and &lt;figcaption&gt; elements, you can create <code>figure</code> and <code>figcaption</code> classes, and apply them to &lt;div&gt; elements. Its a completely cross-browser solution, and it doesnt rely on JavaScript. The HTML <code>class</code> attribute accepts multiple values. Just seperate each classnames with a space like this: 
+        </p>
+        <div style="width: auto; height: auto; padding: 2px; background-color: #111; margin: 10px;">
+            <blockquote style="white-space: pre;"><code>
+&lt;div class="figure floatleft"&gt;&lt;img src="images.jpeg"
+            width="400"
+            height="266"&gt;
+                &lt;div class="figcaption"&gt;I have 2 sides&lt;/div&gt;
+&lt;/div&gt;
+            </code></blockquote>
+        </div>
+        <p>
+            When an element uses two or more classes, you chain them together to create a CSS selector. For example the following selector styles an element that has the figure and floatleft classes applied to it: <code>(.figure.floatleft)</code> As with the class attribute in the HTML markup, the order of the classnames in the selector is unimportant.
+        </p>
+        <hr>
+    </div>
+    </div>
+    
+
+</body>
+<style>
+    a{
+        color: white;
+    }
+    .figure{
+        width: 61.5%;
+    }
+    .figure img{
+        max-width: 100%;
+    }
+/*
+<div style="width: auto; height: auto; padding: 2px; background-color: #111; margin: 10px;">
+                <blockquote style="white-space: pre;"><code>
+sample code to represent
+                </code></blockquote>
+            </div>
+
+
+            with pics
+    <div style="display: flex; align-items: center; justify-content: center; margin: 5px;">
+            <div style="width: auto; height: auto; padding: 2px; background-color: #111; margin: 10px;">
+                <blockquote style="white-space: pre;"><code>
+    img{
+        float: left;
+        display: block; 
+        margin: 15px auto;
+    }
+    .DawnAndParagraph{
+        clear: left;
+    }
+                </code></blockquote>
+            </div>
+            <div style="height: auto; width: 450px; background-color: #222; padding: 20px;">
+                <h2>Our 2 sides</h2>
+                <div>
+                    <p>
+                        We all have that 2 sides that are always hidden, because of that we deny them as they exist beyond our control.
+                    </p>
+                    <p>
+                        The eagerness to deny our hunger for money. By denying it, it becomes stronger as it takes over our goal to be more responsible in using the money. <img src="../imgs/FEfL.png" style="width: 200px; height: 200px; display: block; margin: 15px auto;"> There seemed to be no use in waiting by the little door, so she whent back to the half hoping she might fint another key on it, or at any rate a book of rules for shutting people up like a telescope, whit time she found a little bottle on it, (which certainly was not here before, said Alice) and round the neck of the bottle was a paper lael, with the words Drink Me! beautifully printed on it in large letters. The dragon became the larges species devouring anything on its sight include the rocky flesh of the neptune and the gasses of jupiter, as long as it exist there will no peace amongst the celestials. It needs to be removed and baniseh before it can wreck more havoc amongs the stars. And I am Optimus Prime, Calling all autobots!
+                    </p>
+                    <div style="clear: left;">
+                        <h2>Dawn-Star</h2>
+                        <p>
+                            Close to the Italian border lies the tiny city state of Monaco, home to the rich and famous. Surrounded on three sided by France and by the eight holds.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+*/
+</style>
+</html>

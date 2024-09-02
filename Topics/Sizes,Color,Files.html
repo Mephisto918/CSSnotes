@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SizeColorFiles</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+    <h2><a href="../CSS Notes Main.html">Back</a></h2>
+    <div>
+        <h1><u>Size and other Units of Measurements</u></h1>
+        <div>
+            <ul>
+                <li>Integer</li>
+                <li>Number</li>
+                <li>Length</li>
+                <li>Percentage</li>
+                <li>Angle</li>
+                <li>Time</li>
+            </ul>
+        </div>
+        <div>
+            <h2><u>Numerical Values</u></h2>
+            <p>Using <em><strong>Numerical Values</strong></em> is straightforward. Some properties expect an integer-in other words a whole number. Others accept either a whole number or a decimal value. Numbers must not contain spaces or the thousands seperator. Decimal fractions use a decimal point <code>(.)</code>. You cant use a comma as the decimal point, as is common use in some Europian Countries.</p>
+        </div>
+        <div>
+            <h2><u>Legth</u></h2>
+            <p>The <em>CSS</em> specifications use the term lenght to refer to vertival and horizontal measurements.The <em>CSS3</em> Values and Units module introduces several new units of measurements, as well as a function that allows the browser to calculate a lenght value. </p>
+
+            <div>
+                <table>
+                    <tr>
+                        <th>Type</td>
+                        <th>Unit</td>
+                        <th>Description</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2"><u>Relative Units</u></td>
+                        <td><code>em</code></td>
+                        <td>Height of the current font</td>
+                        
+                    </tr>
+                    <tr>
+                        <td ><code>ex</code></td>
+                        <td>Half an <code>em</code> in most browsers</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="6"><u>Absolute Value</u></td>
+                        <td><code>px</code></td>
+                        <td>Pixels (1/96 of an inch or 0.265 ml)</td>
+                    </tr>
+                    <tr>
+                        <td><code>in</code></td>
+                        <td>Inches (2.54 centimeters)</td>
+                    </tr>
+                    <tr>
+                        <td><code>cm</code></td>
+                        <td>Centimeters (0.394 in)</td>
+                    </tr>
+                    <tr>
+                        <td><code>mm</code></td>
+                        <td>Milimeters (0.039 in)</td>
+                    </tr>
+                    <tr>
+                        <td><code>pt</code></td>
+                        <td>Points (1/72 of an inches or 0.353 mm)</td>
+                    </tr>
+                    <tr>
+                        <td><code>pc</code></td>
+                        <td>Picas (12 points or 4.233 mm)</td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <div><p>There must be no space between the number (which can include a decimal fraction) and the unit. The unit of measurement is optional after 0. For example, the following values are correct:</p></div>
+
+                <div>
+                    <p><code>
+                        0.5em <br>
+                        300px <br>
+                        0px <br>
+                        0 <br>
+                    </code></p>
+                </div>
+
+                <div>
+                    <p>
+                        The following examples are incorrect and will not work:
+                    </p>
+                </div>
+                <div>
+                    <p><code>
+                        0.5 em <br>
+                        300 px <br>
+                        0 px <br>
+                    </code></p>
+                </div>
+                <div>
+                    <p>Althoug no unit is required zero, browsers are likely to interpret the px in the final example as a garbage and ignore the style definition. </p>
+                </div>
+            </div>
+            <div>
+                <h3>Shrinking <code>Em</code>'s</h3>
+                <div>
+                    <p>Using <code>em</code> to specifiy font size can result in even shrinking text because nested elements inheret the size from thier parent, resulting in on multiplier effect. For example, if you set the font size of unordered lists to <code>0.75em</code> (the equivalent of <code>12px</code>), the text in a nested lists is <code>0.75</code> times the size of its parent -- in other words, <code>9px</code>. At the next level, the text shrinks even further.</p>
+                </div>
+                <div class="ul2">
+                    <h3>Shrinking Ems</h3>
+                        <ul">
+                            <li>Relative Units
+                                <ul>
+                                    <li >CSS2.1
+                                        <ul>
+                                            <li>em</li>
+                                            <li>ex</li>
+                                        </ul>
+                                    </li>
+                                    <li >CSS3
+                                        <ul>
+                                            <li>px</li>
+                                            <li>in</li>
+                                            <li>cm</li>
+                                            <li>mm</li>
+                                            <li>px</li>
+                                            <li>pc</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                </div>
+                <div><p>yawa wanako kibaw nganong dele mo shrink piste basta mao nana</p></div>
+            </div>
+            <hr>
+        </div>
+        <div>
+            <h1><u>Physical and CSS Pixel</u></h1>
+            <div><p><em>CSS Pixel</em>. At a distance of 28 inches (71cm), a reference pixel (or <em>CSS Pixel</em>) is equivalent to 1/96 inches (0.26 mm). When displayed on a device that is intented to be viewed to a greater displat--a projection, for example, the device is expected to scale up pixel measurement proportionaly. The long and short of it is that using pixel as the unit of measurement should result in roughly the same size, regardless of the physical pixel density of the screen.</p></div>
+
+            <div>
+                <h2>Length Units in CSS3</h2>
+                <div>
+                    <table>
+                        <tr>
+                            <th>Unit</th>
+                            <th>Relative to</th>
+                        </tr>
+                        <tr>
+                            <td><code>ch</code></td>
+                            <td>The width of the character 0(zero) in the current font</td>
+                        </tr>
+                        <tr>
+                            <td><code>rem</code></td>
+                            <td>The font size of the root element</td>
+                        </tr>
+                        <tr>
+                            <td><code>vw</code></td>
+                            <td>The viewport's width</td>
+                        </tr>
+                        <tr>
+                            <td><code>vh</code></td>
+                            <td>The viewport's hieght</td>
+                        </tr>
+                        <tr>
+                            <td><code>vmin</code></td>
+                            <td>The viewport's width or hieght, whichever is smaller</td>
+                        </tr>
+                        <tr>
+                            <td><code>vmax</code></td>
+                            <td>The viewport's width or hieght, whichever is larger</td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <h3>Style Rule:</h3>
+                    <p><code>
+                        ul{ <br>
+                            font-size: 0.75rem; <br>
+                        }
+                </code></p></div>
+            </div>
+            <div>
+                <h2>Using the calc() Function to Compute Length Values</h2>
+                <div>
+                    <p>The situation frequently arises in fluid or flexible layouts where you want to combine absolute values with relative ones. For example, you might want an element to fill 70 percent of the horizontal space, but to have a 10-pixel margin on either side. Because you have no idea how wide the browser viewport will be, its impossible to know how much horizontal space remains alongside. The CSS3 calc() function is designed to solve such problems.</p>
+                </div>
+                <div>
+                    <h3>The calc() function supports the following arithmethic:</h3>
+                    <div>
+                        <p>
+                            +(add) <br>
+                            -(subtract) <br>
+                            /(divide) <br>
+                            *(multiply) <br>
+                                <br>
+                            mod(modulo division)br
+                        </p>
+                    </div>
+                    <div><p>To calculate the width available alongside the element in the preceding example, CSS3 allows you to specify the value like this:</p>
+                        <p><code>cal(30% - 20%)</code></p>
+                    </div>
+                </div>
+
+                <div><h3>Percentage</h3>
+                    <p>Values specified as percentages use a number immediately followed by the percentage sign (%). There must be no space between the number and %. Percentages are always relative to another value, normally the size of the parent element. Browsers are capable of handling percentages to several decimal places.</p>
+                </div>
+
+                <div><h3>Angles</h3>
+                    <div>
+                        <table>
+                            <tr>
+                                <th>Units</th>
+                                <th>Meaning</th>
+                            </tr>
+                            <tr>
+                                <td><code>deg</code></td>
+                                <td>Degrees</td>
+                            </tr>
+                            <tr>
+                                <td><code>grad</code></td>
+                                <td>Gradians (1/400 turns</td>
+                            </tr>
+                            <tr>
+                                <td><code>rad</code></td>
+                                <td>Radians</td>
+                            </tr>
+                            <tr>
+                                <td><code>turn</code></td>
+                                <td>Turns (360 degrees)</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div><p>Angles are used only with CSS3 properties, such as transform. As with all other units of measurement, there must be no space between the number and unit. Browsers convert angles to the range 0–360°. For example -90deg is the same as 270deg.</p></div>
+                </div>
+
+                <div><h3>Time</h3>
+                    <div>
+                        <table>
+                            <tr>
+                                <th>Unit</th>
+                                <th>Meaning</th>
+                            </tr>
+                            <tr>
+                                <td><code>s</code></td>
+                                <td>Seconds</td>
+                            </tr>
+                            <tr>
+                                <td><code>ms</code></td>
+                                <td>Milliseconds (1/1000 of a second)</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div><p>Time units are used only with CSS3 properties. There are just two units. Again, there must be no space between the number and the unit.</p></div>
+                </div>
+            </div>
+            <hr>
+        </div>
+
+        <div><h1><u>Setting Color Values</u></h1>
+                <div>
+                    <h2>Setting Color Values</h2>
+                    <div>
+                        <ul>
+                            <li>Hexadecimal notation</li>
+                            <li>RBG (red, green, blue) format</li>
+                            <li>HSL (hue, saturation, lightness) format</li>
+                            <li>RGBA (red, green, blue with alpha transparency) format</li>
+                            <li>HSLA (hue, saturation, lightness with alpha transparency) format</li>
+                        </ul>
+                    </div>
+                    <div><h3>Color Keywords</h3>
+                        <p>CSS3 defines the 16 basic color keywords shown in below. The names are case-insensitive. (CSS soon Project!)</p>
+                        <div>
+                            <img class="coim" src="../imgs/Colorf.png" alt="">
+                        </div>
+                    </div>
+                    
+                    <div><h2><u>Using Hexadecimal Notaions</u></h2>
+                            <div><p>The most common way of representing color in web design is to use the <em>Hexadecimal Notation</em> for red, gree and blue (RGB). Using hexadecimals numbers allows you to select 256 colors of each values, representing 16 Millions colors. Most graphics and HTML editing programs generate the hexadecimal numbers for you automatically when you use color picker or eyedropper tool. You can use online utilities such as <a href="https://www.webfx.com/web-design/color-picker/">www.colorpicker.com</a></p>
+                            </div>
+
+                            <div>
+                                <h3>When using hexadecimal notation, Remember the following:</h3>
+                                    <ul>
+                                        <li>The color value must begin with the hash or pound sign (<code>#</code>). Omitting the # is a common cause of errors.</li>
+                                        <li>You can use six-digit or three-digit hexadecimal values (see the sidebar “Shorthand Hexadecimal Values” for an explanation of the difference).</li>
+                                        <li>Dont mix up the letter O with 0 (zero) or lowercase L with the number 1. The only letters permitted in hexadecimal values are A-F.</li>
+                                        <li>The letters A-F in a hexadecimal value are case-insensitive. It doesnt matter whether you use uppercase or lowercase, or even a mixture of the two.</li>
+                                    </ul>
+                            </div>
+                            <hr />
+                    </div>
+
+                    <div><h2><u>SHORTHAND HEXADECIMAL VALUES</u></h2>
+                    <p>Hexadecimal color values are normally expressed using six digits. The first pair represents the red component at the color; the second pair represents the green component, and the final pair the blue component. <br /> Example:</p>
+                    <p><code>#redred,greengree,blueblue;
+                    </code></p>
+
+                        <div><h3><u>Using RGB Format</u></h3>
+                            <p>You can us the rbg() function in style sheet. You specificaly use red, gree and blue values as a comma-seperated list inside the parenthises. The rgb() function accepts the values either numbers in range 0-225 or as percetage.</p>
+                            <div><p><code>
+                                rgb(225,0,0) <br />
+                                rbg(100%,0%,0%)
+                            </code></p></div>
+                        </div>
+
+                        <div><h3><u>Using HSL Format</u></h3>
+                            <p>To specify colors using hue, saturation and lighting. Hue is represented by an angle on the color circle, with red at the top(0 degrees), green one third at the way around the circle in clockwise direction(120 degrees), and blue two-thirds at the way around(240 degrees). Saturation represents the intensity of the color, making duller or brighter. And lightness makes the color darker or light.</p>
+
+                            <div><h4>HSL Format</h4>
+                                <p>Using hsl() function, which takes three comma-seperated values, as follows:</p>
+
+                                <ul>
+                                    <li>Hue expressed as number between 0 and 360: This is the angle of the color on the color circle. Browsers are expected to adjust out-of-range numbers, so-120 should be interpreted as 240(blue).</li>
+                                    <li>Saturation expressed as percentage: 0% is a shade of gray, and 100% is full saturation.</li>
+                                    <li>Lightness expressed as a percentage: 0% is black, 50% is normal and 100% is white.</li>
+                                </ul>
+                                <p>The follwing example represents red: <br>
+                                    <code>hsl(0, 100%, 50%)</code>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div><h3><u>Creating Transparent Colors with RGBA and HSLA Formats</u></h3>
+                            <p><em>RGB</em> and <em>HSL</em> formats allows you to set the opacity of the color using alpha transparency. To specify a color with ampha transparency, use the rgba() or hsl() function. Both funtion take four comma-seperated values. The first three values are the same as rbg() and hsl(). The four values sets the level of transparency, and must be a number between 0(completely transparent) and 1(completely opaque). Setting the alpha of a color not only reduce the color intensity, but it also allows any background to show through. The background becomes more visible the closer the fourth value is to 0.</p>
+
+                            <p>The following examples creates semitransparent red: <br>
+                                <code>
+                                    rbg(225, 0, 0, 0.5) <br>
+                                    rbga(100% ,0% ,0%, 0.5) <br>
+                                    hsla(0, 100%, 50%, 0.5) <br>
+                                </code>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        
+    </div>
+
+</body>
+<style>
+    .ul{
+        font-size: 0.75em;
+    }
+    .ul2{
+        font-size: 1em;
+    }
+    .coim{
+        height: 286px;
+        width: 378px;
+    }
+</style>
+</html>

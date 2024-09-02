@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Box Model</title>
+    <link rel="stylesheet" href="../CSS/style.css">
+</head>
+<body>
+    <h1><a href="../CSS Notes Main.html">Back</a></h1>
+    <hr>
+    <div>
+        <h1 style="text-align: center; font-size: 4em;"><i>Understanding The CSS Box Model</i></h1>
+        <hr>
+        <div><h2><u>Introducing the Components of the Box Model</u></h2>
+            <p>The CSS box model consists of the following components:</p>
+            <blockquote style="white-space: pre;">
+                <strong><u>Content</u></strong> - This is the content of an HTML element such as paragraphs, image, &lt;div&gt;, or &lt;span&gt;.
+                <strong><u>Padding</u></strong> - Horizontal and Vertical space surrounding the content.
+                <strong><u>Border</u></strong> - A border drawn around the padding.
+                <strong><u>Margin</u></strong> - Horizontal and Vertical space outside the border.
+            </blockquote>
+            <img src="../imgs/CSSBox.png" alt="">
+            
+            <hr>
+        </div>
+        <div><h2><u>Setting Width and Height</u></h2>
+            <p>The Width and Height properties set the horizontal and vertical dimention of an element. The default value of both properties is auto, which means that the element expands or contracts to fit the natural size of the content. Another four properties allows you to constran the dimensions of an element within a specified range</p>
+            <div>
+                <table>
+                    <tr>
+                        <th>Properties</th>
+                        <th>Initial Value</th>
+                        <th>Inherited</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><code>width</code></td>
+                        <td>auto</td>
+                        <td>No</td>
+                        <td>Sets the width for an element. Caan be applied to any element, except inline text, or table rows. If no value is specified, the element expands horizontally as far as possible to accodmodate the elements content.</td>
+                    </tr>
+                    <tr>
+                        <td><code>min-width*</code></td>
+                        <td>0</td>
+                        <td>No</td>
+                        <td>Sets a minimum width for an element</td>
+                    </tr>
+                    <tr>
+                        <td><code>max-width*</code></td>
+                        <td>0</td>
+                        <td>No</td>
+                        <td>Sets a maximum width for an element</td>
+                    </tr>
+                    <tr>
+                        <td><code>height</code></td>
+                        <td>auto</td>
+                        <td>No</td>
+                        <td>Sets the height for an element. Can be applied to any element, except inline, text or table columns. If no value specified, the element expands vertically as far as possible to accomodate the elements content</td>
+                    </tr>
+                    <tr>
+                        <td><code>min-height*</code></td>
+                        <td>0</td>
+                        <td>No</td>
+                        <td>Sets a minimum height for an element</td>
+                    </tr>
+                    <tr>
+                        <td><code>max-height*</code></td>
+                        <td>none</td>
+                        <td>No</td>
+                        <td>Sets a maximum height for an element</td>
+                    </tr>
+                </table>
+            </div>
+            <p>All six properties accepts values expresses as a length (for example pixels or ems) or as percentage. When a percentage is used, the width or height is calculated as a percentage of the parent elements width or height</p>
+
+            <hr>
+        </div>
+        <div><h2><u>Using Padding and Margings to Add Space Around Elements</u></h2>
+            <p>Both padding and margins add vertical and horizontal space around elements. Sometimes, it doesnt matter which you use because they appear to have same effect.</p>
+
+            <div><h3>Differences Between Padding and Margins</h3>
+                <table>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Padding</th>
+                        <th>Margins</th>
+                    </tr>
+                    <tr>
+                        <td>Background</td>
+                        <td>The content ackground streches into padding</td>
+                        <td>The background of the contents parent element shows through margins</td>
+                    </tr>
+                    <tr>
+                        <td>Border</td>
+                        <td>Padding goes inside the border</td>
+                        <td>Margins go outside the border</td>
+                    </tr>
+                    <tr>
+                        <td>Collapsing</td>
+                        <td>Padding never collapse</td>
+                        <td>Adjacent vertical margins collapse</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <div style="height: auto; width: 250px; background-color: rgb(48, 48, 48); justify-content: center; padding: 2em;">
+                <p style="background-color: rgb(82, 81, 81); height: auto; width: 150px; text-align: center; padding: 20px; border: 10px solid #999; margin: 20px; ">Sa ilalim ng puting ilaw sa dilaw na buwan Ang iyong ganday umaabot sa buwan and tikbok ng pusoy dinig sa ka lawakan at bumabalik dito sa akin ikaw ang mahal ikaw lang ang mamahalin pakinggan ang puso at damdamin damdamin aking damdamin sa ilalim ng puting ilaw sa dilaw na buwan pakniggan mo ang aking sigaw sa dilaw na buwan</p>
+                <p style="background-color: rgb(82, 81, 81); height: auto; width: 150px; text-align: center; border: 10px solid #999;">Sa ilalim ng puting ilaw sa dilaw na buwan Ang iyong ganday umaabot sa buwan and tikbok ng pusoy dinig sa ka lawakan at bumabalik dito sa akin ikaw ang mahal ikaw lang ang mamahalin pakinggan ang puso at damdamin damdamin aking damdamin sa ilalim ng puting ilaw sa dilaw na buwan pakniggan mo ang aking sigaw sa dilaw na buwan</p>
+            </div>
+
+            <p>Padding adds breathing space around the content inside an element. The styles in comparison look like this:</p>
+
+            <blockquote style="white-space: pre;"><code>
+                body{
+                    background-color: rgb(48, 48, 48);
+                    color: #ffffff;
+                }
+                #padded, #not padded{
+                    width: 150px;
+                    border: 10px solid #999;
+                    margin: 20px;
+                }
+                #padding {
+                    padding 20px;
+                }
+
+            </code></blockquote>
+            <hr>
+        </div>
+        <div><h2><u>Specifying Padding</u></h2>
+            <p>Padding can be added to almost any element, However, the only table elements that can have padding are the table itself and individual table cells.</p>
+
+            <table>
+                <tr>
+                    <th colspan="4">CSS Padding Properties</th>
+                </tr>
+                <tr>
+                    <td>Property</td>
+                    <td>Initial Value</td>
+                    <td>Inherited</td>
+                    <td>Description</td>
+                </tr>
+                <tr>
+                    <td><code>padding-top</code></td>
+                    <td>0</td>
+                    <td>No</td>
+                    <td>Adds padding to the top of an element</td>
+                </tr>
+                <tr>
+                    <td><code>padding-right</code></td>
+                    <td>0</td>
+                    <td>No</td>
+                    <td>Adds padding to the right of an element</td>
+                </tr>
+                <tr>
+                    <td><code>padding-bottom</code></td>
+                    <td>0</td>
+                    <td>No</td>
+                    <td>Adds padding to the bottom of an element</td>
+                </tr>
+                <tr>
+                    <td><code>padding-left</code></td>
+                    <td>0</td>
+                    <td>No</td>
+                    <td>Adds padding to the left of an element</td>
+                </tr>
+                <tr>
+                    <td><code>padding</code></td>
+                    <td>0</td>
+                    <td>No</td>
+                    <td>Shorthand property. Accepts between one and four values.</td>
+                </tr>
+            </table>
+            <p>All properties listed in above accepts lenght, such as px or em, or a percentage. Negative values are not allowed. Although padding is never inherited, you can use the keyword inherit to apply the same value as the parent element.</p>
+            <p>The properties listed in clockwise order because thats the order used by the shorthand property, which takes between one and four values.</p>
+
+            <blockquote style="white-space: pre;">
+                <strong><u>One value</u></strong> - Applies equally to all four sides
+                <strong><u>Two value</u></strong> - The first one applies to the top and bottom, and the second one to the left and right
+                <strong>Three values<u></u></strong> - The first one applies to the top, the second one are to the left and right, and the third are to the bottoms
+                <strong><u>Four values</u></strong> - The values are applied in clockwise oder starting form the top
+            </blockquote>
+            <hr>
+        </div>
+        <div><h2><u>Specifying Margins</u></h2>
+            <p>Specifying margins is very similar to padding. There are seperate properties to control the margin independently on each side of an element, as wekk as a shorthand property.</p>
+
+            <table>
+                <tr>
+                    <th colspan="4">CSS Margin Properties</th>
+                </tr>
+                <tr>
+                    <th>Properties</th>
+                    <th>Initial Value</th>
+                    <th>Inherited</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>margin-top</code></td>
+                    <td>0</td>
+                    <td>No</td>
+                    <td>Sets the top margin of an element</td>
+                </tr>
+                <tr>
+                    <td><code>margin-right</code></td>
+                    <td>0</td>
+                    <td>No</td>
+                    <td>Sets the right margin of an element</td>
+                </tr>
+                <tr>
+                    <td><code>margin-bottom</code></td>
+                    <td>0</td>
+                    <td>No</td>
+                    <td>Sets the  bottom margin of an element</td>
+                </tr>
+                <tr>
+                    <td><code>margin-left</code></td>
+                    <td>0</td>
+                    <td>No</td>
+                    <td>Sets the left margin of an element</td>
+                </tr>
+                <tr>
+                    <td><code>margin</code></td>
+                    <td>0</td>
+                    <td>No</td>
+                    <td>Shorthand property. Accepts between one and four values.</td>
+                </tr>
+            </table>
+            <p>Margins can be set using a lenght such as px or em or percentage. If you use a percentage, the value is based on the width of the parent element in the same way as with padding. You can also use inherit keyword to apply the same margins as the parent element.</p>
+            <p>An important differences between padding and margin is that you can use negative values for margins. This means that you can reduce the gap between element or move an element furthur to the left, the opposite of indenting.</p>
+            <p>The margin property also accepts the keyword auto, which tells the browser to calculate the margin automatically. However, for the browser to be able to do so, the element must have a width. The width can be set either in HTML (for example, through the width attribute of an image) or with the CSS width.</p>
+            <hr>
+        </div>
+        <div class="yow"><h2><u><i>Isnt There an Easier Box Model? </i></u>  -might not be included!</h2>
+            <p>Youre not alone if you think that the CSS bosx model is conunterintuitive. Surely it would be much easier to calculate width and heigt from the outer edge of one border to the outside of the opposite border? In other words, include padding and borders in the overall dimensions. In fact, thats how Internet Explorer interpreted the CSS specification when it first supported CSS. So, for more than a dacade, web designers have grown accustomed implemented to calculate width and height by deducting the dimendtions of padding and borders. But CSS3 offers a way of turning back the clock to the original Microsoft Box model using the box-sizing property, which accepts the values listed below.</p>
+
+            <table>
+                <tr>
+                    <th colspan="2"><i>Values Accepted by the box-sizing Property</i></th>
+                </tr>
+                <tr>
+                    <th>Values</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>content-box</code></td>
+                    <td>Width and height apply only to the content box. This is the default</td>
+                </tr>
+                <tr>
+                    <td><code>padding-box*</code></td>
+                    <td>Width and height include both content and padding</td>
+                </tr>
+                <tr>
+                    <td><code>boder-box</code></td>
+                    <td>Width and height include content, padding, and borders</td>
+                </tr>
+            </table>
+            <hr />
+        </div>
+        <div><h2><u>Using Margins to Improve Page Layout</u></h2>
+            <p>CSS allows your to adjust the margins on each side of every element individually, giving you considarable control over horizontal and vertical space between elements. When used in combination with the float property, margins are on of the most important tools in current page layouts. Some of the most common uses of margins.</p>
+
+            <div><h3>Removing the Default Margin from Your Pages</h3>
+                <p>As you saw, browsers add an eight-pixel margin arount the <code>&lt;body&gt;</code> element. Most of the time, this default margins is unimportant, but it does not make a difference if you want to use images that go right to the edge of the page.</p>
+
+                <blockquote style="white-space: pre;">
+                    <code>
+                        body{
+                            margin: 0;
+                            padding: 0;
+                        }
+                    </code>
+                </blockquote>
+            </div>
+
+            <div><h3>Centering Block-level Elements</h3>
+            <p>
+                As you learned you cneter text elements using <code>text-align</code> property and setting its value to center. The draft CSS3 box model proposes introducing a similar property, tentatively called <code>alignment</code> or <code>block-align</code> , for block-level elements. But until the specification is implemented but browsers, you can center a block-level element by giving it a declared width and setting the left and right margins to <code>auto</code>
+            </p>
+            <p>
+                The styles in centered sample below set the width of a div to 400px, and use the margin shorthand property to set its top and bottom margins to 20px and left and right margins to auto like this:
+
+            </p>
+
+            <blockquote style="white-space: pre;"><code>
+                #centered {
+                    background-color: #FFF;
+                    border: 2px solid #999;
+                    <strong>width: 400px;</strong>
+                    <strong>margin: 20px auto;</strong>
+                    padding: 20px;
+                }
+            </code></blockquote>
+
+            <h3 style="text-align: center;"><a href="../Topics/ExterEx/BoxMo/BoxM.html">Example1</a></h3>
+
+            <p>To center the entire content of a web page, its common to wrap everything inside the <code>&lt;body&gt;</code> in a <code>&lt;div&gt;</code> give the <code>&lt;div&gt;</code> an ID such as wrapper, and set its width and horizontal margins like this: </p>
+
+            <blockquote style="white-space: pre;"><code>
+                #wrapper {
+                    width: 100%;
+                    max-width: 1000px;
+                    margin: 0 auto;
+                }
+            </code></blockquote>
+
+            <p>Alternatively, give the <code>&lt;body&gt;</code> a witdh and set is horizontal margins to auto like this:</p>
+
+            <blockquote style="white-space: pre;"><code>
+                body{
+                    with: 100%;
+                    max-width: 100px;
+                    margins: 0 auto;
+                    padding: 0;
+                }
+            </code></blockquote>
+
+            <hr>
+            </div>
+
+        
+        </div>
+        <div><h2><u>Using Margins to Indent Text</u></h2>
+            <p>Int the past, the <code>&lt;blockquote&gt;</code> tag was frequently used to indent text. Apart from using a tag for a purpose that was never intended, the big limitation of blockqoute is that is creates a 40-pixel margin on both sides of the text. If you nest blockqoute tags, the text in the center steadily becomes narrower and narrower. Using CSS margins eliminates that problem, because you can set the magin on each side to the exact amount you want. </p>
+            <p>These rules apply to all paragraphs, but you can create a class or use a descendant selector so apply a different amount of indentation to paragraph in a particular section of a page.</p>
+
+            <hr>
+        </div>
+        <div><h2><u>Using Negative Margins</u></h2>
+            <p>CSS permits negative values for margins. This means that you can reduce the gap between elements, or move an element furthure to the left---the opposite of indenting. When using negative margins, you need to be careful because doing so could result in elements overlapping or being hidden offscreen.</p>
+            <hr>
+        </div>
+        <div><h2><u>Changing Layout with the diaplay Property</u></h2>
+            <p>CSS treats all elements as boxes, the two main types being block-level and inline. The other types of boxes supported by all browsers are table elements and list items. Its likely that other types of boxes will be added in the CSS3 boxes model. </p>
+
+            <table>
+                <tr>
+                    <th colspan="2">Values Supported by the Display Property</th>
+                </tr>
+                <tr>
+                    <th>Value</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>block</code></td>
+                    <td>Treats the element as block-level</td>
+                </tr>
+                <tr>
+                    <td><code>inline</code></td>
+                    <td>Treats the element as inline</td>
+                </tr>
+                <tr>
+                    <td><code>inline-block</code></td>
+                    <td>Treats the element as a block, but display it inline. The blocks height and vertical padding and margins effect the height of the line in which it is displayed.</td>
+                </tr>
+                <tr>
+                    <td><code>list-item</code></td>
+                    <td>Used internally by browsers to create list items. Of no practical value to web designers</td>
+                </tr>
+                <tr>
+                    <td><code>non</code></td>
+                    <td>Removes the element and all its content from display. You cannot override this value in a child element</td>
+                </tr>
+                <tr>
+                    <td><code>table, inline-table, table-row, table-cell, table-caption, table-column, table-column-group, table-row-group, table-header-group, table-footer,group</code></td>
+                    <td>Causes the element to behave like the equivalent table element.</td>
+                </tr>
+            </table>
+
+            <p>The <code>display</code> property is not inherited, so you can also use the <code>inherit</code> keyword to apply the same valaue as the elements parent.</p>
+
+            <hr>
+        </div>
+        <div><h2><u>Understanding the Difference between inline and inline-block</u></h2>
+            <p>An important aspect of the box model as it applies to inline text elements is that margins and padding do not affect the line height of the surrounding text unless you set the display property to inline-block. Horizontal margins and padding increas the distance before and after the inline element. but the vertical distance remains unchanged.</p>
+            <p>The text below contains two <code>&lt;span&gt;</code> elements as inline, but the displau property of the second one is set to inline-block. The style rules add margins and padding on all sied of both span elements and make the text bold like this:</p>
+
+            <blockquote style="white-space: pre;"><code>
+                span{
+                    margin: 20px;
+                    padding: 20px;
+                    font-weight: bold;
+                }
+                #inline-block{
+                    display: inline-block;
+                }
+            </code></blockquote>
+
+            <div><h2 style="text-align: center;"><a href="../Topics/ExterEx/BoxMo/Ex2.html">Example 2</a></h2></div>
+
+            <h3>unfinished bussiness with linking examples</h3>
+            <hr>
+        </div>
+        <div><h2><u>Using the Display Property to Hide Elements</u></h2>
+            <p>
+                Setting the display property to <code>none</code> hides the affected element and all its children in a visual browser. The elements remain in the underlying HTML source, but theyre remove completetly from the flow of the document, and any subsequent elements move up to take thier place. Hiding content like this is commonly used in conjuntion with JavaScript in interactive widgets, such as accordions and tabbed panels. When the user clicks a trigger element, a JavaScript function changes the value of the display property to block, thereby revealing the content. Such techniques are particularly useful in desings for mobile phones, where screen real state is limited.
+            </p>
+
+            <div style="width: 300px; height: auto; background-color: #222; padding: 20px;">
+                <h1>Showing and Hiding</h1>
+                <p>One of the most common uses of the <code>display</code> property is to show and hide content using JavaScript. <a href="">Hide detailes</a></p>
+                <p style="margin: 0px 0px 0px 30px;">However, its important to hide content only when JavaScript is enabled in the browser.</p>
+                <p>The page is reflowed when an elements <code>display</code> property is set to <code>none</code> or <code>block</code>.</p>
+
+                <p style="color: rgb(223, 66, 66);">unfinished because of javascript</p>
+            </div>
+
+            <div><h3><u>Controlling Visibility</u></h3>
+                <p>As explaint in the preceeding section, setting an elements display property to none hides it and all its children by removing them completely from the flow of the document. The CSS box model also has a <code>visibility</code> property, which can be used to hide elements. However, when the visible property is used to hide an element. it doesnt remove it from the document flow. A space is left where the element would normally be. Another important difference is that the visiblility of child elements can be controlled independently.
+                </p>
+
+                <table>
+                    <tr>
+                        <th colspan="2">Values Accepted by the visibility Property</th>
+                    </tr>
+                    <tr>
+                        <th>Value</th>
+                        <th>Description</th>
+                    </tr>
+                    <tr>
+                        <td><code>visible</code></td>
+                        <td>The element is visible. This is the default</td>
+                    </tr>
+                    <tr>
+                        <td><code>hidden</code></td>
+                        <td>The element is not visible, but the layout of surrounding elements is not affected. Child are also hidden, but this can be overriden by setting their visiblility property to visible</td>
+                    </tr>
+                    <tr>
+                        <td><code>collapse</code></td>
+                        <td>Use only when table elements.</td>
+                    </tr>
+                </table>
+
+                <p style="color: red;">unfinished because of JS scripts page 125</p>
+
+                <p>Beginners often confuses <code>visibility</code> and <code>display</code> because both hide elements, but in vary different ways. Remember that visibility doest remove an element from the document flow, whereas <code>display</code> does.</p>
+            </div>
+
+            <hr>
+
+            
+        </div>
+        <div><h2><u>Handling Content Thats Too Big</u></h2>
+            <p>
+                Browsers automatically wrap text when it reaches the specific width or at the right edge of the browser window if no width is specified. But what if youve specified a height and the text is too long, or if you use an image thats too big for the containing element? By default, the content spills over. To control content thats too big for its containter, use one the these properties bellow.
+            </p>
+
+            <table>
+                <tr>
+                    <th colspan="3">Properties that Control Overflow</th>
+                </tr>
+                <tr>
+                    <th>Property</th>
+                    <th>Inital Value</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>overflow</code></td>
+                    <td>visible</td>
+                    <td>Controls the horizontal and vertical overflow of a block or inline block</td>
+                </tr>
+                <tr>
+                    <td><code>overflow-x</code></td>
+                    <td>visible</td>
+                    <td>Controls the horizontal overflow of a block or inline block</td>
+                </tr>
+                <tr>
+                    <td><code>overflow-y</code></td>
+                    <td>visible</td>
+                    <td>Controls the vertical overflow of a block or inline block</td>
+                </tr>
+            </table>
+
+            <p>
+                The <code>overflow</code> property is part of CSS2.1. The other two properties are part of CSS3, but are supported by all browsers.
+            </p>
+
+            <table>
+                <tr>
+                    <th colspan="2">Values Accepted by Overflow Properties</th>
+                </tr>
+                <tr>
+                    <th>Values</th>
+                    <th>Description</th>
+                </tr>
+                <tr>
+                    <td><code>visible</code></td>
+                    <td>The content flows outside the box</td>
+                </tr>
+                <tr>
+                    <td><code>hidden</code></td>
+                    <td>Content that is too big is clipped. No scrollbars are provided</td>
+                </tr>
+                <tr>
+                    <td><code>scroll</code></td>
+                    <td>Content that is too big is clipped. Scrollbars are provided, even if not needed</td>
+                </tr>
+                <tr>
+                    <td><code>auto</code></td>
+                    <td>Scrollbars should be provided if the content is too big, but actual implimentation is left up to the browser</td>
+                </tr>
+            </table>
+
+            <p>
+                Tne overflow properties are not inherited, so you can also use the <code>inherit</code> keyword. In CSS3, its proposed that overflow should be a shorthand property for overflow-x and overflow-y. If one value supplied, it applied to both horizontaland vertical overflow. If two values are supplied, the first should apply to horizontal overflow, and the second to vertical overflow.
+            </p>
+
+            <p>
+                In this examples containes five div elements that are 150px wide and 200px high with solid red border. To demonstrate the difference between text which wraps automatically, and images, the div elements in three files contain only text. The reamaining files contain a mixture of text and images 
+            </p>
+
+            <div>
+                <p>
+                    The overflow property has the folling effects:
+                </p>
+                <ul>
+                    <li>When overflow is set to auto and the content is smaller than the box, no scrollbars are generated</li>
+                    <li>When overflow is set to auto and the content is larger than the box, text generates only a vertical scrollbar. Because images cant be wrapped, both horizontal and vertical scrollbars are generated when necessary</li>
+                    <li>When overflow is set to hidden, no scrollbares are generated. Exess content is inaccessible</li>
+                    <li>When overflow is set to scroll, horizontaland vertical scrollbars are always generated</li>
+                    <li>When overflow is iset to visible, exess content overlaps the box</li>
+                </ul>
+
+                <p>
+                    This is exactly what you would expect from the descriptions. However, using overflow-x and overflow-y on thier own produces some suprising results.
+                </p>
+            </div>
+            <h3 style="text-align: center;"><a href="">Example3</a></h3>
+        </div>
+
+    </div>
+</body>
+
+<style>
+    .yow{
+        box-sizing: border-box;
+    }
+    blockquote{
+        margin: -20px 0px -20px -70px;
+    }
+    a{
+        color: white;
+    }
+</style>
+</html>
